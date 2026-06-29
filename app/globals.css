@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
+/* Brand color tokens — Cosmia Hospitality */
+@theme {
+  --color-brand-navy: #0D1321;
+  --color-brand-deep: #1E2938;
+  --color-brand-gold: #C8A26E;
+  --color-brand-sand: #E7D7B7;
+  --color-brand-ivory: #F7F4EF;
+
+  /* Typography */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+
+  /* Animation durations */
+  --animate-duration-fast: 150ms;
+  --animate-duration-base: 250ms;
+  --animate-duration-slow: 400ms;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F7F4EF;
+  --foreground: #0D1321;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
