@@ -37,9 +37,9 @@ export default function Hero() {
           className="w-full h-full"
           aria-hidden="true"
           style={{
-            backgroundImage: `url('/images/hero/gargano-hero.jpg')`,
+            backgroundImage: `url('/images/hero/herocosmia.jpg')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center top',
           }}
         />
       </motion.div>
@@ -74,13 +74,20 @@ export default function Hero() {
         />
       </motion.div>
 
+      {/* Layer 3 — Shooting stars (CSS keyframe, no trigger needed) */}
+      <div className="absolute inset-0 overflow-hidden z-[2] pointer-events-none" aria-hidden="true">
+        <span className="shooting-star shooting-star-1" />
+        <span className="shooting-star shooting-star-2" />
+        <span className="shooting-star shooting-star-3" />
+      </div>
+
       {/* Gold accent line — top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-brand-gold/30" aria-hidden="true" />
 
       {/* Layer 3 — Content (front, counter-scrolls upward) */}
       <motion.div
         style={{ y: textY }}
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto will-change-transform"
+        className="relative z-10 text-center px-6 max-w-4xl mx-auto will-change-transform pointer-events-auto"
       >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
