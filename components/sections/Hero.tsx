@@ -51,14 +51,27 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* Layer 2b — Decorative gold blobs (mid depth, faster than bg) */}
+      {/* Layer 2b — Ambient floating gold blobs (scroll parallax + self-playing float) */}
       <motion.div
         style={{ y: blobY }}
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
       >
-        <div className="absolute top-1/3 left-[15%] w-64 h-64 rounded-full bg-brand-gold/6 blur-[80px]" />
-        <div className="absolute bottom-1/3 right-[12%] w-48 h-48 rounded-full bg-brand-gold/4 blur-[60px]" />
+        <motion.div
+          className="absolute top-1/3 left-[15%] w-72 h-72 rounded-full bg-brand-gold/7 blur-[90px]"
+          animate={{ y: [0, -28, 0], x: [0, 12, 0] }}
+          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 right-[12%] w-56 h-56 rounded-full bg-brand-gold/5 blur-[70px]"
+          animate={{ y: [0, 22, 0], x: [0, -14, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
+        />
+        <motion.div
+          className="absolute top-[60%] left-[55%] w-32 h-32 rounded-full bg-brand-gold/3 blur-[50px]"
+          animate={{ y: [0, -16, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+        />
       </motion.div>
 
       {/* Gold accent line — top */}
