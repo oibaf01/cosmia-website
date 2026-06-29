@@ -37,44 +37,56 @@ body {
 
 /* ─── Shooting stars ─────────────────────────────────── */
 /*
-  Strategy: all three stars share the same 21s duration.
-  Each fires in the first 9% of its cycle (~1.9s), then hides for the rest.
-  Delays: 1s / 8s / 15s → one star every ~7s, never overlapping.
-  animation-fill-mode: backwards → 0% state applied during delay (opacity 0).
+  Each star has its own @keyframes so rotate(α) matches the translate direction:
+    TX = cos(α) × distance,  TY = sin(α) × distance
+  Without this match the star visually "slides sideways" instead of travelling
+  in a straight line in the direction it's pointing.
+
+  Timing: all three share 21s duration, staggered delays 1s / 8s / 15s
+  → exactly one star active at a time, no overlaps.
+  animation-fill-mode: backwards → 0% applied during delay (opacity 0).
 */
-@keyframes shoot {
-  0% {
-    transform: translateX(0) translateY(0) rotate(42deg);
-    opacity: 0;
-  }
-  2% { opacity: 1; }
-  9% {
-    transform: translateX(220px) translateY(110px) rotate(42deg);
-    opacity: 0;
-  }
-  9.1%, 100% {
-    transform: translateX(220px) translateY(110px) rotate(42deg);
-    opacity: 0;
-  }
+
+/* Star 1 — α=28°, d=270px → TX=238, TY=127 */
+@keyframes shoot-1 {
+  0%          { transform: translateX(0)     translateY(0)     rotate(28deg); opacity: 0; }
+  3%          { transform: translateX(0)     translateY(0)     rotate(28deg); opacity: 1; }
+  14%         { transform: translateX(238px) translateY(127px) rotate(28deg); opacity: 0; }
+  14.1%, 100% { transform: translateX(238px) translateY(127px) rotate(28deg); opacity: 0; }
+}
+
+/* Star 2 — α=33°, d=250px → TX=210, TY=136 */
+@keyframes shoot-2 {
+  0%          { transform: translateX(0)     translateY(0)     rotate(33deg); opacity: 0; }
+  3%          { transform: translateX(0)     translateY(0)     rotate(33deg); opacity: 1; }
+  14%         { transform: translateX(210px) translateY(136px) rotate(33deg); opacity: 0; }
+  14.1%, 100% { transform: translateX(210px) translateY(136px) rotate(33deg); opacity: 0; }
+}
+
+/* Star 3 — α=25°, d=260px → TX=236, TY=110 */
+@keyframes shoot-3 {
+  0%          { transform: translateX(0)     translateY(0)     rotate(25deg); opacity: 0; }
+  3%          { transform: translateX(0)     translateY(0)     rotate(25deg); opacity: 1; }
+  14%         { transform: translateX(236px) translateY(110px) rotate(25deg); opacity: 0; }
+  14.1%, 100% { transform: translateX(236px) translateY(110px) rotate(25deg); opacity: 0; }
 }
 
 .shooting-star {
   position: absolute;
-  height: 1px;
-  opacity: 0; /* hidden before animation starts */
+  height: 1.5px;
+  opacity: 0;
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(255, 255, 255, 0.5) 30%,
-    rgba(255, 255, 255, 0.95) 80%,
-    transparent 100%
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.85) 70%,
+    rgba(255, 255, 255, 0.95) 100%
   );
   transform-origin: left center;
   pointer-events: none;
-  animation-name: shoot;
   animation-duration: 21s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease-out;
   animation-fill-mode: backwards;
 }
 
@@ -88,27 +100,29 @@ body {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 6px 3px rgba(255, 255, 255, 0.6), 0 0 12px 6px rgba(255, 255, 255, 0.2);
 }
 
-/* Three stars: same duration, staggered delays = one at a time */
 .shooting-star-1 {
-  top: 9%;
-  left: 10%;
-  width: 130px;
+  top: 8%;
+  left: 8%;
+  width: 140px;
+  animation-name: shoot-1;
   animation-delay: 1s;
 }
 .shooting-star-2 {
-  top: 4%;
-  left: 64%;
-  width: 100px;
+  top: 5%;
+  left: 62%;
+  width: 115px;
+  animation-name: shoot-2;
   animation-delay: 8s;
 }
 .shooting-star-3 {
-  top: 17%;
-  left: 38%;
-  width: 115px;
+  top: 18%;
+  left: 35%;
+  width: 125px;
+  animation-name: shoot-3;
   animation-delay: 15s;
 }
 
