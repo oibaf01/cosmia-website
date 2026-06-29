@@ -1,0 +1,169 @@
+{
+  "nav": {
+    "home": "Home",
+    "apartments": "Apartments",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Gargano isn't described.",
+    "headlineBold": "It's experienced.",
+    "subtitle": "Carefully curated vacation apartments on the Gargano Promontory, Puglia.",
+    "cta": "Discover our apartments",
+    "ctaContact": "Write to us"
+  },
+  "about": {
+    "sectionLabel": "About Us",
+    "headline": "No detail left to chance. No moment wasted.",
+    "body": "Cosmia Hospitality was born from a passion for Gargano and authentic hospitality. We manage every apartment as if it were our own, caring for every corner so that your stay is exactly as you imagined it — or better.",
+    "cta": "Learn more about us"
+  },
+  "apartments": {
+    "sectionLabel": "Our Apartments",
+    "headline": "Our apartments are the beginning of your Gargano story.",
+    "subtitle": "Every space is designed to offer you comfort, authenticity and the freedom to explore.",
+    "cta": "See all apartments",
+    "guests": "{count} guests",
+    "bedrooms": "{count} bedrooms",
+    "bathrooms": "{count} bathroom",
+    "discoverMore": "Discover more",
+    "requestAvailability": "Request availability"
+  },
+  "experiences": {
+    "sectionLabel": "Experiences",
+    "headline": "Gargano has a character all its own.",
+    "headlineBold": "We know it by heart.",
+    "subtitle": "From the sea to the caves, from the villages to the gastronomy: Gargano will surprise you at every turn.",
+    "items": {
+      "sea": {
+        "title": "The Sea",
+        "description": "Crystal-clear waters, hidden coves and breathtaking cliffs. Gargano's sea is among the most beautiful in Italy."
+      },
+      "hikes": {
+        "title": "Hiking",
+        "description": "Trails in the Gargano National Park, sea caves and unforgettable sunsets on the promontory."
+      },
+      "villages": {
+        "title": "Villages",
+        "description": "Mattinata, Vieste, Peschici: ancient villages where time flows slowly and every alley has a story."
+      },
+      "food": {
+        "title": "Gastronomy",
+        "description": "Extra virgin olive oil, fresh burrata, catch of the day: the flavors of Gargano are an experience in themselves."
+      }
+    }
+  },
+  "reviews": {
+    "sectionLabel": "Reviews",
+    "headline": "What our guests say.",
+    "leaveReview": "Leave a review on Google"
+  },
+  "cta": {
+    "headline": "Tell us about yourself.",
+    "headlineBold": "We'll take care of the rest.",
+    "subtitle": "Have questions? Want to check availability? Write to us — we'll respond within a few hours.",
+    "button": "Write to us now"
+  },
+  "footer": {
+    "tagline": "Premium vacation apartments on the Gargano, Puglia.",
+    "links": "Quick links",
+    "privacy": "Privacy Policy",
+    "rights": "© {year} Cosmia Hospitality. All rights reserved."
+  },
+  "contact": {
+    "pageTitle": "Contact",
+    "headline": "Tell us about yourself.",
+    "subtitle": "Fill in the form and we'll get back to you within 24 hours. You can also write to us directly on WhatsApp.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "John Smith",
+      "email": "Email",
+      "emailPlaceholder": "john@email.com",
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "+39 333 000 0000",
+      "apartment": "Apartment of interest",
+      "apartmentDefault": "Select apartment",
+      "apartmentGeneral": "General information",
+      "checkin": "Check-in Date",
+      "checkout": "Check-out Date",
+      "guests": "Number of guests",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your needs, the dates you're considering, or any questions...",
+      "submit": "Send request",
+      "submitting": "Sending...",
+      "required": "Required field",
+      "success": "Message sent! We'll get back to you within 24 hours.",
+      "error": "Something went wrong. Please try again or write to us on WhatsApp.",
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email",
+        "messageRequired": "Message is required"
+      }
+    }
+  },
+  "about_page": {
+    "pageTitle": "About Us",
+    "headline": "A passion for Gargano.",
+    "headlineBold": "An obsession for details.",
+    "section1Title": "Our story",
+    "section1Body": "Cosmia Hospitality was born from a love for one of Italy's most beautiful territories. We manage vacation apartments on the Gargano with a simple approach: every home should be exactly as the guest imagined it — or better. Nothing left to chance, nothing taken for granted.",
+    "section2Title": "Our approach",
+    "section2Body": "We don't manage apartments. We curate experiences. From property selection to the care of every detail, from check-in to check-out, we are present to make your stay on Gargano unforgettable. We know the territory, the hidden places, the authentic flavors — and we're happy to share them.",
+    "values": {
+      "care": {
+        "title": "Care",
+        "description": "Every apartment is personally selected and maintained. No compromises."
+      },
+      "authenticity": {
+        "title": "Authenticity",
+        "description": "The real Gargano, the one tourists don't find. We know it."
+      },
+      "presence": {
+        "title": "Presence",
+        "description": "We're always available. A message, a call, we're there."
+      }
+    }
+  },
+  "apartments_page": {
+    "pageTitle": "Our Apartments",
+    "headline": "Choose your corner of Gargano.",
+    "subtitle": "Two unique apartments, curated in every detail, in the heart of the Apulian promontory."
+  },
+  "property_page": {
+    "gallery": "Gallery",
+    "amenities": "Amenities",
+    "location": "Location",
+    "reviews": "Reviews",
+    "requestAvailability": "Request availability",
+    "leaveReview": "Leave a review on Google",
+    "guests": "{count} guests",
+    "bedrooms": "{count} bedrooms",
+    "bathrooms": "{count} bathroom",
+    "amenities_map": {
+      "wifi": "Wi-Fi",
+      "air_conditioning": "Air conditioning",
+      "kitchen": "Fully equipped kitchen",
+      "parking": "Parking",
+      "terrace": "Terrace",
+      "balcony": "Balcony",
+      "sea_view": "Sea view",
+      "washing_machine": "Washing machine",
+      "tv": "Smart TV"
+    }
+  },
+  "privacy": {
+    "pageTitle": "Privacy Policy",
+    "lastUpdated": "Last updated: {date}"
+  },
+  "cookie": {
+    "message": "This website uses essential technical cookies for proper functionality. No profiling data is collected.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "common": {
+    "backToApartments": "← All apartments",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  }
+}

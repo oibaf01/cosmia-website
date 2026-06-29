@@ -1,0 +1,169 @@
+{
+  "nav": {
+    "home": "Home",
+    "apartments": "Appartamenti",
+    "about": "Chi Siamo",
+    "contact": "Contatti"
+  },
+  "hero": {
+    "headline": "Il Gargano non si racconta.",
+    "headlineBold": "Si vive.",
+    "subtitle": "Appartamenti vacanza curati in ogni dettaglio sul Promontorio del Gargano, Puglia.",
+    "cta": "Scopri i nostri appartamenti",
+    "ctaContact": "Scrivici"
+  },
+  "about": {
+    "sectionLabel": "Chi Siamo",
+    "headline": "Nessun détail lasciato al caso. Nessun momento sprecato.",
+    "body": "Cosmia Hospitality nasce da una passione per il Gargano e per l'ospitalità autentica. Gestiamo ogni appartamento come se fosse il nostro, curando ogni angolo perché il tuo soggiorno sia esattamente come lo immaginavi — o meglio.",
+    "cta": "Scopri di più su di noi"
+  },
+  "apartments": {
+    "sectionLabel": "I Nostri Appartamenti",
+    "headline": "I nostri appartamenti sono l'inizio della tua storia sul Gargano.",
+    "subtitle": "Ogni spazio è stato pensato per offrirti comfort, autenticità e la libertà di esplorare.",
+    "cta": "Scopri tutti gli appartamenti",
+    "guests": "{count} ospiti",
+    "bedrooms": "{count} camere",
+    "bathrooms": "{count} bagno",
+    "discoverMore": "Scopri di più",
+    "requestAvailability": "Richiedi disponibilità"
+  },
+  "experiences": {
+    "sectionLabel": "Esperienze",
+    "headline": "Il Gargano ha un carattere tutto suo.",
+    "headlineBold": "Noi lo conosciamo a memoria.",
+    "subtitle": "Dal mare alle grotte, dai borghi alla gastronomia: il Gargano ti sorprenderà ad ogni angolo.",
+    "items": {
+      "sea": {
+        "title": "Il Mare",
+        "description": "Acque cristalline, calette nascoste e falesie mozzafiato. Il mare del Gargano è tra i più belli d'Italia."
+      },
+      "hikes": {
+        "title": "Escursioni",
+        "description": "Sentieri nel Parco Nazionale del Gargano, grotte marine e tramonti indimenticabili sul promontorio."
+      },
+      "villages": {
+        "title": "Borghi",
+        "description": "Mattinata, Vieste, Peschici: borghi antichi dove il tempo scorre lento e ogni vicolo ha una storia."
+      },
+      "food": {
+        "title": "Gastronomia",
+        "description": "Olio extravergine, burrata fresca, pesce del giorno: i sapori del Gargano sono un'esperienza in sé."
+      }
+    }
+  },
+  "reviews": {
+    "sectionLabel": "Recensioni",
+    "headline": "Lo dicono i nostri ospiti.",
+    "leaveReview": "Lascia una recensione su Google"
+  },
+  "cta": {
+    "headline": "Raccontaci di te.",
+    "headlineBold": "Pensiamo a tutto il resto.",
+    "subtitle": "Hai domande? Vuoi verificare la disponibilità? Scrivici — risponderemo entro poche ore.",
+    "button": "Scrivici ora"
+  },
+  "footer": {
+    "tagline": "Appartamenti vacanza premium sul Gargano, Puglia.",
+    "links": "Link rapidi",
+    "privacy": "Privacy Policy",
+    "rights": "© {year} Cosmia Hospitality. Tutti i diritti riservati."
+  },
+  "contact": {
+    "pageTitle": "Contatti",
+    "headline": "Raccontaci di te.",
+    "subtitle": "Compila il modulo e ti risponderemo entro 24 ore. Puoi anche scriverci direttamente su WhatsApp.",
+    "form": {
+      "name": "Nome e Cognome",
+      "namePlaceholder": "Mario Rossi",
+      "email": "Email",
+      "emailPlaceholder": "mario@email.com",
+      "phone": "Telefono (opzionale)",
+      "phonePlaceholder": "+39 333 000 0000",
+      "apartment": "Appartamento di interesse",
+      "apartmentDefault": "Seleziona appartamento",
+      "apartmentGeneral": "Informazioni generali",
+      "checkin": "Data Check-in",
+      "checkout": "Data Check-out",
+      "guests": "Numero di ospiti",
+      "message": "Messaggio",
+      "messagePlaceholder": "Raccontaci le tue esigenze, le date che stai considerando, o qualsiasi domanda...",
+      "submit": "Invia richiesta",
+      "submitting": "Invio in corso...",
+      "required": "Campo obbligatorio",
+      "success": "Messaggio inviato! Ti risponderemo entro 24 ore.",
+      "error": "Qualcosa è andato storto. Riprova o scrivici su WhatsApp.",
+      "errors": {
+        "nameRequired": "Il nome è obbligatorio",
+        "emailRequired": "L'email è obbligatoria",
+        "emailInvalid": "Inserisci un'email valida",
+        "messageRequired": "Il messaggio è obbligatorio"
+      }
+    }
+  },
+  "about_page": {
+    "pageTitle": "Chi Siamo",
+    "headline": "Una passione per il Gargano.",
+    "headlineBold": "Un'ossessione per i dettagli.",
+    "section1Title": "La nostra storia",
+    "section1Body": "Cosmia Hospitality nasce dall'amore per uno dei territori più belli d'Italia. Gestiamo appartamenti vacanza sul Gargano con un approccio semplice: ogni casa deve essere esattamente come l'ospite se la immaginava — o meglio. Niente di lasciato al caso, niente di scontato.",
+    "section2Title": "Il nostro approccio",
+    "section2Body": "Non gestiamo appartamenti. Curiamo esperienze. Dalla selezione delle proprietà alla cura di ogni détail, dal check-in al check-out, siamo presenti perché il tuo soggiorno sul Gargano sia indimenticabile. Conosciamo il territorio, i posti nascosti, i sapori autentici — e siamo felici di condividerli.",
+    "values": {
+      "care": {
+        "title": "Cura",
+        "description": "Ogni appartamento è selezionato e curato personalmente. Nessun compromesso."
+      },
+      "authenticity": {
+        "title": "Autenticità",
+        "description": "Il Gargano vero, quello che i turisti non trovano. Noi lo conosciamo."
+      },
+      "presence": {
+        "title": "Presenza",
+        "description": "Siamo sempre disponibili. Un messaggio, una chiamata, siamo lì."
+      }
+    }
+  },
+  "apartments_page": {
+    "pageTitle": "I Nostri Appartamenti",
+    "headline": "Scegli il tuo angolo di Gargano.",
+    "subtitle": "Due appartamenti unici, curati in ogni détail, nel cuore del promontorio pugliese."
+  },
+  "property_page": {
+    "gallery": "Galleria",
+    "amenities": "Dotazioni",
+    "location": "Posizione",
+    "reviews": "Recensioni",
+    "requestAvailability": "Richiedi disponibilità",
+    "leaveReview": "Lascia una recensione su Google",
+    "guests": "{count} ospiti",
+    "bedrooms": "{count} camere",
+    "bathrooms": "{count} bagno",
+    "amenities_map": {
+      "wifi": "Wi-Fi",
+      "air_conditioning": "Aria condizionata",
+      "kitchen": "Cucina attrezzata",
+      "parking": "Parcheggio",
+      "terrace": "Terrazza",
+      "balcony": "Balcone",
+      "sea_view": "Vista mare",
+      "washing_machine": "Lavatrice",
+      "tv": "Smart TV"
+    }
+  },
+  "privacy": {
+    "pageTitle": "Privacy Policy",
+    "lastUpdated": "Ultimo aggiornamento: {date}"
+  },
+  "cookie": {
+    "message": "Questo sito utilizza cookie tecnici essenziali per il corretto funzionamento. Nessun dato di profilazione viene raccolto.",
+    "accept": "Accetta",
+    "decline": "Rifiuta"
+  },
+  "common": {
+    "backToApartments": "← Tutti gli appartamenti",
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore"
+  }
+}
