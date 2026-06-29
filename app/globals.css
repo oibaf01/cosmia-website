@@ -35,7 +35,59 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Respect prefers-reduced-motion */
+/* ─── Shooting stars ─────────────────────────────────── */
+@keyframes shoot {
+  0%, 12% {
+    transform: translateX(0) translateY(0) rotate(42deg);
+    opacity: 0;
+  }
+  18% { opacity: 1; }
+  35% {
+    transform: translateX(260px) translateY(220px) rotate(42deg);
+    opacity: 0;
+  }
+  36%, 100% {
+    transform: translateX(260px) translateY(220px) rotate(42deg);
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.9) 45%,
+    rgba(255, 255, 255, 0.4) 75%,
+    transparent 100%
+  );
+  transform-origin: left center;
+  border-radius: 0 50% 50% 0;
+  pointer-events: none;
+}
+
+/* Three stars — different positions, lengths, timing intervals */
+.shooting-star-1 {
+  top: 10%;
+  left: 12%;
+  width: 130px;
+  animation: shoot 10s linear 1.5s infinite;
+}
+.shooting-star-2 {
+  top: 5%;
+  left: 62%;
+  width: 100px;
+  animation: shoot 14s linear 5s infinite;
+}
+.shooting-star-3 {
+  top: 18%;
+  left: 40%;
+  width: 110px;
+  animation: shoot 18s linear 9s infinite;
+}
+
+/* ─── Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
