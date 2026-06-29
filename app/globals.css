@@ -36,18 +36,24 @@ body {
 }
 
 /* ─── Shooting stars ─────────────────────────────────── */
+/*
+  Strategy: all three stars share the same 21s duration.
+  Each fires in the first 9% of its cycle (~1.9s), then hides for the rest.
+  Delays: 1s / 8s / 15s → one star every ~7s, never overlapping.
+  animation-fill-mode: backwards → 0% state applied during delay (opacity 0).
+*/
 @keyframes shoot {
-  0%, 12% {
+  0% {
     transform: translateX(0) translateY(0) rotate(42deg);
     opacity: 0;
   }
-  18% { opacity: 1; }
-  35% {
-    transform: translateX(260px) translateY(220px) rotate(42deg);
+  2% { opacity: 1; }
+  9% {
+    transform: translateX(280px) translateY(240px) rotate(42deg);
     opacity: 0;
   }
-  36%, 100% {
-    transform: translateX(260px) translateY(220px) rotate(42deg);
+  9.1%, 100% {
+    transform: translateX(280px) translateY(240px) rotate(42deg);
     opacity: 0;
   }
 }
@@ -55,36 +61,55 @@ body {
 .shooting-star {
   position: absolute;
   height: 1px;
+  opacity: 0; /* hidden before animation starts */
   background: linear-gradient(
     to right,
     transparent 0%,
-    rgba(255, 255, 255, 0.9) 45%,
-    rgba(255, 255, 255, 0.4) 75%,
+    rgba(255, 255, 255, 0.5) 30%,
+    rgba(255, 255, 255, 0.95) 80%,
     transparent 100%
   );
   transform-origin: left center;
-  border-radius: 0 50% 50% 0;
   pointer-events: none;
+  animation-name: shoot;
+  animation-duration: 21s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-fill-mode: backwards;
 }
 
-/* Three stars — different positions, lengths, timing intervals */
+/* Glowing head at leading edge */
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Three stars: same duration, staggered delays = one at a time */
 .shooting-star-1 {
-  top: 10%;
-  left: 12%;
+  top: 9%;
+  left: 10%;
   width: 130px;
-  animation: shoot 10s linear 1.5s infinite;
+  animation-delay: 1s;
 }
 .shooting-star-2 {
-  top: 5%;
-  left: 62%;
+  top: 4%;
+  left: 64%;
   width: 100px;
-  animation: shoot 14s linear 5s infinite;
+  animation-delay: 8s;
 }
 .shooting-star-3 {
-  top: 18%;
-  left: 40%;
-  width: 110px;
-  animation: shoot 18s linear 9s infinite;
+  top: 17%;
+  left: 38%;
+  width: 115px;
+  animation-delay: 15s;
 }
 
 /* ─── Respect prefers-reduced-motion */
