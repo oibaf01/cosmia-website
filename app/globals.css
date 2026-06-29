@@ -49,11 +49,11 @@ body {
   }
   2% { opacity: 1; }
   9% {
-    transform: translateX(280px) translateY(240px) rotate(42deg);
+    transform: translateX(220px) translateY(110px) rotate(42deg);
     opacity: 0;
   }
   9.1%, 100% {
-    transform: translateX(280px) translateY(240px) rotate(42deg);
+    transform: translateX(220px) translateY(110px) rotate(42deg);
     opacity: 0;
   }
 }
