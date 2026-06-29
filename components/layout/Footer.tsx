@@ -15,9 +15,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Image
-              src="/logos/logo_full_gold.svg"
+              src="/logos/Icon_white.png"
               alt="Cosmia Hospitality"
-              width={180}
+              width={48}
               height={48}
               className="h-10 w-auto"
             />

@@ -38,9 +38,9 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" aria-label="Cosmia Hospitality — Home">
             <Image
-              src="/logos/logo_full_gold.svg"
+              src="/logos/Icon_gold.png"
               alt="Cosmia Hospitality"
-              width={180}
+              width={48}
               height={48}
               priority
               className="h-10 w-auto"
