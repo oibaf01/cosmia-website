@@ -1,28 +1,20 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from 'lucide-react';
 import { properties } from '@/lib/data/properties';
 import PropertyCard from './PropertyCard';
+import Reveal3D from '@/components/ui/Reveal3D';
 
 export default function ApartmentsSection() {
   const t = useTranslations('apartments');
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-15% 0px' });
 
   return (
-    <section ref={ref} className="bg-white py-24 lg:py-32">
+    <section className="bg-white py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center mb-16"
-        >
+        <Reveal3D className="text-center mb-16">
           <p className="text-brand-gold text-xs font-semibold tracking-[0.25em] uppercase mb-4">
             {t('sectionLabel')}
           </p>
@@ -32,7 +24,7 @@ export default function ApartmentsSection() {
           <p className="mt-4 text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
             {t('subtitle')}
           </p>
-        </motion.div>
+        </Reveal3D>
 
         {/* Cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -42,12 +34,7 @@ export default function ApartmentsSection() {
         </div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <Link
             href="/appartamenti"
             className="inline-flex items-center gap-2 px-8 py-4 border border-brand-navy text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-navy hover:text-white transition-all duration-200 group"
@@ -55,7 +42,7 @@ export default function ApartmentsSection() {
             {t('cta')}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -15,9 +15,11 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  // Parallax: image moves slower than scroll
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
-  // Overlay darkens slightly on scroll
+  // Three depth layers moving at different speeds → genuine Z parallax
+  const bgY       = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);   // far back
+  const bgScale   = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const blobY     = useTransform(scrollYProgress, [0, 1], ['0%', '35%']);   // mid
+  const textY     = useTransform(scrollYProgress, [0, 1], ['0%', '-6%']);   // front (counter)
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.45, 0.65]);
 
   return (
@@ -26,14 +28,13 @@ export default function Hero() {
       className="relative h-dvh min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-navy"
       aria-label="Hero section"
     >
-      {/* Background image with parallax */}
+      {/* Layer 1 — Background image (furthest, slowest) */}
       <motion.div
-        style={{ y: imageY }}
+        style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 will-change-transform"
       >
-        {/* Placeholder — replace with actual Unsplash image */}
         <div
-          className="w-full h-full bg-gradient-to-br from-brand-deep via-brand-navy to-[#0a0f1e]"
+          className="w-full h-full"
           aria-hidden="true"
           style={{
             backgroundImage: `url('/images/hero/gargano-hero.jpg')`,
@@ -43,18 +44,31 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Overlay */}
+      {/* Layer 2 — Overlay (dims on scroll) */}
       <motion.div
         style={{ opacity: overlayOpacity }}
         className="absolute inset-0 bg-brand-navy"
         aria-hidden="true"
       />
 
+      {/* Layer 2b — Decorative gold blobs (mid depth, faster than bg) */}
+      <motion.div
+        style={{ y: blobY }}
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+      >
+        <div className="absolute top-1/3 left-[15%] w-64 h-64 rounded-full bg-brand-gold/6 blur-[80px]" />
+        <div className="absolute bottom-1/3 right-[12%] w-48 h-48 rounded-full bg-brand-gold/4 blur-[60px]" />
+      </motion.div>
+
       {/* Gold accent line — top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-brand-gold/30" aria-hidden="true" />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      {/* Layer 3 — Content (front, counter-scrolls upward) */}
+      <motion.div
+        style={{ y: textY }}
+        className="relative z-10 text-center px-6 max-w-4xl mx-auto will-change-transform"
+      >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -100,18 +114,18 @@ export default function Hero() {
         >
           <Link
             href="/appartamenti"
-            className="px-8 py-4 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-gold/90 hover:scale-[1.02] transition-all duration-150 shadow-lg shadow-brand-gold/20"
+            className="px-8 py-4 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-gold/90 hover:scale-[1.03] transition-all duration-200 shadow-lg shadow-brand-gold/25"
           >
             {t('cta')}
           </Link>
           <Link
             href="/contatti"
-            className="px-8 py-4 border border-white/30 text-white font-medium text-sm tracking-wide rounded hover:border-brand-gold hover:text-brand-gold transition-all duration-150"
+            className="px-8 py-4 border border-white/30 text-white font-medium text-sm tracking-wide rounded hover:border-brand-gold hover:text-brand-gold transition-all duration-200"
           >
             {t('ctaContact')}
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
