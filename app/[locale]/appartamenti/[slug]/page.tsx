@@ -15,7 +15,7 @@ import CookieBanner from '@/components/CookieBanner';
 import PropertyGallery from '@/components/sections/PropertyGallery';
 import ReviewsCarousel from '@/components/sections/ReviewsCarousel';
 import { MapPin, Users, BedDouble, Bath, Star, ExternalLink } from 'lucide-react';
-import { amenityIcons } from '@/lib/data/amenityIcons';
+import AnimatedIcon from '@/components/ui/AnimatedIcon';
 
 export async function generateMetadata({
   params,
@@ -160,17 +160,16 @@ export default async function PropertyPage({
                   {t('amenities')}
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {property.amenities.map((amenity) => {
-                    const AmenityIcon = amenityIcons[amenity];
-                    return (
-                      <div key={amenity} className="flex items-center gap-3 text-sm text-slate-600">
-                        {AmenityIcon && (
-                          <AmenityIcon size={18} className="text-brand-gold shrink-0" strokeWidth={1.5} />
-                        )}
-                        {t(`amenities_map.${amenity}` as Parameters<typeof t>[0])}
-                      </div>
-                    );
-                  })}
+                  {property.amenities.map((amenity) => (
+                    <div key={amenity} className="flex items-center gap-3 text-sm text-slate-600">
+                      <AnimatedIcon
+                        iconKey={amenity}
+                        size={18}
+                        className="text-brand-gold shrink-0"
+                      />
+                      {t(`amenities_map.${amenity}` as Parameters<typeof t>[0])}
+                    </div>
+                  ))}
                 </div>
               </div>
 
