@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from 'lucide-react';
@@ -10,17 +11,27 @@ export default function CtaSection() {
 
   return (
     <section className="bg-brand-navy py-24 lg:py-32 relative overflow-hidden">
-      {/* Decorative gold line top */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-brand-gold/30" aria-hidden="true" />
-
-      {/* Background texture */}
-      <div
-        className="absolute inset-0 opacity-5"
+      {/* Decorative gold line top — subtle shimmer */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 h-px bg-brand-gold/30"
+        animate={{ opacity: [0.3, 0.8, 0.3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden="true"
-        style={{
-          backgroundImage: `radial-gradient(circle at 20% 50%, #C8A26E 0%, transparent 50%),
-                            radial-gradient(circle at 80% 50%, #C8A26E 0%, transparent 50%)`,
-        }}
+      />
+
+      {/* Ambient pulsing gold glow — left */}
+      <motion.div
+        className="absolute left-[10%] top-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-brand-gold/8 blur-[100px] pointer-events-none"
+        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.9, 0.5] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        aria-hidden="true"
+      />
+      {/* Ambient pulsing gold glow — right (offset phase) */}
+      <motion.div
+        className="absolute right-[10%] top-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-brand-gold/6 blur-[80px] pointer-events-none"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.8, 0.4] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+        aria-hidden="true"
       />
 
       <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
