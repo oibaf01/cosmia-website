@@ -29,7 +29,10 @@ export const metadata: Metadata = {
   description:
     'Appartamenti vacanza premium sul Gargano, Puglia. Cosmia Hospitality cura ogni détail per un soggiorno indimenticabile.',
   icons: {
-    icon: '/icon.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+    ],
     apple: '/apple-icon.png',
   },
 };
