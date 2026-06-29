@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { ChevronDown } from 'lucide-react';
 
@@ -28,19 +29,19 @@ export default function Hero() {
       className="relative h-dvh min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-navy"
       aria-label="Hero section"
     >
-      {/* Layer 1 — Background image (furthest, slowest) */}
+      {/* Layer 1 — Background image via next/image (WebP, responsive, optimized) */}
       <motion.div
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 will-change-transform"
       >
-        <div
-          className="w-full h-full"
+        <Image
+          src="/images/hero/herocosmia.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_22%]"
           aria-hidden="true"
-          style={{
-            backgroundImage: `url('/images/hero/herocosmia.jpg')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center top',
-          }}
         />
       </motion.div>
 
@@ -74,8 +75,8 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Layer 3 — Shooting stars (CSS keyframe, no trigger needed) */}
-      <div className="absolute inset-0 overflow-hidden z-[2] pointer-events-none" aria-hidden="true">
+      {/* Layer 3 — Shooting stars confined to sky area (top 52%) */}
+      <div className="absolute top-0 left-0 right-0 h-[52%] overflow-hidden z-[2] pointer-events-none" aria-hidden="true">
         <span className="shooting-star shooting-star-1" />
         <span className="shooting-star shooting-star-2" />
         <span className="shooting-star shooting-star-3" />
