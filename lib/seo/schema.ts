@@ -9,7 +9,7 @@ export function organizationSchema() {
     '@type': 'LodgingBusiness',
     name: 'Cosmia Hospitality',
     description:
-      'Cosmia Hospitality gestisce appartamenti vacanza premium sul Gargano, Puglia. Soggiorni curati, esperienze autentiche, ospitalità senza compromessi.',
+      'Cosmia Hospitality gestisce appartamenti vacanza a Mattinata, sul Gargano, Puglia. Due case, un territorio autentico e la conoscenza di chi ci vive.',
     url: BASE_URL,
     logo: `${BASE_URL}/logos/logo_full_gold.svg`,
     address: {

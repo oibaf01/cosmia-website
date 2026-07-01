@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieBanner from '@/components/CookieBanner';
+import Image from 'next/image';
 import { Heart, Compass, Phone } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -50,14 +51,25 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <Header />
       <main id="main-content" className="bg-brand-ivory min-h-screen">
         {/* Hero */}
-        <div className="bg-brand-navy pt-40 pb-24 text-center px-6">
-          <p className="text-brand-gold text-xs font-semibold tracking-[0.25em] uppercase mb-6">
-            Cosmia Hospitality
-          </p>
-          <h1 className="font-serif text-white text-4xl lg:text-6xl font-light leading-tight max-w-3xl mx-auto">
-            {t('headline')}{' '}
-            <span className="font-semibold text-brand-gold">{t('headlineBold')}</span>
-          </h1>
+        <div className="relative bg-brand-navy pt-40 pb-24 text-center px-6 overflow-hidden">
+          <Image
+            src="/images/hero/herocosmia.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-20"
+            aria-hidden
+          />
+          <div className="relative z-10">
+            <p className="text-brand-gold text-xs font-semibold tracking-[0.25em] uppercase mb-6">
+              Cosmia Hospitality
+            </p>
+            <h1 className="font-serif text-white text-4xl lg:text-6xl font-light leading-tight max-w-3xl mx-auto">
+              {t('headline')}{' '}
+              <span className="font-semibold text-brand-gold">{t('headlineBold')}</span>
+            </h1>
+          </div>
         </div>
 
         <div className="max-w-4xl mx-auto px-6 lg:px-8 py-24 space-y-20">

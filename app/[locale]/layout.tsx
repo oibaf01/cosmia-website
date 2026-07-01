@@ -27,14 +27,21 @@ export const metadata: Metadata = {
     default: 'Cosmia Hospitality — Appartamenti Vacanza sul Gargano',
   },
   description:
-    'Appartamenti vacanza premium sul Gargano, Puglia. Cosmia Hospitality cura ogni détail per un soggiorno indimenticabile.',
+    "Appartamenti vacanza a Mattinata, nel cuore del Gargano, Puglia. Casa Lira e Casa Vela — il punto di partenza per scoprire il promontorio, tutto l'anno.",
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
     ],
-    apple: '/apple-icon.png',
+    apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'mask-icon',
+      url: '/safari-pinned-tab.svg',
+      color: '#0D1321',
+    },
   },
+  manifest: '/site.webmanifest',
 };
 
 export function generateStaticParams() {

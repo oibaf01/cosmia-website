@@ -85,17 +85,18 @@ export default async function PropertyPage({
 
       <Header />
       <main id="main-content" className="bg-brand-ivory min-h-screen">
-        {/* Hero image */}
-        <div className="relative h-[60vh] min-h-[400px] bg-brand-sand overflow-hidden">
-          <Image
-            src={property.heroPhoto}
-            alt={name}
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent" />
+        {/* Hero */}
+        <div className="relative h-[30vh] min-h-48 bg-brand-navy overflow-hidden">
+          {(property.icon ?? property.logo) && (
+            <Image
+              src={property.icon ?? property.logo!}
+              alt={name}
+              fill
+              priority
+              className="object-contain"
+              sizes="100vw"
+            />
+          )}
           <div className="absolute bottom-8 left-0 right-0 px-6 lg:px-8 max-w-7xl mx-auto">
             <h1 className="font-serif text-white text-4xl lg:text-6xl font-light">{name}</h1>
             <p className="flex items-center gap-2 text-white/70 mt-2 text-sm">
@@ -151,7 +152,11 @@ export default async function PropertyPage({
                 <h2 className="font-serif text-brand-navy text-2xl font-semibold mb-6">
                   {t('gallery')}
                 </h2>
-                <PropertyGallery photos={property.photos} propertyName={name} />
+                <PropertyGallery
+                  photos={property.photos}
+                  photoSections={property.photoSections}
+                  propertyName={name}
+                />
               </div>
 
               {/* Amenities */}

@@ -6,22 +6,23 @@
     "contact": "Contact"
   },
   "hero": {
-    "headline": "Gargano isn't described.",
-    "headlineBold": "It's experienced.",
-    "subtitle": "Carefully curated vacation apartments on the Gargano Promontory, Puglia.",
+    "headline": "Your vacation.",
+    "headlineBold": "Starts here.",
+    "subtitle": "From choosing the apartment to tips on the area, we help you experience Gargano your way.",
     "cta": "Discover our apartments",
     "ctaContact": "Write to us"
   },
   "about": {
     "sectionLabel": "About Us",
-    "headline": "No detail left to chance. No moment wasted.",
-    "body": "Cosmia Hospitality was born from a passion for Gargano and authentic hospitality. We manage every apartment as if it were our own, caring for every corner so that your stay is exactly as you imagined it — or better.",
+    "headline": "Not just an apartment.",
+    "headlineBold": "A starting point to discover the Gargano.",
+    "body": "Cosmia was born from a love for the Gargano and a desire to share it. Apartments, 360° support, and a list of places that you won't find in any guide.",
     "cta": "Learn more about us"
   },
   "apartments": {
     "sectionLabel": "Our Apartments",
     "headline": "Our apartments are the beginning of your Gargano story.",
-    "subtitle": "Every space is designed to offer you comfort, authenticity and the freedom to explore.",
+    "subtitle": "Every apartment has its own character. Find the one that's right for you.",
     "cta": "See all apartments",
     "guests": "{count} guests",
     "bedrooms": "{count} bedrooms",
@@ -33,23 +34,23 @@
     "sectionLabel": "Experiences",
     "headline": "Gargano has a character all its own.",
     "headlineBold": "We know it by heart.",
-    "subtitle": "From the sea to the caves, from the villages to the gastronomy: Gargano will surprise you at every turn.",
+    "subtitle": "Forest and sea ten minutes apart. Sea caves you can swim into. White villages rich in history overlooking the sea. And in spring and autumn, all of this with a different face but just as pleasant.",
     "items": {
       "sea": {
         "title": "The Sea",
-        "description": "Crystal-clear waters, hidden coves and breathtaking cliffs. Gargano's sea is among the most beautiful in Italy."
+        "description": "Cala di Porto Greco, Cala della Pergola, coves reachable on foot or by boat, with water that's genuinely clear. The Sentiero dell'Amore trail takes you straight to the shore."
       },
       "hikes": {
         "title": "Hiking",
-        "description": "Trails in the Gargano National Park, sea caves and unforgettable sunsets on the promontory."
+        "description": "Trails through the Foresta Umbra among ancient beeches, the Abbazia di Pulsano hidden in the rocks, sunsets on the promontory that stay with you. You'll understand quickly why people come back every year."
       },
       "villages": {
         "title": "Villages",
-        "description": "Mattinata, Vieste, Peschici: ancient villages where time flows slowly and every alley has a story."
+        "description": "Mattinata, Vieste, Peschici, Manfredonia: places where time actually slows down."
       },
       "food": {
         "title": "Gastronomy",
-        "description": "Extra virgin olive oil, fresh burrata, catch of the day: the flavors of Gargano are an experience in themselves."
+        "description": "Extra virgin olive oil, fresh burrata, catch of the day caught that morning. You eat well, you live well."
       }
     }
   },
@@ -59,20 +60,20 @@
     "leaveReview": "Leave a review on Google"
   },
   "cta": {
-    "headline": "Tell us about yourself.",
-    "headlineBold": "We'll take care of the rest.",
-    "subtitle": "Have questions? Want to check availability? Write to us — we'll respond within a few hours.",
+    "headline": "Every stay begins with a conversation.",
+    "headlineBold": "Start yours.",
+    "subtitle": "Questions, availability, bookings, information — we'll respond within a few hours.",
     "button": "Write to us now"
   },
   "footer": {
-    "tagline": "Premium vacation apartments on the Gargano, Puglia.",
+    "tagline": "Vacation apartments, in the heart of the Gargano.",
     "links": "Quick links",
     "privacy": "Privacy Policy",
     "rights": "© {year} Cosmia Hospitality. All rights reserved."
   },
   "contact": {
     "pageTitle": "Contact",
-    "headline": "Tell us about yourself.",
+    "headline": "Contact us.",
     "subtitle": "Fill in the form and we'll get back to you within 24 hours. You can also write to us directly on WhatsApp.",
     "form": {
       "name": "Full Name",
@@ -105,30 +106,30 @@
   "about_page": {
     "pageTitle": "About Us",
     "headline": "A passion for Gargano.",
-    "headlineBold": "An obsession for details.",
-    "section1Title": "Our story",
-    "section1Body": "Cosmia Hospitality was born from a love for one of Italy's most beautiful territories. We manage vacation apartments on the Gargano with a simple approach: every home should be exactly as the guest imagined it — or better. Nothing left to chance, nothing taken for granted.",
-    "section2Title": "Our approach",
-    "section2Body": "We don't manage apartments. We curate experiences. From property selection to the care of every detail, from check-in to check-out, we are present to make your stay on Gargano unforgettable. We know the territory, the hidden places, the authentic flavors — and we're happy to share them.",
+    "headlineBold": "A personal approach to hospitality.",
+    "section1Title": "How Cosmia started",
+    "section1Body": "Cosmia started from a simple idea: Gargano is beautiful. Really beautiful. And people who come here deserve to actually live it, not just scroll past it from a generic apartment. Summer, spring, autumn — every season brings something different and is worth the trip. The houses are in Mattinata: sun, sea, good food, and the whole Gargano reachable in minutes.",
+    "section2Title": "How we work",
+    "section2Body": "We know where to have the best breakfast in Mattinata. We know the cove worth the early alarm, the best trail at sunset, and the no-sign trattoria that's worth the trip. Not because we read it somewhere — because we've been there, and we keep going back. When you arrive, ask us everything.",
     "values": {
       "care": {
-        "title": "Care",
-        "description": "Every apartment is personally selected and maintained. No compromises."
+        "title": "Your arrival",
+        "description": "Every apartment is ready when you arrive. Fresh linen, fully equipped kitchen, everything in place. You only have to think about your stay."
       },
       "authenticity": {
-        "title": "Authenticity",
-        "description": "The real Gargano, the one tourists don't find. We know it."
+        "title": "The Gargano you won't find online",
+        "description": "The places not in any guide, the flavours not on TripAdvisor. We're here to share them."
       },
       "presence": {
-        "title": "Presence",
-        "description": "We're always available. A message, a call, we're there."
+        "title": "Always reachable",
+        "description": "A message, a call — we're there."
       }
     }
   },
   "apartments_page": {
     "pageTitle": "Our Apartments",
     "headline": "Choose your corner of Gargano.",
-    "subtitle": "Two unique apartments, curated in every detail, in the heart of the Apulian promontory."
+    "subtitle": "Your starting point for exploring the Gargano."
   },
   "property_page": {
     "gallery": "Gallery",
@@ -149,7 +150,16 @@
       "balcony": "Balcony",
       "sea_view": "Sea view",
       "washing_machine": "Washing machine",
-      "tv": "Smart TV"
+      "tv": "Smart TV",
+      "microwave": "Microwave",
+      "coffee": "Moka pot",
+      "iron": "Iron",
+      "hair_dryer": "Hair dryer",
+      "linen": "Linen & towels",
+      "wardrobe": "Wardrobe",
+      "cleaning_kit": "Basic cleaning kit",
+      "personal_welcome": "Personal welcome",
+      "local_tips": "Local tips"
     }
   },
   "privacy": {

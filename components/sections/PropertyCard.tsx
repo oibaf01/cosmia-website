@@ -28,21 +28,17 @@ export default function PropertyCard({ property, index = 0 }: PropertyCardProps)
       className="group bg-white rounded-2xl overflow-hidden border border-brand-sand shadow-sm hover:shadow-xl hover:shadow-brand-navy/10 transition-shadow duration-400"
     >
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-brand-sand">
+      <div className="relative aspect-[4/3] overflow-hidden bg-brand-navy">
         <Image
-          src={property.heroPhoto}
+          src={property.logo ?? property.heroPhoto}
           alt={name}
           fill
-          className="object-cover group-hover:scale-[1.04] transition-transform duration-700"
+          className="object-contain group-hover:scale-[1.03] transition-transform duration-700"
           sizes="(max-width: 768px) 100vw, 50vw"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-medium px-3 py-1.5 rounded-full">
           <MapPin size={12} className="text-brand-gold" />
-          {property.location.split(',')[0]}
+          {property.location.split(',')[1]?.split('(')[0].trim()}
         </div>
       </div>
 

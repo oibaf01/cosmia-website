@@ -1,10 +1,17 @@
 'use client';
 
 import { useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from 'lucide-react';
+
+// WebGL canvas needs window — no SSR
+const CompassScene = dynamic(() => import('@/components/ui/CompassScene'), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-brand-navy" />,
+});
 
 export default function AboutTeaser() {
   const t = useTranslations('about');
@@ -24,8 +31,10 @@ export default function AboutTeaser() {
             <p className="text-brand-gold text-xs font-semibold tracking-[0.25em] uppercase mb-6">
               {t('sectionLabel')}
             </p>
-            <h2 className="font-serif text-brand-navy text-3xl lg:text-4xl font-light leading-snug mb-8">
-              {t('headline')}
+            <h2 className="font-serif text-3xl lg:text-4xl font-light leading-snug mb-8">
+              <span className="text-brand-navy">{t('headline')}</span>
+              <br />
+              <span className="text-brand-gold font-semibold">{t('headlineBold')}</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-prose">
               {t('body')}
@@ -49,16 +58,8 @@ export default function AboutTeaser() {
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
             className="relative"
           >
-            <div className="aspect-[4/3] rounded-2xl bg-brand-sand overflow-hidden">
-              {/* Placeholder — sostituire con foto brand */}
-              <div className="w-full h-full bg-gradient-to-br from-brand-sand to-brand-gold/20 flex items-center justify-center">
-                <div className="text-center p-8 opacity-40">
-                  <div className="w-16 h-16 mx-auto border-2 border-brand-gold/50 rounded-full mb-4" />
-                  <p className="text-brand-navy text-sm font-medium tracking-widest uppercase">
-                    Cosmia Hospitality
-                  </p>
-                </div>
-              </div>
+            <div className="aspect-[4/3] rounded-2xl bg-brand-navy overflow-hidden">
+              {inView && <CompassScene />}
             </div>
             {/* Decorative accent */}
             <div

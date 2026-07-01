@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { Mail } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -63,17 +63,28 @@ export default function Footer() {
                 <Mail size={16} />
                 info@cosmiahospitality.it
               </a>
+              <a
+                href="tel:+393317728100"
+                className="flex items-center gap-2 text-white/70 hover:text-brand-gold transition-colors text-sm"
+              >
+                <Phone size={16} />
+                +39 331 772 8100
+              </a>
               <p className="text-white/40 text-xs mt-4">
-                Gargano, Puglia — Italia
+                Lungomare del Sole 1 A/1<br />
+                71043 Manfredonia (FG) — Puglia
               </p>
             </div>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-12 pt-8">
+        <div className="border-t border-white/10 mt-12 pt-8 space-y-2">
           <p className="text-white/40 text-xs text-center">
             {t('rights', { year })}
+          </p>
+          <p className="text-white/25 text-xs text-center">
+            Cosmia srls — P.IVA 04602100713 — Lungomare del Sole 1 A/1, 71043 Manfredonia (FG)
           </p>
         </div>
       </div>

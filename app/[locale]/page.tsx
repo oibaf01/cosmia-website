@@ -24,9 +24,9 @@ export async function generateMetadata({
     titleIt: 'Appartamenti Vacanza sul Gargano',
     titleEn: 'Vacation Rentals on the Gargano',
     descriptionIt:
-      'Cosmia Hospitality — appartamenti vacanza premium sul Gargano, Puglia. Soggiorni curati in ogni détail a Mattinata e dintorni.',
+      'Cosmia Hospitality — appartamenti vacanza a Mattinata, Gargano, Puglia. Casa Lira e Casa Vela: il punto di partenza per scoprire il promontorio, tutto l\'anno.',
     descriptionEn:
-      'Cosmia Hospitality — premium vacation rentals on the Gargano, Puglia. Carefully curated stays in Mattinata and surroundings.',
+      'Cosmia Hospitality — vacation apartments in Mattinata, Gargano, Puglia. Casa Lira and Casa Vela: your base for exploring the promontory, year-round.',
     locale,
     path: '',
   });

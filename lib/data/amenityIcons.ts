@@ -7,6 +7,14 @@ import {
   Eye,
   WashingMachine,
   Tv,
+  Microwave,
+  Coffee,
+  Shirt,
+  Zap,
+  BedDouble,
+  Package,
+  Heart,
+  Map,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -20,4 +28,12 @@ export const amenityIcons: Record<string, LucideIcon> = {
   sea_view: Eye,
   washing_machine: WashingMachine,
   tv: Tv,
+  microwave: Microwave,
+  coffee: Coffee,
+  iron: Shirt,
+  hair_dryer: Zap,
+  linen: BedDouble,
+  wardrobe: Package,
+  personal_welcome: Heart,
+  local_tips: Map,
 };
