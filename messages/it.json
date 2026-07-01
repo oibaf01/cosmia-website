@@ -6,22 +6,23 @@
     "contact": "Contatti"
   },
   "hero": {
-    "headline": "Il Gargano non si racconta.",
-    "headlineBold": "Si vive.",
-    "subtitle": "Appartamenti vacanza curati in ogni dettaglio sul Promontorio del Gargano, Puglia.",
+    "headline": "La tua vacanza.",
+    "headlineBold": "Inizia qui.",
+    "subtitle": "Dalla scelta dell'alloggio ai consigli sul territorio, ti aiutiamo a vivere il Gargano su misura per te.",
     "cta": "Scopri i nostri appartamenti",
     "ctaContact": "Scrivici"
   },
   "about": {
     "sectionLabel": "Chi Siamo",
-    "headline": "Nessun détail lasciato al caso. Nessun momento sprecato.",
-    "body": "Cosmia Hospitality nasce da una passione per il Gargano e per l'ospitalità autentica. Gestiamo ogni appartamento come se fosse il nostro, curando ogni angolo perché il tuo soggiorno sia esattamente come lo immaginavi — o meglio.",
+    "headline": "Non solo un appartamento.",
+    "headlineBold": "Un punto di partenza per scoprire il Gargano.",
+    "body": "Cosmia nasce dall'amore per il Gargano e dalla voglia di condividerlo. Appartamenti, supporto a 360°, e una lista di posti che non trovi su nessuna guida.",
     "cta": "Scopri di più su di noi"
   },
   "apartments": {
     "sectionLabel": "I Nostri Appartamenti",
     "headline": "I nostri appartamenti sono l'inizio della tua storia sul Gargano.",
-    "subtitle": "Ogni spazio è stato pensato per offrirti comfort, autenticità e la libertà di esplorare.",
+    "subtitle": "Ogni appartamento ha il suo carattere. Trova quello che fa per te",
     "cta": "Scopri tutti gli appartamenti",
     "guests": "{count} ospiti",
     "bedrooms": "{count} camere",
@@ -32,24 +33,24 @@
   "experiences": {
     "sectionLabel": "Esperienze",
     "headline": "Il Gargano ha un carattere tutto suo.",
-    "headlineBold": "Noi lo conosciamo a memoria.",
-    "subtitle": "Dal mare alle grotte, dai borghi alla gastronomia: il Gargano ti sorprenderà ad ogni angolo.",
+    "headlineBold": "E noi lo conosciamo bene.",
+    "subtitle": "Bosco e mare a dieci minuti l'uno dall'altro. Grotte raggiungibili a nuoto. Borghi bianchi ricchi di storia che si affacciano sul mare. E in primavera e autunno, tutto questo con un volto diverso ma altrettanto piacevole.",
     "items": {
       "sea": {
         "title": "Il Mare",
-        "description": "Acque cristalline, calette nascoste e falesie mozzafiato. Il mare del Gargano è tra i più belli d'Italia."
+        "description": "Cala di Porto Greco, Cala della Pergola, calette raggiungibili a piedi o in barca, con acqua cristallina. Il Sentiero dell'Amore porta direttamente in spiaggia."
       },
       "hikes": {
         "title": "Escursioni",
-        "description": "Sentieri nel Parco Nazionale del Gargano, grotte marine e tramonti indimenticabili sul promontorio."
+        "description": "Sentieri nella Foresta Umbra tra faggi centenari, l'Abbazia di Pulsano nascosta tra le rocce, tramonti sul promontorio che non si dimenticano. Ci vuole poco a capire perché la gente torna ogni anno."
       },
       "villages": {
         "title": "Borghi",
-        "description": "Mattinata, Vieste, Peschici: borghi antichi dove il tempo scorre lento e ogni vicolo ha una storia."
+        "description": "Mattinata, Vieste, Peschici, Manfredonia: posti dove il tempo rallenta davvero."
       },
       "food": {
         "title": "Gastronomia",
-        "description": "Olio extravergine, burrata fresca, pesce del giorno: i sapori del Gargano sono un'esperienza in sé."
+        "description": "Olio extravergine, burrata fresca, pesce del giorno pescato quella mattina. Mangi bene, vivi bene."
       }
     }
   },
@@ -59,21 +60,21 @@
     "leaveReview": "Lascia una recensione su Google"
   },
   "cta": {
-    "headline": "Raccontaci di te.",
-    "headlineBold": "Pensiamo a tutto il resto.",
-    "subtitle": "Hai domande? Vuoi verificare la disponibilità? Scrivici — risponderemo entro poche ore.",
+    "headline": "Ogni soggiorno nasce da una conversazione.",
+    "headlineBold": "Inizia la tua.",
+    "subtitle": "Domande, disponibilità, prenotazioni, informazioni — risponderemo entro poche ore.",
     "button": "Scrivici ora"
   },
   "footer": {
-    "tagline": "Appartamenti vacanza premium sul Gargano, Puglia.",
+    "tagline": "Appartamenti vacanza, nel cuore del Gargano.",
     "links": "Link rapidi",
     "privacy": "Privacy Policy",
     "rights": "© {year} Cosmia Hospitality. Tutti i diritti riservati."
   },
   "contact": {
     "pageTitle": "Contatti",
-    "headline": "Raccontaci di te.",
-    "subtitle": "Compila il modulo e ti risponderemo entro 24 ore. Puoi anche scriverci direttamente su WhatsApp.",
+    "headline": "Contattaci",
+    "subtitle": "Compila il modulo e ti risponderemo entro 24 ore. Puoi anche scriverci direttamente su WhatsApp. ",
     "form": {
       "name": "Nome e Cognome",
       "namePlaceholder": "Mario Rossi",
@@ -105,34 +106,34 @@
   "about_page": {
     "pageTitle": "Chi Siamo",
     "headline": "Una passione per il Gargano.",
-    "headlineBold": "Un'ossessione per i dettagli.",
-    "section1Title": "La nostra storia",
-    "section1Body": "Cosmia Hospitality nasce dall'amore per uno dei territori più belli d'Italia. Gestiamo appartamenti vacanza sul Gargano con un approccio semplice: ogni casa deve essere esattamente come l'ospite se la immaginava — o meglio. Niente di lasciato al caso, niente di scontato.",
-    "section2Title": "Il nostro approccio",
-    "section2Body": "Non gestiamo appartamenti. Curiamo esperienze. Dalla selezione delle proprietà alla cura di ogni détail, dal check-in al check-out, siamo presenti perché il tuo soggiorno sul Gargano sia indimenticabile. Conosciamo il territorio, i posti nascosti, i sapori autentici — e siamo felici di condividerli.",
+    "headlineBold": "Un modo personale di fare accoglienza.",
+    "section1Title": "Come è nata Cosmia",
+    "section1Body": "Cosmia nasce da un'idea semplice: il Gargano è bello. Molto bello. E chi ci viene dovrebbe poterlo vivere davvero, non solo scorrerlo da un appartamento anonimo. Estate, primavera, autunno — ogni stagione porta qualcosa di diverso e vale il viaggio. Le case sono a Mattinata: sole, mare, buon cibo e tutto il Gargano raggiungibile in pochi minuti.",
+    "section2Title": "Come lavoriamo",
+    "section2Body": "Sappiamo dove fare la colazione migliore di Mattinata. Conosciamo la caletta che vale la sveglia alle sei, il sentiero più bello al tramonto e la trattoria senza insegna che vale il viaggio. Non perché l'abbiamo letto da qualche parte — perché ci siamo stati, e ci andiamo ancora. Quando arrivi, puoi fare tutte le domande che vuoi.",
     "values": {
       "care": {
-        "title": "Cura",
-        "description": "Ogni appartamento è selezionato e curato personalmente. Nessun compromesso."
+        "title": "Il tuo arrivo",
+        "description": "Ogni appartamento è pronto quando arrivi. Lenzuola fresche, cucina attrezzata, tutto al suo posto. Puoi pensare solo al tuo soggiorno."
       },
       "authenticity": {
-        "title": "Autenticità",
-        "description": "Il Gargano vero, quello che i turisti non trovano. Noi lo conosciamo."
+        "title": "Il Gargano che non trovi online",
+        "description": "I posti che non compaiono sulle guide, i sapori che non finiscono su TripAdvisor. Siamo qui per condividerli."
       },
       "presence": {
-        "title": "Presenza",
-        "description": "Siamo sempre disponibili. Un messaggio, una chiamata, siamo lì."
+        "title": "Sempre raggiungibili",
+        "description": "Un messaggio, una chiamata, siamo lì."
       }
     }
   },
   "apartments_page": {
     "pageTitle": "I Nostri Appartamenti",
     "headline": "Scegli il tuo angolo di Gargano.",
-    "subtitle": "Due appartamenti unici, curati in ogni détail, nel cuore del promontorio pugliese."
+    "subtitle": "Il tuo punto di partenza per esplorare il Gargano."
   },
   "property_page": {
     "gallery": "Galleria",
-    "amenities": "Dotazioni",
+    "amenities": "Servizi",
     "location": "Posizione",
     "reviews": "Recensioni",
     "requestAvailability": "Richiedi disponibilità",
@@ -149,7 +150,16 @@
       "balcony": "Balcone",
       "sea_view": "Vista mare",
       "washing_machine": "Lavatrice",
-      "tv": "Smart TV"
+      "tv": "Smart TV",
+      "microwave": "Microonde",
+      "coffee": "Moka",
+      "iron": "Ferro da stiro",
+      "hair_dryer": "Asciugacapelli",
+      "linen": "Lenzuola e asciugamani",
+      "wardrobe": "Armadio",
+      "cleaning_kit": "Kit pulizia base",
+      "personal_welcome": "Accoglienza personale",
+      "local_tips": "Consigli sul territorio"
     }
   },
   "privacy": {

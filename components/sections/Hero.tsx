@@ -1,160 +1,247 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { ChevronDown } from 'lucide-react';
 
+// ── Gold particle system ─────────────────────────────────────────────────────
+// Small floating dust rendered on canvas — zero DOM nodes, zero extra deps.
+function useGoldParticles(canvasRef: React.RefObject<HTMLCanvasElement>) {
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rawCtx = canvas.getContext('2d');
+    if (!rawCtx) return;
+    // Capture as non-nullable so closures don't get null-narrowing issues
+    const c = rawCtx;
+
+    // brand-gold #C8A26E = rgb(200, 162, 110)
+    const COUNT = 55;
+    let W = 0, H = 0, raf = 0;
+
+    type P = { x: number; y: number; vx: number; vy: number; r: number; o: number; od: number };
+
+    function make(bottom = false): P {
+      return {
+        x: Math.random() * W,
+        y: bottom ? H + Math.random() * 30 : Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: -(0.22 + Math.random() * 0.5),
+        r: 0.7 + Math.random() * 2.0,
+        o: 0.08 + Math.random() * 0.42,
+        od: Math.random() > 0.5 ? 1 : -1,
+      };
+    }
+
+    function resize() {
+      W = canvas.offsetWidth;
+      H = canvas.offsetHeight;
+      canvas.width = W;
+      canvas.height = H;
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    const particles: P[] = Array.from({ length: COUNT }, () => make());
+
+    function tick() {
+      c.clearRect(0, 0, W, H);
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.o += p.od * 0.0025;
+        if (p.o > 0.5 || p.o < 0.05) p.od *= -1;
+        if (p.y < -8) Object.assign(p, make(true));
+        c.beginPath();
+        c.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        c.fillStyle = `rgba(200,162,110,${p.o})`;
+        c.fill();
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    tick();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('resize', resize);
+    };
+  }, [canvasRef]);
+}
+
+// ── Animation variants ───────────────────────────────────────────────────────
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.14, delayChildren: 0.25 } },
+};
+
+// Cinematic clip-reveal: text slides up from behind overflow:hidden parent
+const clipReveal = {
+  hidden: { y: '108%' },
+  show: {
+    y: '0%',
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' as const } },
+};
+
+// ── Component ────────────────────────────────────────────────────────────────
 export default function Hero() {
   const t = useTranslations('hero');
-  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useGoldParticles(canvasRef as React.RefObject<HTMLCanvasElement>);
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: sectionRef,
     offset: ['start start', 'end start'],
   });
-
-  // Three depth layers moving at different speeds → genuine Z parallax
-  const bgY       = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);   // far back
-  const bgScale   = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
-  const blobY     = useTransform(scrollYProgress, [0, 1], ['0%', '35%']);   // mid
-  const textY     = useTransform(scrollYProgress, [0, 1], ['0%', '-6%']);   // front (counter)
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.45, 0.65]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '22%']);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.44, 0.65]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-7%']);
 
   return (
     <section
-      ref={containerRef}
-      className="relative h-dvh min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-navy"
+      ref={sectionRef}
+      className="relative h-dvh min-h-160 flex items-center justify-center overflow-hidden bg-brand-navy"
       aria-label="Hero section"
     >
-      {/* Layer 1 — Background image via next/image (WebP, responsive, optimized) */}
+      {/* ── Background image (parallax) ── */}
       <motion.div
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 will-change-transform"
       >
         <Image
-          src="/images/hero/herocosmia.jpg"
+          src="/images/hero/faraglioni.png"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_22%]"
-          aria-hidden="true"
+          className="object-cover object-[center_40%]"
+          aria-hidden
         />
       </motion.div>
 
-      {/* Layer 2 — Overlay (dims on scroll) */}
+      {/* ── Navy overlay (dims on scroll) ── */}
       <motion.div
         style={{ opacity: overlayOpacity }}
         className="absolute inset-0 bg-brand-navy"
-        aria-hidden="true"
+        aria-hidden
       />
 
-      {/* Layer 2b — Ambient floating gold blobs (scroll parallax + self-playing float) */}
-      <motion.div
-        style={{ y: blobY }}
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-      >
-        <motion.div
-          className="absolute top-1/3 left-[15%] w-72 h-72 rounded-full bg-brand-gold/7 blur-[90px]"
-          animate={{ y: [0, -28, 0], x: [0, 12, 0] }}
-          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 right-[12%] w-56 h-56 rounded-full bg-brand-gold/5 blur-[70px]"
-          animate={{ y: [0, 22, 0], x: [0, -14, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
-        />
-        <motion.div
-          className="absolute top-[60%] left-[55%] w-32 h-32 rounded-full bg-brand-gold/3 blur-[50px]"
-          animate={{ y: [0, -16, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-        />
-      </motion.div>
+      {/* ── Gold dust particles ── */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        style={{ mixBlendMode: 'screen' }}
+        aria-hidden
+      />
 
-      {/* Layer 3 — Shooting stars confined to sky area (top 52%) */}
-      <div className="absolute top-0 left-0 right-0 h-[52%] overflow-hidden z-[2] pointer-events-none" aria-hidden="true">
+      {/* ── Shooting stars (sky area) ── */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[52%] overflow-hidden z-2 pointer-events-none"
+        aria-hidden
+      >
         <span className="shooting-star shooting-star-1" />
         <span className="shooting-star shooting-star-2" />
         <span className="shooting-star shooting-star-3" />
       </div>
 
-      {/* Gold accent line — top */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-brand-gold/30" aria-hidden="true" />
+      {/* ── Gold accent line top ── */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-brand-gold/30" aria-hidden />
 
-      {/* Layer 3 — Content (front, counter-scrolls upward) */}
+      {/* ── Content ── */}
       <motion.div
-        style={{ y: textY }}
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto will-change-transform pointer-events-auto"
+        style={{ y: contentY }}
+        className="relative z-10 text-center px-6 max-w-3xl mx-auto will-change-transform"
       >
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-          className="text-brand-gold text-xs font-semibold tracking-[0.25em] uppercase mb-8"
-        >
-          Gargano — Puglia — Italia
-        </motion.p>
-
-        <h1 className="font-serif text-white leading-tight">
-          <motion.span
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-            className="block text-4xl sm:text-5xl lg:text-7xl font-light"
-          >
-            {t('headline')}
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.35 }}
-            className="block text-4xl sm:text-5xl lg:text-7xl font-semibold text-brand-gold"
-          >
-            {t('headlineBold')}
-          </motion.span>
-        </h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.55 }}
-          className="mt-8 text-white/70 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-light"
-        >
-          {t('subtitle')}
-        </motion.p>
-
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.7 }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col items-center"
         >
-          <Link
-            href="/appartamenti"
-            className="px-8 py-4 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-gold/90 hover:scale-[1.03] transition-all duration-200 shadow-lg shadow-brand-gold/25"
+          {/* Eyebrow */}
+          <motion.p
+            variants={fadeUp}
+            className="text-brand-gold text-xs font-semibold tracking-[0.28em] uppercase mb-10"
           >
-            {t('cta')}
-          </Link>
-          <Link
-            href="/contatti"
-            className="px-8 py-4 border border-white/30 text-white font-medium text-sm tracking-wide rounded hover:border-brand-gold hover:text-brand-gold transition-all duration-200"
+            Gargano — Puglia — Italia
+          </motion.p>
+
+          {/* H1 line 1 — clip reveal */}
+          <div className="overflow-hidden">
+            <motion.h1
+              variants={clipReveal}
+              className="block font-serif text-white text-4xl sm:text-5xl lg:text-7xl font-light leading-tight"
+            >
+              {t('headline')}
+            </motion.h1>
+          </div>
+
+          {/* H1 line 2 — gold clip reveal */}
+          <div className="overflow-hidden mb-8">
+            <motion.span
+              variants={clipReveal}
+              className="block font-serif text-brand-gold text-4xl sm:text-5xl lg:text-7xl font-semibold leading-tight"
+            >
+              {t('headlineBold')}
+            </motion.span>
+          </div>
+
+          {/* Gold ornamental divider */}
+          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-px bg-brand-gold/40" />
+            <div className="w-1 h-1 rounded-full bg-brand-gold/60" />
+            <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
+            <div className="w-1 h-1 rounded-full bg-brand-gold/60" />
+            <div className="w-10 h-px bg-brand-gold/40" />
+          </motion.div>
+
+          {/* Subtitle */}
+          <motion.p
+            variants={fadeUp}
+            className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed font-light"
           >
-            {t('ctaContact')}
-          </Link>
+            {t('subtitle')}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <Link
+              href="/appartamenti"
+              className="px-8 py-4 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-gold/90 hover:scale-[1.03] transition-all duration-200 shadow-lg shadow-brand-gold/25"
+            >
+              {t('cta')}
+            </Link>
+            <Link
+              href="/contatti"
+              className="px-8 py-4 border border-white/30 text-white font-medium text-sm tracking-wide rounded hover:border-brand-gold hover:text-brand-gold transition-all duration-200"
+            >
+              {t('ctaContact')}
+            </Link>
+          </motion.div>
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* ── Scroll indicator ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        transition={{ delay: 1.5, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40"
-        aria-hidden="true"
+        aria-hidden
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}

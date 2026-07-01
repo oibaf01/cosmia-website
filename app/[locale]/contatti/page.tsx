@@ -9,7 +9,7 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieBanner from '@/components/CookieBanner';
 import ContactForm from '@/components/sections/ContactForm';
-import { Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -83,9 +83,19 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                     <Mail size={16} className="text-brand-gold mt-0.5 shrink-0" />
                     info@cosmiahospitality.it
                   </a>
+                  <a
+                    href="tel:+393317728100"
+                    className="flex items-start gap-3 hover:text-brand-gold transition-colors"
+                  >
+                    <Phone size={16} className="text-brand-gold mt-0.5 shrink-0" />
+                    +39 331 772 8100
+                  </a>
                   <div className="flex items-start gap-3">
                     <MapPin size={16} className="text-brand-gold mt-0.5 shrink-0" />
-                    Gargano, Puglia — Italia
+                    <span>
+                      Lungomare del Sole 1 A/1<br />
+                      71043 Manfredonia (FG) — Puglia
+                    </span>
                   </div>
                 </div>
               </div>

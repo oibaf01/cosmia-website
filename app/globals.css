@@ -47,28 +47,28 @@ body {
   animation-fill-mode: backwards → 0% applied during delay (opacity 0).
 */
 
-/* Star 1 — α=28°, d=270px → TX=238, TY=127 */
+/* Star 1 — α=50°, d=260px → TX=167, TY=199 */
 @keyframes shoot-1 {
-  0%          { transform: translateX(0)     translateY(0)     rotate(28deg); opacity: 0; }
-  3%          { transform: translateX(0)     translateY(0)     rotate(28deg); opacity: 1; }
-  14%         { transform: translateX(238px) translateY(127px) rotate(28deg); opacity: 0; }
-  14.1%, 100% { transform: translateX(238px) translateY(127px) rotate(28deg); opacity: 0; }
+  0%          { transform: translateX(0)     translateY(0)     rotate(50deg); opacity: 0; }
+  5%          {                                                                opacity: 1; }
+  14%         { transform: translateX(167px) translateY(199px) rotate(50deg); opacity: 0; }
+  14.1%, 100% { transform: translateX(167px) translateY(199px) rotate(50deg); opacity: 0; }
 }
 
-/* Star 2 — α=33°, d=250px → TX=210, TY=136 */
+/* Star 2 — α=45°, d=240px → TX=170, TY=170 */
 @keyframes shoot-2 {
-  0%          { transform: translateX(0)     translateY(0)     rotate(33deg); opacity: 0; }
-  3%          { transform: translateX(0)     translateY(0)     rotate(33deg); opacity: 1; }
-  14%         { transform: translateX(210px) translateY(136px) rotate(33deg); opacity: 0; }
-  14.1%, 100% { transform: translateX(210px) translateY(136px) rotate(33deg); opacity: 0; }
+  0%          { transform: translateX(0)     translateY(0)     rotate(45deg); opacity: 0; }
+  5%          {                                                                opacity: 1; }
+  14%         { transform: translateX(170px) translateY(170px) rotate(45deg); opacity: 0; }
+  14.1%, 100% { transform: translateX(170px) translateY(170px) rotate(45deg); opacity: 0; }
 }
 
-/* Star 3 — α=25°, d=260px → TX=236, TY=110 */
+/* Star 3 — α=52°, d=250px → TX=154, TY=197 */
 @keyframes shoot-3 {
-  0%          { transform: translateX(0)     translateY(0)     rotate(25deg); opacity: 0; }
-  3%          { transform: translateX(0)     translateY(0)     rotate(25deg); opacity: 1; }
-  14%         { transform: translateX(236px) translateY(110px) rotate(25deg); opacity: 0; }
-  14.1%, 100% { transform: translateX(236px) translateY(110px) rotate(25deg); opacity: 0; }
+  0%          { transform: translateX(0)     translateY(0)     rotate(52deg); opacity: 0; }
+  5%          {                                                                opacity: 1; }
+  14%         { transform: translateX(154px) translateY(197px) rotate(52deg); opacity: 0; }
+  14.1%, 100% { transform: translateX(154px) translateY(197px) rotate(52deg); opacity: 0; }
 }
 
 .shooting-star {
