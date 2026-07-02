@@ -102,9 +102,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
               <div className="bg-brand-gold/10 border border-brand-gold/20 rounded-2xl p-6">
                 <p className="text-brand-navy text-sm leading-relaxed">
-                  {locale === 'en'
-                    ? 'Prefer WhatsApp? Click the button at the bottom right to start a chat immediately.'
-                    : 'Preferisci WhatsApp? Clicca il pulsante in basso a destra per iniziare una chat immediata.'}
+                  {t('whatsappNote')}
                 </p>
               </div>
             </div>

@@ -3,21 +3,48 @@
     "home": "Home",
     "apartments": "Appartamenti",
     "about": "Chi Siamo",
-    "contact": "Contatti"
+    "contact": "Contatti",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu",
+    "mainNav": "Navigazione principale",
+    "mobileNav": "Navigazione mobile"
   },
   "hero": {
     "headline": "La tua vacanza.",
     "headlineBold": "Inizia qui.",
-    "subtitle": "Dalla scelta dell'alloggio ai consigli sul territorio, ti aiutiamo a vivere il Gargano su misura per te.",
+    "subtitle": "Appartamenti selezionati e curati con attenzione, assistenza dedicata e consigli locali per vivere il Gargano come chi lo conosce davvero.",
+    "tagline": "Gestiamo case vacanza e appartamenti nel cuore del Gargano.",
     "cta": "Scopri i nostri appartamenti",
     "ctaContact": "Scrivici"
+  },
+  "what_we_do": {
+    "sectionLabel": "Cosa Facciamo",
+    "headline": "Gestiamo case vacanza e appartamenti sul Gargano,",
+    "headlineBold": "occupandocene in ogni aspetto.",
+    "pillar1": {
+      "title": "Gestione di appartamenti e case vacanza",
+      "body": "Ogni immobile che gestiamo è curato in ogni dettaglio, dalla A alla Z.",
+      "sub1": {
+        "title": "Prima",
+        "body": "Prepariamo ogni dettaglio del tuo arrivo, prima ancora che il soggiorno inizi."
+      },
+      "sub2": {
+        "title": "Durante",
+        "body": "Supporto e presenza reale per tutto il soggiorno, dall'arrivo alla partenza."
+      },
+      "sub3": {
+        "title": "Dopo",
+        "body": "Ci assicuriamo che tutto sia andato bene e restiamo a disposizione, anche dopo la partenza."
+      }
+    }
   },
   "about": {
     "sectionLabel": "Chi Siamo",
     "headline": "Non solo un appartamento.",
     "headlineBold": "Un punto di partenza per scoprire il Gargano.",
     "body": "Cosmia nasce dall'amore per il Gargano e dalla voglia di condividerlo. Appartamenti, supporto a 360°, e una lista di posti che non trovi su nessuna guida.",
-    "cta": "Scopri di più su di noi"
+    "cta": "Scopri di più su di noi",
+    "imageAlt": "Finestra ad arco affacciata sulla costa del Gargano"
   },
   "apartments": {
     "sectionLabel": "I Nostri Appartamenti",
@@ -59,22 +86,49 @@
     "headline": "Lo dicono i nostri ospiti.",
     "leaveReview": "Lascia una recensione su Google"
   },
+  "faq": {
+    "sectionLabel": "Domande Frequenti",
+    "headline": "Le risposte alle domande più comuni,",
+    "headlineBold": "prima ancora che tu le faccia.",
+    "subtitle": "Tutto quello che ti serve sapere su arrivo, dotazioni e prenotazione. Per qualsiasi altra cosa, scrivici."
+  },
   "cta": {
     "headline": "Ogni soggiorno nasce da una conversazione.",
     "headlineBold": "Inizia la tua.",
     "subtitle": "Domande, disponibilità, prenotazioni, informazioni — risponderemo entro poche ore.",
     "button": "Scrivici ora"
   },
+  "whatsapp": {
+    "message": "Ciao! Vorrei informazioni sugli appartamenti Cosmia Hospitality sul Gargano.",
+    "ariaLabel": "Contattaci su WhatsApp"
+  },
+  "gallery": {
+    "viewPhoto": "Vedi foto {n} di {name}",
+    "photoAlt": "{name} — foto {n}",
+    "close": "Chiudi galleria",
+    "prev": "Foto precedente",
+    "next": "Foto successiva",
+    "dialogLabel": "Galleria {name}"
+  },
+  "not_found": {
+    "title": "Ti sei perso nel Gargano.",
+    "subtitle": "La pagina che cerchi non esiste o è stata spostata. Torniamo sulla strada giusta.",
+    "backHome": "Torna alla home",
+    "seeApartments": "Vedi gli appartamenti"
+  },
   "footer": {
     "tagline": "Appartamenti vacanza, nel cuore del Gargano.",
     "links": "Link rapidi",
     "privacy": "Privacy Policy",
+    "terms": "Termini e Condizioni",
+    "busSchedule": "Orari Bus per il Mare",
     "rights": "© {year} Cosmia Hospitality. Tutti i diritti riservati."
   },
   "contact": {
     "pageTitle": "Contatti",
     "headline": "Contattaci",
     "subtitle": "Compila il modulo e ti risponderemo entro 24 ore. Puoi anche scriverci direttamente su WhatsApp. ",
+    "whatsappNote": "Preferisci WhatsApp? Clicca il pulsante in basso a destra per iniziare una chat immediata.",
     "form": {
       "name": "Nome e Cognome",
       "namePlaceholder": "Mario Rossi",
@@ -135,9 +189,19 @@
     "gallery": "Galleria",
     "amenities": "Servizi",
     "location": "Posizione",
+    "busLink": "Come arrivare al mare in bus",
     "reviews": "Recensioni",
     "requestAvailability": "Richiedi disponibilità",
     "leaveReview": "Lascia una recensione su Google",
+    "house_rules": {
+      "title": "Da sapere prima di prenotare",
+      "checkin": "Check-in dalle 15:00 · Check-out entro le 11:00",
+      "quiet": "Silenzio dopo le 22:00",
+      "smoking": "Fumo consentito solo negli spazi esterni",
+      "pets": "Animali ammessi su richiesta preventiva",
+      "minStay": "Soggiorno minimo: 2 notti (weekend), 3 in alta stagione",
+      "fullTerms": "Regolamento completo"
+    },
     "guests": "{count} ospiti",
     "bedrooms": "{count} camere",
     "bathrooms": "{count} bagno",
@@ -167,9 +231,11 @@
     "lastUpdated": "Ultimo aggiornamento: {date}"
   },
   "cookie": {
-    "message": "Questo sito utilizza cookie tecnici essenziali per il corretto funzionamento. Nessun dato di profilazione viene raccolto.",
+    "message": "Questo sito utilizza cookie tecnici essenziali, sempre attivi, e cookie di analisi (Google Analytics) solo con il tuo consenso, per capire come viene usato il sito.",
     "accept": "Accetta",
-    "decline": "Rifiuta"
+    "decline": "Rifiuta",
+    "closeLabel": "Chiudi",
+    "dialogLabel": "Consenso cookie"
   },
   "common": {
     "backToApartments": "← Tutti gli appartamenti",

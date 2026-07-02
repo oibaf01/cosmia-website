@@ -8,6 +8,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { properties } from '@/lib/data/properties';
+import { pick } from '@/lib/locale';
 
 function buildSchema(t: (key: string) => string) {
   return z.object({
@@ -147,7 +148,7 @@ export default function ContactForm() {
             <option value="general">{tf('apartmentGeneral')}</option>
             {properties.map((p) => (
               <option key={p.slug} value={p.slug}>
-                {locale === 'en' ? p.name.en : p.name.it}
+                {pick(p.name, locale)}
               </option>
             ))}
           </select>

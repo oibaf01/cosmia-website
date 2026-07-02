@@ -1,14 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type MouseEvent } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const t = useTranslations('nav');
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -17,6 +19,15 @@ export default function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // On the homepage, Link to "/" is a same-URL no-op for the router — scroll to the
+  // hero manually instead so Home/logo always feel like they "go home".
+  function handleHomeClick(e: MouseEvent) {
+    if (!isHome) return;
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMobileOpen(false);
+  }
 
   const navLinks = [
     { href: '/', label: t('home') },
@@ -36,7 +47,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" aria-label="Cosmia Hospitality — Home">
+          <Link href="/" onClick={handleHomeClick} aria-label="Cosmia Hospitality — Home">
             <Image
               src="/logos/Icon_gold.png"
               alt="Cosmia Hospitality"
@@ -48,11 +59,12 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-8" aria-label={t('mainNav')}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={link.href === '/' ? handleHomeClick : undefined}
                 className="text-sm font-medium text-white/90 hover:text-brand-gold transition-colors duration-150 tracking-wide"
               >
                 {link.label}
@@ -65,7 +77,7 @@ export default function Header() {
           <button
             className="md:hidden text-white p-2 cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Chiudi menu' : 'Apri menu'}
+            aria-label={mobileOpen ? t('closeMenu') : t('openMenu')}
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -76,13 +88,13 @@ export default function Header() {
       {/* Mobile nav */}
       {mobileOpen && (
         <div className="md:hidden bg-brand-navy/98 backdrop-blur-md border-t border-white/10">
-          <nav className="flex flex-col px-6 py-6 gap-6" aria-label="Mobile navigation">
+          <nav className="flex flex-col px-6 py-6 gap-6" aria-label={t('mobileNav')}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className="text-base font-medium text-white/90 hover:text-brand-gold transition-colors duration-150"
-                onClick={() => setMobileOpen(false)}
+                onClick={link.href === '/' ? handleHomeClick : () => setMobileOpen(false)}
               >
                 {link.label}
               </Link>

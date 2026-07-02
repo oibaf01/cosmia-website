@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { type PhotoSection } from '@/lib/data/properties';
+import { pick } from '@/lib/locale';
 
 interface PropertyGalleryProps {
   photos: string[];
@@ -14,6 +15,7 @@ interface PropertyGalleryProps {
 
 export default function PropertyGallery({ photos, photoSections, propertyName }: PropertyGalleryProps) {
   const locale = useLocale();
+  const t = useTranslations('gallery');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Flatten sections into ordered array for lightbox navigation
@@ -22,29 +24,44 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
     [photoSections, photos]
   );
 
+  const isOpen = lightboxIndex !== null;
+
   function openLightbox(index: number) {
     setLightboxIndex(index);
-    document.body.style.overflow = 'hidden';
   }
 
-  function closeLightbox() {
-    setLightboxIndex(null);
-    document.body.style.overflow = '';
-  }
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
-  function prevImage() {
+  const prevImage = useCallback(() => {
     setLightboxIndex((i) => (i !== null ? (i - 1 + allPhotos.length) % allPhotos.length : null));
-  }
+  }, [allPhotos.length]);
 
-  function nextImage() {
+  const nextImage = useCallback(() => {
     setLightboxIndex((i) => (i !== null ? (i + 1) % allPhotos.length : null));
-  }
+  }, [allPhotos.length]);
 
-  function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') prevImage();
-    if (e.key === 'ArrowRight') nextImage();
-  }
+  // Lock page scroll while open — cleanup always restores it, even if the component
+  // unmounts (route change) while the lightbox is still open
+  useEffect(() => {
+    if (!isOpen) return;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Window-level listener — the dialog isn't reliably focused on open, so keydown
+  // handlers attached to the dialog element itself would silently never fire
+  useEffect(() => {
+    if (!isOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen, closeLightbox, prevImage, nextImage]);
 
   return (
     <>
@@ -61,7 +78,7 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
               <div key={sectionIndex}>
                 <h3 className="text-brand-navy font-medium text-sm uppercase tracking-widest mb-4 flex items-center gap-3">
                   <span className="w-6 h-px bg-brand-gold inline-block" />
-                  {locale === 'en' ? section.label.en : section.label.it}
+                  {pick(section.label, locale)}
                 </h3>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                   {section.photos.map((photo, localIndex) => {
@@ -73,11 +90,11 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
                         className={`relative overflow-hidden rounded-xl bg-brand-sand cursor-pointer group ${
                           localIndex === 0 ? 'col-span-2 lg:col-span-2 aspect-[16/9]' : 'aspect-square'
                         }`}
-                        aria-label={`Vedi foto ${globalIndex + 1} di ${propertyName}`}
+                        aria-label={t('viewPhoto', { n: globalIndex + 1, name: propertyName })}
                       >
                         <Image
                           src={photo}
-                          alt={`${propertyName} — ${locale === 'en' ? section.label.en : section.label.it}`}
+                          alt={`${propertyName} — ${pick(section.label, locale)}`}
                           fill
                           className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                           sizes="(max-width: 768px) 50vw, 33vw"
@@ -101,11 +118,11 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
               className={`relative overflow-hidden rounded-xl bg-brand-sand cursor-pointer group ${
                 index === 0 ? 'col-span-2 lg:col-span-2 aspect-[16/9]' : 'aspect-square'
               }`}
-              aria-label={`Vedi foto ${index + 1} di ${propertyName}`}
+              aria-label={t('viewPhoto', { n: index + 1, name: propertyName })}
             >
               <Image
                 src={photo}
-                alt={`${propertyName} — foto ${index + 1}`}
+                alt={t('photoAlt', { n: index + 1, name: propertyName })}
                 fill
                 className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 sizes="(max-width: 768px) 50vw, 33vw"
@@ -121,14 +138,12 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`Galleria ${propertyName}`}
+          aria-label={t('dialogLabel', { name: propertyName })}
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
-          onKeyDown={handleKeyDown}
-          tabIndex={-1}
         >
           <button
             onClick={closeLightbox}
-            aria-label="Chiudi galleria"
+            aria-label={t('close')}
             className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors cursor-pointer p-2"
           >
             <X size={28} />
@@ -136,7 +151,7 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
 
           <button
             onClick={prevImage}
-            aria-label="Foto precedente"
+            aria-label={t('prev')}
             className="absolute left-4 text-white/70 hover:text-white transition-colors cursor-pointer p-2"
           >
             <ChevronLeft size={36} />
@@ -145,7 +160,7 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
           <div className="relative w-full max-w-4xl max-h-[85vh] mx-16">
             <Image
               src={allPhotos[lightboxIndex]}
-              alt={`${propertyName} — foto ${lightboxIndex + 1}`}
+              alt={t('photoAlt', { n: lightboxIndex + 1, name: propertyName })}
               width={1200}
               height={800}
               className="object-contain w-full h-full rounded-lg"
@@ -155,7 +170,7 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
 
           <button
             onClick={nextImage}
-            aria-label="Foto successiva"
+            aria-label={t('next')}
             className="absolute right-4 text-white/70 hover:text-white transition-colors cursor-pointer p-2"
           >
             <ChevronRight size={36} />

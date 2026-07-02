@@ -44,8 +44,14 @@ export default function Footer() {
               <Link href="/contatti" className="block text-white/70 hover:text-brand-gold transition-colors text-sm">
                 {tNav('contact')}
               </Link>
+              <Link href="/orari-bus" className="block text-white/70 hover:text-brand-gold transition-colors text-sm">
+                {t('busSchedule')}
+              </Link>
               <Link href="/privacy" className="block text-white/70 hover:text-brand-gold transition-colors text-sm">
                 {t('privacy')}
+              </Link>
+              <Link href="/termini" className="block text-white/70 hover:text-brand-gold transition-colors text-sm">
+                {t('terms')}
               </Link>
             </nav>
           </div>
@@ -53,7 +59,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-brand-gold text-xs font-semibold tracking-widest uppercase mb-6">
-              Contatti
+              {tNav('contact')}
             </h3>
             <div className="space-y-3">
               <a

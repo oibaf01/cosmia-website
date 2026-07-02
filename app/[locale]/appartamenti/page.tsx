@@ -15,10 +15,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildMetadata({
     titleIt: 'I Nostri Appartamenti',
     titleEn: 'Our Apartments',
+    titleFr: 'Nos Appartements',
+    titleDe: 'Unsere Wohnungen',
     descriptionIt:
       'Scopri gli appartamenti vacanza di Cosmia Hospitality sul Gargano, Puglia. Casa Lira e Casa Vela — soggiorni curati a Mattinata.',
     descriptionEn:
       'Discover Cosmia Hospitality vacation apartments on the Gargano, Puglia. Casa Lira and Casa Vela — curated stays in Mattinata.',
+    descriptionFr:
+      'Découvrez les appartements de vacances Cosmia Hospitality sur le Gargano, Puglia. Casa Lira et Casa Vela — des séjours soignés à Mattinata.',
+    descriptionDe:
+      'Entdecken Sie die Ferienwohnungen von Cosmia Hospitality am Gargano, Apulien. Casa Lira und Casa Vela — sorgfältig gestaltete Aufenthalte in Mattinata.',
     locale,
     path: '/appartamenti',
   });

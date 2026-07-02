@@ -1,32 +1,59 @@
 import type { Metadata } from 'next';
+import { routing, type Locale } from '@/i18n/routing';
 
 const BASE_URL = 'https://cosmiahospitality.it';
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og/og-default.jpg`;
 
+const OG_LOCALE_MAP: Record<Locale, string> = {
+  it: 'it_IT',
+  en: 'en_US',
+  fr: 'fr_FR',
+  de: 'de_DE',
+};
+
 interface PageMetaOptions {
   titleIt: string;
   titleEn: string;
+  titleFr?: string;
+  titleDe?: string;
   descriptionIt: string;
   descriptionEn: string;
+  descriptionFr?: string;
+  descriptionDe?: string;
   locale: string;
   path: string;
   ogImage?: string;
+  /** Locales to advertise via hreflang alternates. Defaults to every site locale — pass a
+   * narrower list (e.g. ['it','en']) for pages that don't have real content in every locale. */
+  locales?: Locale[];
 }
 
 export function buildMetadata({
   titleIt,
   titleEn,
+  titleFr,
+  titleDe,
   descriptionIt,
   descriptionEn,
+  descriptionFr,
+  descriptionDe,
   locale,
   path,
   ogImage,
+  locales = routing.locales as unknown as Locale[],
 }: PageMetaOptions): Metadata {
-  const isIt = locale === 'it';
-  const title = isIt ? titleIt : titleEn;
-  const description = isIt ? descriptionIt : descriptionEn;
+  const titles: Record<Locale, string> = { it: titleIt, en: titleEn, fr: titleFr ?? titleEn, de: titleDe ?? titleEn };
+  const descriptions: Record<Locale, string> = {
+    it: descriptionIt,
+    en: descriptionEn,
+    fr: descriptionFr ?? descriptionEn,
+    de: descriptionDe ?? descriptionEn,
+  };
+
+  const activeLocale = (locale as Locale) in titles ? (locale as Locale) : 'it';
+  const title = titles[activeLocale];
+  const description = descriptions[activeLocale];
   const canonical = `${BASE_URL}/${locale}${path}`;
-  const alternate = `${BASE_URL}/${isIt ? 'en' : 'it'}${path}`;
   const image = ogImage ?? DEFAULT_OG_IMAGE;
 
   return {
@@ -35,8 +62,7 @@ export function buildMetadata({
     alternates: {
       canonical,
       languages: {
-        it: `${BASE_URL}/it${path}`,
-        en: `${BASE_URL}/en${path}`,
+        ...Object.fromEntries(locales.map((l) => [l, `${BASE_URL}/${l}${path}`])),
         'x-default': `${BASE_URL}/it${path}`,
       },
     },
@@ -45,8 +71,8 @@ export function buildMetadata({
       description,
       url: canonical,
       siteName: 'Cosmia Hospitality',
-      locale: isIt ? 'it_IT' : 'en_US',
-      alternateLocale: isIt ? 'en_US' : 'it_IT',
+      locale: OG_LOCALE_MAP[activeLocale],
+      alternateLocale: locales.filter((l) => l !== activeLocale).map((l) => OG_LOCALE_MAP[l]),
       type: 'website',
       images: [
         {

@@ -126,6 +126,26 @@ body {
   animation-delay: 15s;
 }
 
+/* ─── Compass static fallback (mobile / reduced-motion) ── */
+@keyframes orbit-spin {
+  to { transform: rotate(360deg); }
+}
+.animate-orbit-slow {
+  animation: orbit-spin 50s linear infinite;
+}
+.animate-orbit-slow-reverse {
+  animation: orbit-spin 70s linear infinite reverse;
+}
+
+/* ─── WhatsApp floating button pulse ─────────────────── */
+@keyframes whatsapp-pulse {
+  0%, 85%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+  90% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.6); }
+}
+.whatsapp-btn {
+  animation: whatsapp-pulse 4s ease-in-out infinite;
+}
+
 /* ─── Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,

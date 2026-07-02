@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import AnimatedIcon from '@/components/ui/AnimatedIcon';
 
@@ -16,7 +16,7 @@ export default function ExperiencesSection() {
     <section ref={ref} className="bg-brand-ivory py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -32,12 +32,12 @@ export default function ExperiencesSection() {
           <p className="mt-4 text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
             {t('subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Experience cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {experienceKeys.map((key, index) => (
-              <motion.div
+              <m.div
                 key={key}
                 initial={{ opacity: 0, y: 32 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -53,7 +53,7 @@ export default function ExperiencesSection() {
                 <p className="text-slate-500 text-sm leading-relaxed">
                   {t(`items.${key}.description`)}
                 </p>
-              </motion.div>
+              </m.div>
           ))}
         </div>
       </div>

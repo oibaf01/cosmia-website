@@ -1,0 +1,245 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "apartments": "Appartements",
+    "about": "À propos",
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "mainNav": "Navigation principale",
+    "mobileNav": "Navigation mobile"
+  },
+  "hero": {
+    "headline": "Vos vacances.",
+    "headlineBold": "Commencent ici.",
+    "subtitle": "Des appartements sélectionnés avec soin, une assistance dédiée et des conseils locaux pour vivre le Gargano comme ceux qui le connaissent vraiment.",
+    "tagline": "Nous gérons des maisons de vacances et des appartements au cœur du Gargano.",
+    "cta": "Découvrez nos appartements",
+    "ctaContact": "Écrivez-nous"
+  },
+  "what_we_do": {
+    "sectionLabel": "Ce Que Nous Faisons",
+    "headline": "Nous gérons des maisons de vacances et des appartements sur le Gargano,",
+    "headlineBold": "en nous occupant de chaque aspect.",
+    "pillar1": {
+      "title": "Gestion d'appartements et de maisons de vacances",
+      "body": "Chaque bien que nous gérons est soigné dans les moindres détails, de A à Z.",
+      "sub1": {
+        "title": "Avant",
+        "body": "Nous préparons chaque détail de votre arrivée, avant même que votre séjour ne commence."
+      },
+      "sub2": {
+        "title": "Pendant",
+        "body": "Un soutien et une présence réelle tout au long de votre séjour, de l'arrivée au départ."
+      },
+      "sub3": {
+        "title": "Après",
+        "body": "Nous nous assurons que tout s'est bien passé et restons disponibles, même après votre départ."
+      }
+    }
+  },
+  "about": {
+    "sectionLabel": "À propos",
+    "headline": "Pas seulement un appartement.",
+    "headlineBold": "Un point de départ pour découvrir le Gargano.",
+    "body": "Cosmia est né de l'amour pour le Gargano et de l'envie de le partager. Appartements, accompagnement à 360°, et une liste d'adresses que vous ne trouverez dans aucun guide.",
+    "cta": "En savoir plus sur nous",
+    "imageAlt": "Fenêtre en arc donnant sur la côte du Gargano"
+  },
+  "apartments": {
+    "sectionLabel": "Nos Appartements",
+    "headline": "Nos appartements sont le début de votre histoire sur le Gargano.",
+    "subtitle": "Chaque appartement a son propre caractère. Trouvez celui qui vous correspond.",
+    "cta": "Voir tous les appartements",
+    "guests": "{count} personnes",
+    "bedrooms": "{count} chambres",
+    "bathrooms": "{count} salle de bain",
+    "discoverMore": "En savoir plus",
+    "requestAvailability": "Demander la disponibilité"
+  },
+  "experiences": {
+    "sectionLabel": "Expériences",
+    "headline": "Le Gargano a un caractère bien à lui.",
+    "headlineBold": "Et nous le connaissons bien.",
+    "subtitle": "Forêt et mer à dix minutes l'une de l'autre. Des grottes accessibles à la nage. Des villages blancs riches d'histoire donnant sur la mer. Et au printemps et en automne, tout cela avec un visage différent mais tout aussi agréable.",
+    "items": {
+      "sea": {
+        "title": "La Mer",
+        "description": "Cala di Porto Greco, Cala della Pergola, des criques accessibles à pied ou en bateau, à l'eau vraiment cristalline. Le sentier Sentiero dell'Amore mène directement à la plage."
+      },
+      "hikes": {
+        "title": "Randonnées",
+        "description": "Des sentiers dans la Foresta Umbra parmi des hêtres centenaires, l'Abbaye de Pulsano cachée dans les rochers, des couchers de soleil sur le promontoire inoubliables. On comprend vite pourquoi les gens reviennent chaque année."
+      },
+      "villages": {
+        "title": "Villages",
+        "description": "Mattinata, Vieste, Peschici, Manfredonia : des endroits où le temps ralentit vraiment."
+      },
+      "food": {
+        "title": "Gastronomie",
+        "description": "Huile d'olive extra vierge, burrata fraîche, poisson du jour pêché le matin même. On mange bien, on vit bien."
+      }
+    }
+  },
+  "reviews": {
+    "sectionLabel": "Avis",
+    "headline": "Ce que disent nos hôtes.",
+    "leaveReview": "Laisser un avis sur Google"
+  },
+  "faq": {
+    "sectionLabel": "Questions Fréquentes",
+    "headline": "Les réponses aux questions les plus courantes,",
+    "headlineBold": "avant même que vous les posiez.",
+    "subtitle": "Tout ce qu'il faut savoir sur l'arrivée, les équipements et la réservation. Pour toute autre question, écrivez-nous."
+  },
+  "cta": {
+    "headline": "Chaque séjour commence par une conversation.",
+    "headlineBold": "Commencez la vôtre.",
+    "subtitle": "Questions, disponibilités, réservations, informations — nous répondrons sous quelques heures.",
+    "button": "Écrivez-nous maintenant"
+  },
+  "whatsapp": {
+    "message": "Bonjour ! Je souhaiterais des informations sur les appartements Cosmia Hospitality sur le Gargano.",
+    "ariaLabel": "Contactez-nous sur WhatsApp"
+  },
+  "gallery": {
+    "viewPhoto": "Voir la photo {n} sur {name}",
+    "photoAlt": "{name} — photo {n}",
+    "close": "Fermer la galerie",
+    "prev": "Photo précédente",
+    "next": "Photo suivante",
+    "dialogLabel": "Galerie {name}"
+  },
+  "not_found": {
+    "title": "Vous vous êtes égaré dans le Gargano.",
+    "subtitle": "La page que vous cherchez n'existe pas ou a été déplacée. Retrouvons le bon chemin.",
+    "backHome": "Retour à l'accueil",
+    "seeApartments": "Voir les appartements"
+  },
+  "footer": {
+    "tagline": "Appartements de vacances, au cœur du Gargano.",
+    "links": "Liens rapides",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions Générales",
+    "busSchedule": "Horaires Bus pour la Mer",
+    "rights": "© {year} Cosmia Hospitality. Tous droits réservés."
+  },
+  "contact": {
+    "pageTitle": "Contact",
+    "headline": "Contactez-nous",
+    "subtitle": "Remplissez le formulaire et nous vous répondrons sous 24 heures. Vous pouvez aussi nous écrire directement sur WhatsApp.",
+    "whatsappNote": "Vous préférez WhatsApp ? Cliquez sur le bouton en bas à droite pour démarrer une conversation immédiatement.",
+    "form": {
+      "name": "Nom et Prénom",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Email",
+      "emailPlaceholder": "jean@email.com",
+      "phone": "Téléphone (facultatif)",
+      "phonePlaceholder": "+39 333 000 0000",
+      "apartment": "Appartement souhaité",
+      "apartmentDefault": "Sélectionnez un appartement",
+      "apartmentGeneral": "Informations générales",
+      "checkin": "Date d'arrivée",
+      "checkout": "Date de départ",
+      "guests": "Nombre de personnes",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-nous de vos besoins, des dates envisagées, ou de toute autre question...",
+      "submit": "Envoyer la demande",
+      "submitting": "Envoi en cours...",
+      "required": "Champ obligatoire",
+      "success": "Message envoyé ! Nous vous répondrons sous 24 heures.",
+      "error": "Une erreur s'est produite. Réessayez ou écrivez-nous sur WhatsApp.",
+      "errors": {
+        "nameRequired": "Le nom est obligatoire",
+        "emailRequired": "L'email est obligatoire",
+        "emailInvalid": "Veuillez saisir un email valide",
+        "messageRequired": "Le message est obligatoire"
+      }
+    }
+  },
+  "about_page": {
+    "pageTitle": "À propos",
+    "headline": "Une passion pour le Gargano.",
+    "headlineBold": "Une manière personnelle d'accueillir.",
+    "section1Title": "Comment Cosmia est né",
+    "section1Body": "Cosmia est né d'une idée simple : le Gargano est beau. Vraiment beau. Et ceux qui viennent devraient pouvoir le vivre pleinement, pas seulement le traverser depuis un appartement anonyme. Été, printemps, automne — chaque saison apporte quelque chose de différent et vaut le voyage. Les maisons sont à Mattinata : soleil, mer, bonne cuisine et tout le Gargano accessible en quelques minutes.",
+    "section2Title": "Comment nous travaillons",
+    "section2Body": "Nous savons où prendre le meilleur petit-déjeuner de Mattinata. Nous connaissons la crique qui vaut le réveil à six heures, le plus beau sentier au coucher du soleil et la trattoria sans enseigne qui vaut le détour. Pas parce que nous l'avons lu quelque part — parce que nous y sommes allés, et que nous y retournons encore. À votre arrivée, posez-nous toutes les questions que vous voulez.",
+    "values": {
+      "care": {
+        "title": "Votre arrivée",
+        "description": "Chaque appartement est prêt à votre arrivée. Draps frais, cuisine équipée, tout à sa place. Vous n'avez qu'à penser à votre séjour."
+      },
+      "authenticity": {
+        "title": "Le Gargano que vous ne trouverez pas en ligne",
+        "description": "Les endroits absents des guides, les saveurs qu'on ne trouve pas sur TripAdvisor. Nous sommes là pour les partager."
+      },
+      "presence": {
+        "title": "Toujours joignables",
+        "description": "Un message, un appel, nous sommes là."
+      }
+    }
+  },
+  "apartments_page": {
+    "pageTitle": "Nos Appartements",
+    "headline": "Choisissez votre coin de Gargano.",
+    "subtitle": "Votre point de départ pour explorer le Gargano."
+  },
+  "property_page": {
+    "gallery": "Galerie",
+    "amenities": "Équipements",
+    "location": "Emplacement",
+    "busLink": "Comment rejoindre la mer en bus",
+    "reviews": "Avis",
+    "requestAvailability": "Demander la disponibilité",
+    "leaveReview": "Laisser un avis sur Google",
+    "house_rules": {
+      "title": "À savoir avant de réserver",
+      "checkin": "Arrivée à partir de 15h00 · Départ avant 11h00",
+      "quiet": "Silence après 22h00",
+      "smoking": "Fumer autorisé uniquement dans les espaces extérieurs",
+      "pets": "Animaux acceptés sur demande préalable",
+      "minStay": "Séjour minimum : 2 nuits (week-ends), 3 en haute saison",
+      "fullTerms": "Règlement complet"
+    },
+    "guests": "{count} personnes",
+    "bedrooms": "{count} chambres",
+    "bathrooms": "{count} salle de bain",
+    "amenities_map": {
+      "wifi": "Wi-Fi",
+      "air_conditioning": "Climatisation",
+      "kitchen": "Cuisine équipée",
+      "parking": "Parking",
+      "terrace": "Terrasse",
+      "balcony": "Balcon",
+      "sea_view": "Vue mer",
+      "washing_machine": "Lave-linge",
+      "tv": "Smart TV",
+      "microwave": "Micro-ondes",
+      "coffee": "Cafetière moka",
+      "iron": "Fer à repasser",
+      "hair_dryer": "Sèche-cheveux",
+      "linen": "Draps et serviettes",
+      "wardrobe": "Armoire",
+      "cleaning_kit": "Kit de nettoyage de base",
+      "personal_welcome": "Accueil personnalisé",
+      "local_tips": "Conseils locaux"
+    }
+  },
+  "privacy": {
+    "pageTitle": "Politique de Confidentialité",
+    "lastUpdated": "Dernière mise à jour : {date}"
+  },
+  "cookie": {
+    "message": "Ce site utilise des cookies techniques essentiels, toujours actifs, et des cookies d'analyse (Google Analytics) uniquement avec votre consentement, pour comprendre comment le site est utilisé.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "closeLabel": "Fermer",
+    "dialogLabel": "Consentement aux cookies"
+  },
+  "common": {
+    "backToApartments": "← Tous les appartements",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite"
+  }
+}

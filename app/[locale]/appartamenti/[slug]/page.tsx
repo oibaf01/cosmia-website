@@ -7,14 +7,16 @@ import { routing, type Locale } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { propertySchema, breadcrumbSchema } from '@/lib/seo/schema';
 import { properties, getPropertyBySlug } from '@/lib/data/properties';
-import { getReviewsByProperty, getAggregateRating } from '@/lib/data/reviews';
+import { pick } from '@/lib/locale';
+// Recensioni oscurate temporaneamente: nessuna recensione reale ancora raccolta.
+// import { getReviewsByProperty, getAggregateRating } from '@/lib/data/reviews';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieBanner from '@/components/CookieBanner';
 import PropertyGallery from '@/components/sections/PropertyGallery';
-import ReviewsCarousel from '@/components/sections/ReviewsCarousel';
-import { MapPin, Users, BedDouble, Bath, Star, ExternalLink } from 'lucide-react';
+// import ReviewsCarousel from '@/components/sections/ReviewsCarousel';
+import { MapPin, Users, BedDouble, Bath, Clock, VolumeX, CigaretteOff, PawPrint, CalendarRange, FileText, Bus } from 'lucide-react';
 import AnimatedIcon from '@/components/ui/AnimatedIcon';
 
 export async function generateMetadata({
@@ -26,14 +28,17 @@ export async function generateMetadata({
   const property = getPropertyBySlug(slug);
   if (!property) return {};
 
-  const name = locale === 'en' ? property.name.en : property.name.it;
-  const tagline = locale === 'en' ? property.tagline.en : property.tagline.it;
+  const place = property.location.split(',')[0];
 
   return buildMetadata({
-    titleIt: `${property.name.it} — Appartamento a ${property.location.split(',')[0]}`,
-    titleEn: `${property.name.en} — Apartment in ${property.location.split(',')[0]}`,
+    titleIt: `${property.name.it} — Appartamento a ${place}`,
+    titleEn: `${property.name.en} — Apartment in ${place}`,
+    titleFr: `${property.name.fr} — Appartement à ${place}`,
+    titleDe: `${property.name.de} — Wohnung in ${place}`,
     descriptionIt: property.tagline.it,
     descriptionEn: property.tagline.en,
+    descriptionFr: property.tagline.fr,
+    descriptionDe: property.tagline.de,
     locale,
     path: `/appartamenti/${slug}`,
   });
@@ -60,15 +65,19 @@ export default async function PropertyPage({
   const tApt = await getTranslations('apartments');
   const tCommon = await getTranslations('common');
 
-  const name = locale === 'en' ? property.name.en : property.name.it;
-  const description = locale === 'en' ? property.description.en : property.description.it;
-  const aggregateRating = getAggregateRating(slug);
+  const name = pick(property.name, locale);
+  const description = pick(property.description, locale);
+  // Recensioni oscurate temporaneamente: nessun aggregateRating reale da pubblicare.
+  // const aggregateRating = getAggregateRating(slug);
 
   const jsonLd = [
-    propertySchema(property, locale, aggregateRating),
+    propertySchema(property, locale),
     breadcrumbSchema([
       { name: 'Home', url: `https://cosmiahospitality.it/${locale}` },
-      { name: locale === 'en' ? 'Apartments' : 'Appartamenti', url: `https://cosmiahospitality.it/${locale}/appartamenti` },
+      {
+        name: pick({ it: 'Appartamenti', en: 'Apartments', fr: 'Appartements', de: 'Wohnungen' }, locale),
+        url: `https://cosmiahospitality.it/${locale}/appartamenti`,
+      },
       { name, url: `https://cosmiahospitality.it/${locale}/appartamenti/${slug}` },
     ]),
   ];
@@ -133,13 +142,14 @@ export default async function PropertyPage({
                   <Bath size={18} className="text-brand-gold" />
                   {tApt('bathrooms', { count: property.bathrooms })}
                 </div>
+                {/* Recensioni oscurate temporaneamente: nessun rating reale da mostrare.
                 {aggregateRating.reviewCount > 0 && (
                   <div className="flex items-center gap-1.5 text-sm text-slate-600">
                     <Star size={16} className="text-brand-gold fill-brand-gold" />
                     <span>{aggregateRating.ratingValue}</span>
                     <span className="text-slate-400">({aggregateRating.reviewCount})</span>
                   </div>
-                )}
+                )} */}
               </div>
 
               {/* Description */}
@@ -195,9 +205,54 @@ export default async function PropertyPage({
                     title={`Mappa di ${name}`}
                   />
                 </div>
+                <Link
+                  href="/orari-bus"
+                  className="inline-flex items-center gap-2 mt-4 text-sm text-brand-gold hover:underline"
+                >
+                  <Bus size={14} />
+                  {t('busLink')}
+                </Link>
               </div>
 
-              {/* Reviews */}
+              {/* Info pratiche — regole essenziali, non economiche; dettagli completi in /termini */}
+              <div>
+                <h2 className="font-serif text-brand-navy text-2xl font-semibold mb-6">
+                  {t('house_rules.title')}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex items-center gap-3 text-sm text-slate-600">
+                    <Clock size={18} className="text-brand-gold shrink-0" />
+                    {t('house_rules.checkin')}
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-slate-600">
+                    <VolumeX size={18} className="text-brand-gold shrink-0" />
+                    {t('house_rules.quiet')}
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-slate-600">
+                    <CigaretteOff size={18} className="text-brand-gold shrink-0" />
+                    {t('house_rules.smoking')}
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-slate-600">
+                    <PawPrint size={18} className="text-brand-gold shrink-0" />
+                    {t('house_rules.pets')}
+                  </div>
+                  <div className="flex items-center gap-3 text-sm text-slate-600">
+                    <CalendarRange size={18} className="text-brand-gold shrink-0" />
+                    {t('house_rules.minStay')}
+                  </div>
+                </div>
+                <Link
+                  href="/termini"
+                  className="inline-flex items-center gap-2 mt-6 text-sm text-brand-gold hover:underline"
+                >
+                  <FileText size={14} />
+                  {t('house_rules.fullTerms')}
+                </Link>
+              </div>
+
+              {/* Reviews — oscurate temporaneamente: nessuna recensione reale ancora raccolta.
+                  Da riattivare collegando Google Reviews + recensioni ricevute direttamente. */}
+              {/*
               <div>
                 <h2 className="font-serif text-brand-navy text-2xl font-semibold mb-6">
                   {t('reviews')}
@@ -215,6 +270,7 @@ export default async function PropertyPage({
                   </a>
                 )}
               </div>
+              */}
             </div>
 
             {/* Sidebar CTA */}
@@ -222,7 +278,7 @@ export default async function PropertyPage({
               <div className="sticky top-28 bg-white rounded-2xl p-8 border border-brand-sand shadow-sm">
                 <h3 className="font-serif text-brand-navy text-xl font-semibold mb-2">{name}</h3>
                 <p className="text-slate-500 text-sm mb-6">
-                  {locale === 'en' ? property.tagline.en : property.tagline.it}
+                  {pick(property.tagline, locale)}
                 </p>
                 <Link
                   href={`/contatti?appartamento=${slug}`}

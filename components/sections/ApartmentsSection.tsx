@@ -1,14 +1,14 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from 'lucide-react';
 import { properties } from '@/lib/data/properties';
 import PropertyCard from './PropertyCard';
 import Reveal3D from '@/components/ui/Reveal3D';
 
-export default function ApartmentsSection() {
-  const t = useTranslations('apartments');
+// No client hooks/state here — this is a plain Server Component, PropertyCard/Reveal3D
+// (the parts that actually animate) stay client, everything else ships zero JS.
+export default async function ApartmentsSection() {
+  const t = await getTranslations('apartments');
 
   return (
     <section className="bg-white py-24 lg:py-32">

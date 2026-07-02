@@ -1,5 +1,7 @@
 import { type Property } from '@/lib/data/properties';
 import { type Review } from '@/lib/data/reviews';
+import { type FaqItem } from '@/lib/data/faq';
+import { pick } from '@/lib/locale';
 
 const BASE_URL = 'https://cosmiahospitality.it';
 
@@ -25,7 +27,7 @@ export function organizationSchema() {
       longitude: '16.0472',
     },
     areaServed: 'Gargano, Puglia, Italia',
-    knowsLanguage: ['it', 'en'],
+    knowsLanguage: ['it', 'en', 'fr', 'de'],
     sameAs: [],
   };
 }
@@ -48,8 +50,8 @@ export function websiteSchema() {
 }
 
 export function propertySchema(property: Property, locale: string, aggregateRating?: { ratingValue: number; reviewCount: number }) {
-  const name = locale === 'en' ? property.name.en : property.name.it;
-  const description = locale === 'en' ? property.description.en : property.description.it;
+  const name = pick(property.name, locale);
+  const description = pick(property.description, locale);
   const url = `${BASE_URL}/${locale}/appartamenti/${property.slug}`;
 
   return {
@@ -124,6 +126,21 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
+export function faqSchema(items: FaqItem[], locale: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: pick(item.question, locale),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: pick(item.answer, locale),
+      },
+    })),
+  };
+}
+
 export function itemListSchema(properties: Property[], locale: string) {
   return {
     '@context': 'https://schema.org',
@@ -131,7 +148,7 @@ export function itemListSchema(properties: Property[], locale: string) {
     itemListElement: properties.map((property, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: locale === 'en' ? property.name.en : property.name.it,
+      name: pick(property.name, locale),
       url: `${BASE_URL}/${locale}/appartamenti/${property.slug}`,
     })),
   };

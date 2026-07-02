@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, type TargetAndTransition } from 'framer-motion';
+import { m, useMotionValue, useSpring, type TargetAndTransition } from 'framer-motion';
+import type { PointerEvent } from 'react';
 import {
   Wifi, Wind, UtensilsCrossed, Car, Sunset, Eye, WashingMachine, Tv,
   Waves, Footprints, Castle,
@@ -72,17 +73,40 @@ interface AnimatedIconProps {
 
 export default function AnimatedIcon({ iconKey, size = 24, className }: AnimatedIconProps) {
   const Icon = iconRegistry[iconKey];
+
+  // Pointer-tracked 3D tilt — pure CSS transform (rotateX/rotateY), GPU-composited, no WebGL
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
+  const springRotateX = useSpring(rotateX, { stiffness: 300, damping: 20 });
+  const springRotateY = useSpring(rotateY, { stiffness: 300, damping: 20 });
+
   if (!Icon) return null;
 
   const hoverAnim: TargetAndTransition = hoverAnimations[iconKey] ?? { scale: 1.15 };
 
+  function handlePointerMove(e: PointerEvent<HTMLDivElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    rotateY.set(((e.clientX - rect.left) / rect.width - 0.5) * 24);
+    rotateX.set(((e.clientY - rect.top) / rect.height - 0.5) * -24);
+  }
+
+  function handlePointerLeave() {
+    rotateX.set(0);
+    rotateY.set(0);
+  }
+
   return (
-    <motion.div
+    <m.div
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
       whileHover={hoverAnim}
       transition={{ type: 'spring', stiffness: 350, damping: 18 }}
+      style={{ perspective: 300 }}
       className={className}
     >
-      <Icon size={size} strokeWidth={1.5} />
-    </motion.div>
+      <m.div style={{ rotateX: springRotateX, rotateY: springRotateY }}>
+        <Icon size={size} strokeWidth={1.5} />
+      </m.div>
+    </m.div>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { reviews } from '@/lib/data/reviews';
@@ -42,7 +42,7 @@ export default function ReviewsCarousel() {
   return (
     <section ref={ref} className="bg-brand-sand py-24 lg:py-32">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -54,9 +54,9 @@ export default function ReviewsCarousel() {
           <h2 className="font-serif text-brand-navy text-3xl lg:text-4xl font-light">
             {t('headline')}
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -105,7 +105,7 @@ export default function ReviewsCarousel() {
               <ChevronRight size={18} />
             </button>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
