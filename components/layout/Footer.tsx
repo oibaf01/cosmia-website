@@ -16,13 +16,13 @@ export default async function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
-          <div className="space-y-6 sm:col-span-2 lg:col-span-1">
+          <div className="space-y-3 sm:col-span-2 lg:col-span-1">
             <Image
               src="/logos/logo_white.png"
               alt="Cosmia Hospitality"
               width={400}
               height={160}
-              className="h-48 w-auto"
+              className="h-32 w-auto -ml-2"
             />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               {t('tagline')}
