@@ -155,7 +155,10 @@
         "nameRequired": "Il nome è obbligatorio",
         "emailRequired": "L'email è obbligatoria",
         "emailInvalid": "Inserisci un'email valida",
-        "messageRequired": "Il messaggio è obbligatorio"
+        "messageRequired": "Il messaggio è obbligatorio",
+        "phoneInvalid": "Inserisci un numero di telefono valido",
+        "dateOrder": "La data di check-out deve essere successiva al check-in",
+        "messageLinks": "Il messaggio non può contenere link"
       }
     }
   },
