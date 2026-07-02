@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { routing, type Locale } from '@/i18n/routing';
 
 const BASE_URL = 'https://cosmiahospitality.com';
-const DEFAULT_OG_IMAGE = `${BASE_URL}/images/hero/herocosmia.jpg`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/images/hero/og-image.png`;
 
 const OG_LOCALE_MAP: Record<Locale, string> = {
   it: 'it_IT',
