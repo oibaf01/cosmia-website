@@ -18,11 +18,11 @@ export default async function Footer() {
           {/* Brand */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <Image
-              src="/logos/Icon_white.png"
+              src="/logos/logo_full_white.png"
               alt="Cosmia Hospitality"
-              width={48}
-              height={48}
-              className="h-10 w-auto"
+              width={200}
+              height={80}
+              className="h-16 w-auto"
             />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               {t('tagline')}
