@@ -100,7 +100,9 @@
   },
   "whatsapp": {
     "message": "Bonjour ! Je souhaiterais des informations sur les appartements Cosmia Hospitality sur le Gargano.",
-    "ariaLabel": "Contactez-nous sur WhatsApp"
+    "ariaLabel": "Contactez-nous sur WhatsApp",
+    "tooltipTitle": "Discutez avec nous sur WhatsApp",
+    "tooltipText": "Communiquez directement sur WhatsApp"
   },
   "gallery": {
     "viewPhoto": "Voir la photo {n} sur {name}",
