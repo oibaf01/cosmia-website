@@ -7,7 +7,11 @@ import { Link, usePathname } from '@/i18n/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import { Menu, X } from 'lucide-react';
 
-export default function Header() {
+interface HeaderProps {
+  alwaysDark?: boolean; // forza sfondo navy anche quando non scrollato
+}
+
+export default function Header({ alwaysDark = false }: HeaderProps) {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const isHome = pathname === '/';
@@ -39,7 +43,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || alwaysDark
           ? 'bg-brand-navy/95 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}

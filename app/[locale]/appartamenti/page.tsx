@@ -52,7 +52,7 @@ function ApartmentsContent({ locale }: { locale: string }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <Header />
+      <Header alwaysDark />
       <main id="main-content" className="pt-32 pb-24 bg-brand-ivory min-h-screen">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Header */}
