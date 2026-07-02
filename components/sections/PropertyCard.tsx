@@ -1,11 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { MapPin, Users, BedDouble, Bath, ArrowRight } from 'lucide-react';
 import { type Property } from '@/lib/data/properties';
+import { pick } from '@/lib/locale';
 
 interface PropertyCardProps {
   property: Property;
@@ -15,11 +17,12 @@ interface PropertyCardProps {
 export default function PropertyCard({ property, index = 0 }: PropertyCardProps) {
   const t = useTranslations('apartments');
   const locale = useLocale();
-  const name = locale === 'en' ? property.name.en : property.name.it;
-  const tagline = locale === 'en' ? property.tagline.en : property.tagline.it;
+  const name = pick(property.name, locale);
+  const tagline = pick(property.tagline, locale);
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   return (
-    <motion.article
+    <m.article
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -6 }}
@@ -29,11 +32,17 @@ export default function PropertyCard({ property, index = 0 }: PropertyCardProps)
     >
       {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden bg-brand-navy">
+        {!imgLoaded && (
+          <div className="absolute inset-0 animate-pulse bg-brand-deep" aria-hidden="true" />
+        )}
         <Image
           src={property.logo ?? property.heroPhoto}
           alt={name}
           fill
-          className="object-contain group-hover:scale-[1.03] transition-transform duration-700"
+          onLoad={() => setImgLoaded(true)}
+          className={`object-contain group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ${
+            imgLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
         <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-medium px-3 py-1.5 rounded-full">
@@ -75,6 +84,6 @@ export default function PropertyCard({ property, index = 0 }: PropertyCardProps)
           />
         </Link>
       </div>
-    </motion.article>
+    </m.article>
   );
 }

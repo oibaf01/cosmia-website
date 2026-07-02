@@ -3,7 +3,10 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { LazyMotion, domAnimation } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/next';
 import { routing, type Locale } from '@/i18n/routing';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import '@/app/globals.css';
 
 const inter = Inter({
@@ -22,10 +25,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://cosmiahospitality.it'),
-  title: {
-    template: '%s | Cosmia Hospitality — Gargano',
-    default: 'Cosmia Hospitality — Appartamenti Vacanza sul Gargano',
-  },
+  title: 'Cosmia Hospitality — Appartamenti Vacanza sul Gargano',
   description:
     "Appartamenti vacanza a Mattinata, nel cuore del Gargano, Puglia. Casa Lira e Casa Vela — il punto di partenza per scoprire il promontorio, tutto l'anno.",
   icons: {
@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     },
   },
   manifest: '/site.webmanifest',
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export function generateStaticParams() {
@@ -71,8 +74,12 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full flex flex-col antialiased">
         <NextIntlClientProvider messages={messages}>
-          {children}
+          {/* m.* components below load only the animation features actually used
+              (no drag/layout), instead of framer-motion's full engine via <motion.*> */}
+          <LazyMotion features={domAnimation}>{children}</LazyMotion>
         </NextIntlClientProvider>
+        <GoogleAnalytics />
+        <Analytics />
       </body>
     </html>
   );

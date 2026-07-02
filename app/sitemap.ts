@@ -6,8 +6,11 @@ const BASE_URL = 'https://cosmiahospitality.it';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = routing.locales;
+  // /privacy and /termini only have real content in it/en — fr/de show an English
+  // fallback, so indexing them separately would just be duplicate content.
+  const legalOnlyLocales = locales.filter((l) => l === 'it' || l === 'en');
 
-  const staticRoutes = ['', '/appartamenti', '/chi-siamo', '/contatti', '/privacy'];
+  const staticRoutes = ['', '/appartamenti', '/chi-siamo', '/contatti', '/orari-bus'];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.flatMap((route) =>
     locales.map((locale) => ({
@@ -15,6 +18,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: route === '' ? ('weekly' as const) : ('monthly' as const),
       priority: route === '' ? 1.0 : route === '/appartamenti' ? 0.9 : 0.7,
+    }))
+  );
+
+  const legalEntries: MetadataRoute.Sitemap = ['/privacy', '/termini'].flatMap((route) =>
+    legalOnlyLocales.map((locale) => ({
+      url: `${BASE_URL}/${locale}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     }))
   );
 
@@ -27,5 +39,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticEntries, ...propertyEntries];
+  return [...staticEntries, ...legalEntries, ...propertyEntries];
 }

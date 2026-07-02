@@ -1,30 +1,38 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { X } from 'lucide-react';
+import { COOKIE_CONSENT_KEY, CONSENT_EVENT } from '@/lib/consent';
 
-const COOKIE_KEY = 'cosmia_cookie_consent';
+function subscribe(callback: () => void) {
+  window.addEventListener(CONSENT_EVENT, callback);
+  return () => window.removeEventListener(CONSENT_EVENT, callback);
+}
+
+// No consent recorded yet → banner must show; treat SSR/pre-hydration as "decided" to avoid a flash.
+function getSnapshot() {
+  return localStorage.getItem(COOKIE_CONSENT_KEY) === null;
+}
+
+function getServerSnapshot() {
+  return false;
+}
 
 export default function CookieBanner() {
   const t = useTranslations('cookie');
   const tFooter = useTranslations('footer');
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_KEY);
-    if (!consent) setVisible(true);
-  }, []);
+  const visible = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   function handleAccept() {
-    localStorage.setItem(COOKIE_KEY, 'accepted');
-    setVisible(false);
+    localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   }
 
   function handleDecline() {
-    localStorage.setItem(COOKIE_KEY, 'declined');
-    setVisible(false);
+    localStorage.setItem(COOKIE_CONSENT_KEY, 'declined');
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   }
 
   if (!visible) return null;
@@ -32,7 +40,7 @@ export default function CookieBanner() {
   return (
     <div
       role="dialog"
-      aria-label="Cookie consent"
+      aria-label={t('dialogLabel')}
       aria-live="polite"
       className="fixed bottom-0 left-0 right-0 z-40 bg-brand-navy/98 backdrop-blur-sm border-t border-brand-gold/20 shadow-2xl"
     >
@@ -58,7 +66,7 @@ export default function CookieBanner() {
           </button>
           <button
             onClick={handleDecline}
-            aria-label="Chiudi"
+            aria-label={t('closeLabel')}
             className="text-white/40 hover:text-white transition-colors cursor-pointer ml-1"
           >
             <X size={18} />

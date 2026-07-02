@@ -1,17 +1,11 @@
 'use client';
 
 import { useRef } from 'react';
-import dynamic from 'next/dynamic';
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ArrowRight } from 'lucide-react';
-
-// WebGL canvas needs window — no SSR
-const CompassScene = dynamic(() => import('@/components/ui/CompassScene'), {
-  ssr: false,
-  loading: () => <div className="w-full h-full bg-brand-navy" />,
-});
+import Image from 'next/image';
 
 export default function AboutTeaser() {
   const t = useTranslations('about');
@@ -19,11 +13,11 @@ export default function AboutTeaser() {
   const inView = useInView(ref, { once: true, margin: '-20% 0px' });
 
   return (
-    <section ref={ref} className="bg-brand-ivory py-24 lg:py-32">
+    <section ref={ref} className="bg-brand-ivory pt-12 lg:pt-16 pb-24 lg:pb-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Text */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 32 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -49,24 +43,31 @@ export default function AboutTeaser() {
                 className="group-hover:translate-x-1 transition-transform duration-150"
               />
             </Link>
-          </motion.div>
+          </m.div>
 
-          {/* Visual — decorative gold block */}
-          <motion.div
+          {/* Visual — finestra ad arco affacciata sul mare, foto intera (3:2 originale,
+              nessun crop) in una card semplice come le PropertyCard, senza hover */}
+          <m.div
             initial={{ opacity: 0, x: 32 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-            className="relative"
+            className="relative w-full max-w-md mx-auto"
           >
-            <div className="aspect-[4/3] rounded-2xl bg-brand-navy overflow-hidden">
-              {inView && <CompassScene />}
+            <div className="relative aspect-5/6 rounded-2xl overflow-hidden bg-brand-navy border border-brand-sand shadow-sm">
+              <Image
+                src="/images/hero/window56.jpg"
+                alt={t('imageAlt')}
+                fill
+                sizes="(min-width: 1024px) 384px, 60vw"
+                className="object-cover"
+              />
             </div>
             {/* Decorative accent */}
             <div
               className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-brand-gold/20 -z-10"
               aria-hidden="true"
             />
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

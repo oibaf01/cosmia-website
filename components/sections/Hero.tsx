@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
+import { m, useScroll, useTransform, type Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
@@ -115,7 +115,7 @@ export default function Hero() {
       aria-label="Hero section"
     >
       {/* ── Background image (parallax) ── */}
-      <motion.div
+      <m.div
         style={{ y: bgY, scale: bgScale }}
         className="absolute inset-0 will-change-transform"
       >
@@ -128,10 +128,10 @@ export default function Hero() {
           className="object-cover object-[center_40%]"
           aria-hidden
         />
-      </motion.div>
+      </m.div>
 
       {/* ── Navy overlay (dims on scroll) ── */}
-      <motion.div
+      <m.div
         style={{ opacity: overlayOpacity }}
         className="absolute inset-0 bg-brand-navy"
         aria-hidden
@@ -159,63 +159,63 @@ export default function Hero() {
       <div className="absolute top-0 left-0 right-0 h-px bg-brand-gold/30" aria-hidden />
 
       {/* ── Content ── */}
-      <motion.div
+      <m.div
         style={{ y: contentY }}
         className="relative z-10 text-center px-6 max-w-3xl mx-auto will-change-transform"
       >
-        <motion.div
+        <m.div
           variants={container}
           initial="hidden"
           animate="show"
           className="flex flex-col items-center"
         >
           {/* Eyebrow */}
-          <motion.p
+          <m.p
             variants={fadeUp}
             className="text-brand-gold text-xs font-semibold tracking-[0.28em] uppercase mb-10"
           >
             Gargano — Puglia — Italia
-          </motion.p>
+          </m.p>
 
           {/* H1 line 1 — clip reveal */}
           <div className="overflow-hidden">
-            <motion.h1
+            <m.h1
               variants={clipReveal}
               className="block font-serif text-white text-4xl sm:text-5xl lg:text-7xl font-light leading-tight"
             >
               {t('headline')}
-            </motion.h1>
+            </m.h1>
           </div>
 
           {/* H1 line 2 — gold clip reveal */}
           <div className="overflow-hidden mb-8">
-            <motion.span
+            <m.span
               variants={clipReveal}
               className="block font-serif text-brand-gold text-4xl sm:text-5xl lg:text-7xl font-semibold leading-tight"
             >
               {t('headlineBold')}
-            </motion.span>
+            </m.span>
           </div>
 
           {/* Gold ornamental divider */}
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
+          <m.div variants={fadeUp} className="flex items-center gap-3 mb-8">
             <div className="w-10 h-px bg-brand-gold/40" />
             <div className="w-1 h-1 rounded-full bg-brand-gold/60" />
             <div className="w-1 h-1 rounded-full bg-brand-gold/40" />
             <div className="w-1 h-1 rounded-full bg-brand-gold/60" />
             <div className="w-10 h-px bg-brand-gold/40" />
-          </motion.div>
+          </m.div>
 
           {/* Subtitle */}
-          <motion.p
+          <m.p
             variants={fadeUp}
             className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed font-light"
           >
             {t('subtitle')}
-          </motion.p>
+          </m.p>
 
           {/* CTAs */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
@@ -231,25 +231,25 @@ export default function Hero() {
             >
               {t('ctaContact')}
             </Link>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </m.div>
+        </m.div>
+      </m.div>
 
       {/* ── Scroll indicator ── */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40"
         aria-hidden
       >
-        <motion.div
+        <m.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
           <ChevronDown size={20} />
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

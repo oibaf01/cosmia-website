@@ -3,21 +3,48 @@
     "home": "Home",
     "apartments": "Apartments",
     "about": "About Us",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation"
   },
   "hero": {
     "headline": "Your vacation.",
     "headlineBold": "Starts here.",
-    "subtitle": "From choosing the apartment to tips on the area, we help you experience Gargano your way.",
+    "subtitle": "Handpicked apartments curated with care, dedicated assistance and local insights to experience Gargano as those who lives it do.",
+    "tagline": "We manage vacation homes and apartments in the heart of the Gargano.",
     "cta": "Discover our apartments",
     "ctaContact": "Write to us"
+  },
+  "what_we_do": {
+    "sectionLabel": "What We Do",
+    "headline": "We manage vacation homes and apartments on the Gargano,",
+    "headlineBold": "taking care of every aspect.",
+    "pillar1": {
+      "title": "Managing apartments and vacation homes",
+      "body": "Every property we manage is looked after in every detail, from A to Z.",
+      "sub1": {
+        "title": "Before",
+        "body": "We prepare every detail of your arrival, before your stay even begins."
+      },
+      "sub2": {
+        "title": "During",
+        "body": "Real support and presence throughout your stay, from arrival to departure."
+      },
+      "sub3": {
+        "title": "After",
+        "body": "We make sure everything went well and stay available, even after you leave."
+      }
+    }
   },
   "about": {
     "sectionLabel": "About Us",
     "headline": "Not just an apartment.",
     "headlineBold": "A starting point to discover the Gargano.",
     "body": "Cosmia was born from a love for the Gargano and a desire to share it. Apartments, 360° support, and a list of places that you won't find in any guide.",
-    "cta": "Learn more about us"
+    "cta": "Learn more about us",
+    "imageAlt": "Arched window overlooking the Gargano coastline"
   },
   "apartments": {
     "sectionLabel": "Our Apartments",
@@ -59,22 +86,49 @@
     "headline": "What our guests say.",
     "leaveReview": "Leave a review on Google"
   },
+  "faq": {
+    "sectionLabel": "Frequently Asked Questions",
+    "headline": "Answers to the most common questions,",
+    "headlineBold": "before you even ask.",
+    "subtitle": "Everything you need to know about arrival, amenities and booking. For anything else, get in touch."
+  },
   "cta": {
     "headline": "Every stay begins with a conversation.",
     "headlineBold": "Start yours.",
     "subtitle": "Questions, availability, bookings, information — we'll respond within a few hours.",
     "button": "Write to us now"
   },
+  "whatsapp": {
+    "message": "Hi! I'd like information about the Cosmia Hospitality apartments on the Gargano.",
+    "ariaLabel": "Contact us on WhatsApp"
+  },
+  "gallery": {
+    "viewPhoto": "View photo {n} of {name}",
+    "photoAlt": "{name} — photo {n}",
+    "close": "Close gallery",
+    "prev": "Previous photo",
+    "next": "Next photo",
+    "dialogLabel": "{name} gallery"
+  },
+  "not_found": {
+    "title": "You've wandered off in the Gargano.",
+    "subtitle": "The page you're looking for doesn't exist or has moved. Let's get you back on track.",
+    "backHome": "Back to home",
+    "seeApartments": "See the apartments"
+  },
   "footer": {
     "tagline": "Vacation apartments, in the heart of the Gargano.",
     "links": "Quick links",
     "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "busSchedule": "Bus Times to the Beach",
     "rights": "© {year} Cosmia Hospitality. All rights reserved."
   },
   "contact": {
     "pageTitle": "Contact",
     "headline": "Contact us.",
     "subtitle": "Fill in the form and we'll get back to you within 24 hours. You can also write to us directly on WhatsApp.",
+    "whatsappNote": "Prefer WhatsApp? Click the button at the bottom right to start a chat immediately.",
     "form": {
       "name": "Full Name",
       "namePlaceholder": "John Smith",
@@ -135,9 +189,19 @@
     "gallery": "Gallery",
     "amenities": "Amenities",
     "location": "Location",
+    "busLink": "How to get to the beach by bus",
     "reviews": "Reviews",
     "requestAvailability": "Request availability",
     "leaveReview": "Leave a review on Google",
+    "house_rules": {
+      "title": "Good to know before booking",
+      "checkin": "Check-in from 3:00 PM · Check-out by 11:00 AM",
+      "quiet": "Quiet hours after 10:00 PM",
+      "smoking": "Smoking allowed only in outdoor spaces",
+      "pets": "Pets allowed upon prior request",
+      "minStay": "Minimum stay: 2 nights (weekends), 3 in high season",
+      "fullTerms": "Full terms & conditions"
+    },
     "guests": "{count} guests",
     "bedrooms": "{count} bedrooms",
     "bathrooms": "{count} bathroom",
@@ -167,9 +231,11 @@
     "lastUpdated": "Last updated: {date}"
   },
   "cookie": {
-    "message": "This website uses essential technical cookies for proper functionality. No profiling data is collected.",
+    "message": "This website uses essential technical cookies, always active, and analytics cookies (Google Analytics) only with your consent, to understand how the site is used.",
     "accept": "Accept",
-    "decline": "Decline"
+    "decline": "Decline",
+    "closeLabel": "Close",
+    "dialogLabel": "Cookie consent"
   },
   "common": {
     "backToApartments": "← All apartments",
