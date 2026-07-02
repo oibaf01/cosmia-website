@@ -38,8 +38,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations('about_page');
 
   const jsonLd = breadcrumbSchema([
-    { name: 'Home', url: `https://cosmiahospitality.it/${locale}` },
-    { name: t('pageTitle'), url: `https://cosmiahospitality.it/${locale}/chi-siamo` },
+    { name: 'Home', url: `https://cosmiahospitality.com/${locale}` },
+    { name: t('pageTitle'), url: `https://cosmiahospitality.com/${locale}/chi-siamo` },
   ]);
 
   return (

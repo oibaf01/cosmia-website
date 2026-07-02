@@ -31,13 +31,13 @@ export default async function NotFound() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/"
-              className="px-8 py-4 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-gold/90 hover:scale-[1.03] transition-all duration-200"
+              className="btn-glass btn-glass-md btn-glass-gold font-semibold tracking-wide"
             >
               {t('backHome')}
             </Link>
             <Link
               href="/appartamenti"
-              className="px-8 py-4 border border-white/30 text-white font-medium text-sm tracking-wide rounded hover:border-brand-gold hover:text-brand-gold transition-all duration-200"
+              className="btn-glass btn-glass-md btn-glass-dark font-medium tracking-wide"
             >
               {t('seeApartments')}
             </Link>

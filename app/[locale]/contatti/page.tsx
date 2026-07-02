@@ -36,8 +36,8 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   const t = await getTranslations('contact');
 
   const jsonLd = breadcrumbSchema([
-    { name: 'Home', url: `https://cosmiahospitality.it/${locale}` },
-    { name: t('pageTitle'), url: `https://cosmiahospitality.it/${locale}/contatti` },
+    { name: 'Home', url: `https://cosmiahospitality.com/${locale}` },
+    { name: t('pageTitle'), url: `https://cosmiahospitality.com/${locale}/contatti` },
   ]);
 
   return (
@@ -77,11 +77,11 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
                 </h2>
                 <div className="space-y-3 text-sm text-slate-600">
                   <a
-                    href="mailto:info@cosmiahospitality.it"
+                    href="mailto:info@cosmiahospitality.com"
                     className="flex items-start gap-3 hover:text-brand-gold transition-colors"
                   >
                     <Mail size={16} className="text-brand-gold mt-0.5 shrink-0" />
-                    info@cosmiahospitality.it
+                    info@cosmiahospitality.com
                   </a>
                   <a
                     href="tel:+393317728100"

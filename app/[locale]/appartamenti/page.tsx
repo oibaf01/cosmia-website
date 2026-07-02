@@ -38,8 +38,8 @@ function ApartmentsContent({ locale }: { locale: string }) {
   const t = useTranslations('apartments_page');
 
   const breadcrumb = breadcrumbSchema([
-    { name: 'Home', url: `https://cosmiahospitality.it/${locale}` },
-    { name: t('pageTitle'), url: `https://cosmiahospitality.it/${locale}/appartamenti` },
+    { name: 'Home', url: `https://cosmiahospitality.com/${locale}` },
+    { name: t('pageTitle'), url: `https://cosmiahospitality.com/${locale}/appartamenti` },
   ]);
 
   return (

@@ -1,19 +1,22 @@
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { getTranslations, getLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { Mail, Phone } from 'lucide-react';
+import { properties } from '@/lib/data/properties';
+import { pick } from '@/lib/locale';
 
-export default function Footer() {
-  const t = useTranslations('footer');
-  const tNav = useTranslations('nav');
+export default async function Footer() {
+  const t = await getTranslations('footer');
+  const tNav = await getTranslations('nav');
+  const locale = await getLocale();
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-brand-navy text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <Image
               src="/logos/Icon_white.png"
               alt="Cosmia Hospitality"
@@ -26,7 +29,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
+          {/* Quick links */}
           <div>
             <h3 className="text-brand-gold text-xs font-semibold tracking-widest uppercase mb-6">
               {t('links')}
@@ -34,9 +37,6 @@ export default function Footer() {
             <nav className="space-y-3">
               <Link href="/" className="block text-white/70 hover:text-brand-gold transition-colors text-sm">
                 {tNav('home')}
-              </Link>
-              <Link href="/appartamenti" className="block text-white/70 hover:text-brand-gold transition-colors text-sm">
-                {tNav('apartments')}
               </Link>
               <Link href="/chi-siamo" className="block text-white/70 hover:text-brand-gold transition-colors text-sm">
                 {tNav('about')}
@@ -56,6 +56,27 @@ export default function Footer() {
             </nav>
           </div>
 
+          {/* Apartments */}
+          <div>
+            <h3 className="text-brand-gold text-xs font-semibold tracking-widest uppercase mb-6">
+              {t('apartmentsHeading')}
+            </h3>
+            <nav className="space-y-3">
+              <Link href="/appartamenti" className="block text-white/70 hover:text-brand-gold transition-colors text-sm">
+                {t('allApartments')}
+              </Link>
+              {properties.map((property) => (
+                <Link
+                  key={property.slug}
+                  href={`/appartamenti/${property.slug}`}
+                  className="block text-white/70 hover:text-brand-gold transition-colors text-sm"
+                >
+                  {pick(property.name, locale)}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
           {/* Contact */}
           <div>
             <h3 className="text-brand-gold text-xs font-semibold tracking-widest uppercase mb-6">
@@ -63,11 +84,11 @@ export default function Footer() {
             </h3>
             <div className="space-y-3">
               <a
-                href="mailto:info@cosmiahospitality.it"
+                href="mailto:info@cosmiahospitality.com"
                 className="flex items-center gap-2 text-white/70 hover:text-brand-gold transition-colors text-sm"
               >
                 <Mail size={16} />
-                info@cosmiahospitality.it
+                info@cosmiahospitality.com
               </a>
               <a
                 href="tel:+393317728100"

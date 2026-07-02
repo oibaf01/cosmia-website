@@ -18,7 +18,7 @@ export default function RootNotFound() {
             </p>
             <Link
               href="/it"
-              className="inline-block px-8 py-4 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-gold/90 transition-all duration-200"
+              className="btn-glass btn-glass-md btn-glass-gold font-semibold tracking-wide"
             >
               Torna alla home
             </Link>

@@ -82,7 +82,7 @@ export default async function HomePage({
       <main id="main-content">
         <Hero />
         <WhatWeDoSection />
-        <SectionDivider className="bg-brand-ivory" />
+        <SectionDivider />
         <AboutTeaser />
         <ApartmentsSection />
         <ExperiencesSection />

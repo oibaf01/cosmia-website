@@ -6,7 +6,12 @@ import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { routing, type Locale } from '@/i18n/routing';
 
-export default function LanguageSwitcher({ className = '' }: { className?: string }) {
+interface LanguageSwitcherProps {
+  className?: string;
+  onLanguageSwitch?: () => void;
+}
+
+export default function LanguageSwitcher({ className = '', onLanguageSwitch }: LanguageSwitcherProps) {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
@@ -16,6 +21,7 @@ export default function LanguageSwitcher({ className = '' }: { className?: strin
 
   function switchLocale(next: Locale) {
     setOpen(false);
+    if (onLanguageSwitch) onLanguageSwitch();
     router.replace(pathname, { locale: next });
   }
 
