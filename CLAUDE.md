@@ -79,3 +79,47 @@ Use `motion` (Framer Motion v12+) for all animations. Import: `import { motion }
 1. Add entry to `properties` array in `lib/data/properties.ts` with a unique `slug`
 2. Add photos to `public/images/<slug>/`
 3. The slug automatically generates a route at `/[locale]/appartamenti/[slug]`
+
+## Deployment & Infrastructure
+
+**Live domain**: `cosmiahospitality.com` (Squarespace registrar, DNS pointing to Vercel)
+
+**Hosting**: Vercel (serverless, edge functions, always-on, zero cold-start)
+
+**Environment variables** (Vercel Settings → Environment Variables, all environments: Production/Preview/Development):
+- `RESEND_API_KEY` — email API (transactional contact form emails)
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` — Google Analytics 4 tracking
+
+**Email** (contact form):
+- Sent via Resend from `noreply@cosmiahospitality.com`
+- Received at `cosmiahospitality@gmail.com`
+- Domain verification: Resend requires SPF/DKIM records on `cosmiahospitality.com` (DNS configured)
+
+**Uptime**: Vercel does not hibernate/sleep after inactivity. Site is 24/7 online, no heartbeat script needed.
+
+## Git Workflow & CI/CD
+
+**Branch structure**:
+- `main` — production. Every push → Vercel auto-builds and deploys live (atomic, zero-downtime)
+- `developing` — integration branch for feature testing before PR to main
+- `pastore-dev` — personal development branch (staccato, optional)
+- Feature branches: `feature/*`, `fix/*`, `chore/*` (checked out from `developing`)
+
+**Workflow**:
+1. Create feature branch: `git checkout -b feature/xyz developing`
+2. Commit work, push: `git push -u origin feature/xyz`
+3. Open PR on GitHub: `feature/xyz` → `developing`
+4. After review/testing, merge PR into `developing`
+5. When ready for production: create PR `developing` → `main`
+6. Merge PR on GitHub → Vercel auto-deploys (watch dashboard for status)
+7. Preview deployments auto-created for every branch push (unique URL per branch)
+
+**Form validation & anti-spam** (added 2026-07-02):
+- Phone number: regex E.164-ish validation (7-20 chars, digits/spaces/+/parens/hyphens)
+- Check-in/check-out: enforces checkout > checkin
+- Message: blocks links (regex: URL/www/common TLDs) to prevent spam
+- Honeypot: invisible `website` field; if filled → silent rejection (returns fake success)
+- Time-trap: minimum 3 seconds elapsed between form load and submit; if faster → silent rejection
+- All validations replicated client (UX feedback) and server (security)
+
+**Contact form email rejection**: honeypot-filled or time-trap-triggered forms return `{"success": true}` but send no email (silent, prevents bot learning)
