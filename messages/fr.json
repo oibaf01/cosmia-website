@@ -155,7 +155,10 @@
         "nameRequired": "Le nom est obligatoire",
         "emailRequired": "L'email est obligatoire",
         "emailInvalid": "Veuillez saisir un email valide",
-        "messageRequired": "Le message est obligatoire"
+        "messageRequired": "Le message est obligatoire",
+        "phoneInvalid": "Veuillez saisir un numéro de téléphone valide",
+        "dateOrder": "La date de départ doit être après celle d'arrivée",
+        "messageLinks": "Le message ne peut pas contenir de liens"
       }
     }
   },

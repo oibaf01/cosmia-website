@@ -155,7 +155,10 @@
         "nameRequired": "Name is required",
         "emailRequired": "Email is required",
         "emailInvalid": "Please enter a valid email",
-        "messageRequired": "Message is required"
+        "messageRequired": "Message is required",
+        "phoneInvalid": "Please enter a valid phone number",
+        "dateOrder": "Check-out date must be after check-in",
+        "messageLinks": "The message cannot contain links"
       }
     }
   },

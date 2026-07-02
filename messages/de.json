@@ -155,7 +155,10 @@
         "nameRequired": "Name ist erforderlich",
         "emailRequired": "E-Mail ist erforderlich",
         "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-        "messageRequired": "Nachricht ist erforderlich"
+        "messageRequired": "Nachricht ist erforderlich",
+        "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein",
+        "dateOrder": "Das Check-out-Datum muss nach dem Check-in liegen",
+        "messageLinks": "Die Nachricht darf keine Links enthalten"
       }
     }
   },

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -10,17 +10,40 @@ import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { properties } from '@/lib/data/properties';
 import { pick } from '@/lib/locale';
 
+// E.164-ish: cifre, spazi, +, parentesi, trattini, 7-20 caratteri
+const PHONE_REGEX = /^[+]?[\d\s().-]{7,20}$/;
+// Rileva URL/link nel testo libero (spam pattern comune)
+const LINK_REGEX = /https?:\/\/|www\.|\b[a-z0-9-]+\.(com|net|org|it|info|biz|xyz|click)\b/i;
+
+// Isolata fuori dal componente: il compilatore React tratta Date.now() come impuro se chiamato nel render
+function elapsedSince(t: number | null) {
+  return t ? Date.now() - t : 0;
+}
+
 function buildSchema(t: (key: string) => string) {
-  return z.object({
-    name: z.string().min(2, t('contact.form.errors.nameRequired')),
-    email: z.string().email(t('contact.form.errors.emailInvalid')).min(1, t('contact.form.errors.emailRequired')),
-    phone: z.string().optional(),
-    apartment: z.string().optional(),
-    checkin: z.string().optional(),
-    checkout: z.string().optional(),
-    guests: z.string().optional(),
-    message: z.string().min(10, t('contact.form.errors.messageRequired')),
-  });
+  return z
+    .object({
+      name: z.string().min(2, t('contact.form.errors.nameRequired')),
+      email: z.string().email(t('contact.form.errors.emailInvalid')).min(1, t('contact.form.errors.emailRequired')),
+      phone: z
+        .string()
+        .optional()
+        .refine((v) => !v || PHONE_REGEX.test(v), t('contact.form.errors.phoneInvalid')),
+      apartment: z.string().optional(),
+      checkin: z.string().optional(),
+      checkout: z.string().optional(),
+      guests: z.string().optional(),
+      message: z
+        .string()
+        .min(10, t('contact.form.errors.messageRequired'))
+        .refine((v) => !LINK_REGEX.test(v), t('contact.form.errors.messageLinks')),
+      website: z.string().optional(), // honeypot: campo invisibile, deve restare vuoto
+    })
+    .superRefine((data, ctx) => {
+      if (data.checkin && data.checkout && new Date(data.checkout) <= new Date(data.checkin)) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['checkout'], message: t('contact.form.errors.dateOrder') });
+      }
+    });
 }
 
 type FormValues = z.infer<ReturnType<typeof buildSchema>>;
@@ -63,6 +86,8 @@ export default function ContactForm() {
   const prefilledApartment = searchParams.get('appartamento') || '';
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  // Time-trap anti-bot: timestamp al mount (impostato in un effect, non in render), controllato lato server come tempo minimo di compilazione
+  const mountedAtRef = useRef<number | null>(null);
 
   const schema = buildSchema((key) => t(key as Parameters<typeof t>[0]));
   const {
@@ -76,16 +101,25 @@ export default function ContactForm() {
   });
 
   useEffect(() => {
+    mountedAtRef.current = Date.now();
+  }, []);
+
+  useEffect(() => {
     if (prefilledApartment) setValue('apartment', prefilledApartment);
   }, [prefilledApartment, setValue]);
 
-  async function onSubmit(data: FormValues) {
+  function onSubmit(data: FormValues) {
     setStatus('loading');
+    const elapsedMs = elapsedSince(mountedAtRef.current);
+    void submitForm(data, elapsedMs);
+  }
+
+  async function submitForm(data: FormValues, elapsedMs: number) {
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, locale }),
+        body: JSON.stringify({ ...data, locale, elapsedMs }),
       });
       if (!res.ok) throw new Error('Network error');
       setStatus('success');
@@ -106,7 +140,13 @@ export default function ContactForm() {
   const tf = (key: string) => t(`contact.form.${key}` as Parameters<typeof t>[0]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
+    <form onSubmit={(e) => void handleSubmit(onSubmit)(e)} noValidate className="space-y-6">
+      {/* Honeypot anti-bot: campo invisibile a utenti reali, i bot lo compilano */}
+      <div className="absolute left-[-9999px] w-px h-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Lascia questo campo vuoto</label>
+        <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register('website')} />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <InputField label={tf('name')} error={errors.name?.message} required>
           <input
