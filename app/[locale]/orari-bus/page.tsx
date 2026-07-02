@@ -145,8 +145,8 @@ export default async function OrariBusPage({ params }: { params: Promise<{ local
   setRequestLocale(locale as Locale);
 
   const jsonLd = breadcrumbSchema([
-    { name: 'Home', url: `https://cosmiahospitality.it/${locale}` },
-    { name: pick(breadcrumbName, locale), url: `https://cosmiahospitality.it/${locale}/orari-bus` },
+    { name: 'Home', url: `https://cosmiahospitality.com/${locale}` },
+    { name: pick(breadcrumbName, locale), url: `https://cosmiahospitality.com/${locale}/orari-bus` },
   ]);
 
   return (
@@ -192,13 +192,13 @@ export default async function OrariBusPage({ params }: { params: Promise<{ local
           <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
             <Link
               href="/appartamenti"
-              className="px-8 py-4 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-gold/90 transition-all duration-200"
+              className="btn-glass btn-glass-md btn-glass-gold font-semibold tracking-wide"
             >
               {pick(ctaApartments, locale)}
             </Link>
             <Link
               href="/contatti"
-              className="px-8 py-4 border border-brand-navy/20 text-brand-navy font-medium text-sm tracking-wide rounded hover:border-brand-gold hover:text-brand-gold transition-all duration-200"
+              className="btn-glass btn-glass-md btn-glass-light font-medium tracking-wide"
             >
               {pick(ctaContact, locale)}
             </Link>

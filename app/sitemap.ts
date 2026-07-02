@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
 import { properties } from '@/lib/data/properties';
 
-const BASE_URL = 'https://cosmiahospitality.it';
+const BASE_URL = 'https://cosmiahospitality.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = routing.locales;

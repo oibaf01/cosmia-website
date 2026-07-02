@@ -144,7 +144,7 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
           <button
             onClick={closeLightbox}
             aria-label={t('close')}
-            className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors cursor-pointer p-2"
+            className="btn-glass btn-glass-icon btn-glass-dark absolute top-4 right-4"
           >
             <X size={28} />
           </button>
@@ -152,7 +152,7 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
           <button
             onClick={prevImage}
             aria-label={t('prev')}
-            className="absolute left-4 text-white/70 hover:text-white transition-colors cursor-pointer p-2"
+            className="btn-glass btn-glass-icon btn-glass-dark absolute left-4"
           >
             <ChevronLeft size={36} />
           </button>
@@ -171,7 +171,7 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
           <button
             onClick={nextImage}
             aria-label={t('next')}
-            className="absolute right-4 text-white/70 hover:text-white transition-colors cursor-pointer p-2"
+            className="btn-glass btn-glass-icon btn-glass-dark absolute right-4"
           >
             <ChevronRight size={36} />
           </button>

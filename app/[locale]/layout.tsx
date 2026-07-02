@@ -24,7 +24,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cosmiahospitality.it'),
+  metadataBase: new URL('https://cosmiahospitality.com'),
   title: 'Cosmia Hospitality — Appartamenti Vacanza sul Gargano',
   description:
     "Appartamenti vacanza a Mattinata, nel cuore del Gargano, Puglia. Casa Lira e Casa Vela — il punto di partenza per scoprire il promontorio, tutto l'anno.",
@@ -73,6 +73,9 @@ export default async function LocaleLayout({
       className={`${inter.variable} ${playfair.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
+        <a href="#main-content" className="skip-link">
+          Vai al contenuto
+        </a>
         <NextIntlClientProvider messages={messages}>
           {/* m.* components below load only the animation features actually used
               (no drag/layout), instead of framer-motion's full engine via <motion.*> */}

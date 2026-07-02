@@ -57,13 +57,13 @@ Messaggio:
 ${message}
 
 ---
-Inviato da cosmiahospitality.it
+Inviato da cosmiahospitality.com
   `.trim();
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
-      from: 'Cosmia Hospitality <noreply@cosmiahospitality.it>',
+      from: 'Cosmia Hospitality <noreply@cosmiahospitality.com>',
       to: TO_EMAIL,
       replyTo: email,
       subject: `Nuova richiesta: ${name} — ${apartmentLabel}`,

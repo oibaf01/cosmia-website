@@ -73,13 +73,13 @@ function timeRange(columns: string[]): string {
 function ScheduleTable({
   table,
   stopLabel,
-  runLabel,
   caption,
+  locale,
 }: {
   table: BusTable;
   stopLabel: string;
-  runLabel: string;
   caption: string;
+  locale: string;
 }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-brand-sand">
@@ -93,9 +93,14 @@ function ScheduleTable({
             >
               {stopLabel}
             </th>
-            {table.columns.map((col) => (
+            {table.columns.map((col, index) => (
               <th key={col} scope="col" className="text-center font-medium px-3 py-3 whitespace-nowrap">
-                <span className="block text-[10px] uppercase tracking-wide text-white/50">{runLabel}</span>
+                <span className="block text-[10px] uppercase tracking-wide text-white/50">
+                  {locale === 'it' && `Corsa ${index + 1}`}
+                  {locale === 'en' && `Run ${index + 1}`}
+                  {locale === 'fr' && `Trajet ${index + 1}`}
+                  {locale === 'de' && `Fahrt ${index + 1}`}
+                </span>
                 {col}
               </th>
             ))}
@@ -178,8 +183,8 @@ export default function BusSchedule({ locale }: BusScheduleProps) {
           <ScheduleTable
             table={seaTable}
             stopLabel={t.stop}
-            runLabel={t.run}
             caption={t.captionSea(periodLabel, range)}
+            locale={locale}
           />
         </div>
         <div>
@@ -187,8 +192,8 @@ export default function BusSchedule({ locale }: BusScheduleProps) {
           <ScheduleTable
             table={townTable}
             stopLabel={t.stop}
-            runLabel={t.run}
             caption={t.captionTown(periodLabel, timeRange(townTable.columns))}
+            locale={locale}
           />
         </div>
       </div>

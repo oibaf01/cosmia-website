@@ -46,7 +46,7 @@ export default function CtaSection() {
           <div className="mt-12">
             <Link
               href="/contatti"
-              className="inline-flex items-center gap-2 px-10 py-5 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-gold/90 hover:scale-[1.02] transition-all duration-150 shadow-xl shadow-brand-gold/20 group"
+              className="btn-glass btn-glass-lg btn-glass-gold font-semibold tracking-wide group"
             >
               {t('button')}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />

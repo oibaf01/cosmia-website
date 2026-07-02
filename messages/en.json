@@ -19,11 +19,11 @@
   },
   "what_we_do": {
     "sectionLabel": "What We Do",
-    "headline": "We manage vacation homes and apartments on the Gargano,",
-    "headlineBold": "taking care of every aspect.",
+    "headline": "Vacation homes and apartments on the",
+    "headlineBold": "Gargano.",
     "pillar1": {
       "title": "Managing apartments and vacation homes",
-      "body": "Every property we manage is looked after in every detail, from A to Z.",
+      "body": "We select and manage apartments and vacation homes, so every stay is simple, well cared for and enjoyable.",
       "sub1": {
         "title": "Before",
         "body": "We prepare every detail of your arrival, before your stay even begins."
@@ -34,7 +34,7 @@
       },
       "sub3": {
         "title": "After",
-        "body": "We make sure everything went well and stay available, even after you leave."
+        "body": "We make sure everything went well, stay available, and look forward to welcoming you back, whenever you're ready to return."
       }
     }
   },
@@ -48,7 +48,7 @@
   },
   "apartments": {
     "sectionLabel": "Our Apartments",
-    "headline": "Our apartments are the beginning of your Gargano story.",
+    "headline": "Our apartments are the beginning of your Gargano experience.",
     "subtitle": "Every apartment has its own character. Find the one that's right for you.",
     "cta": "See all apartments",
     "guests": "{count} guests",
@@ -77,7 +77,7 @@
       },
       "food": {
         "title": "Gastronomy",
-        "description": "Extra virgin olive oil, fresh burrata, catch of the day caught that morning. You eat well, you live well."
+        "description": "Extra virgin olive oil, fresh mozzarella, catch of the day caught that morning. You eat well, you live well."
       }
     }
   },
@@ -119,6 +119,8 @@
   "footer": {
     "tagline": "Vacation apartments, in the heart of the Gargano.",
     "links": "Quick links",
+    "apartmentsHeading": "Our Apartments",
+    "allApartments": "All apartments",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
     "busSchedule": "Bus Times to the Beach",

@@ -19,11 +19,11 @@
   },
   "what_we_do": {
     "sectionLabel": "Cosa Facciamo",
-    "headline": "Gestiamo case vacanza e appartamenti sul Gargano,",
-    "headlineBold": "occupandocene in ogni aspetto.",
+    "headline": "Case vacanza e appartamenti sul",
+    "headlineBold": "Gargano.",
     "pillar1": {
       "title": "Gestione di appartamenti e case vacanza",
-      "body": "Ogni immobile che gestiamo è curato in ogni dettaglio, dalla A alla Z.",
+      "body": "Selezioniamo e gestiamo appartamenti e case vacanza, affinché ogni soggiorno sia semplice, curato e piacevole.",
       "sub1": {
         "title": "Prima",
         "body": "Prepariamo ogni dettaglio del tuo arrivo, prima ancora che il soggiorno inizi."
@@ -34,7 +34,7 @@
       },
       "sub3": {
         "title": "Dopo",
-        "body": "Ci assicuriamo che tutto sia andato bene e restiamo a disposizione, anche dopo la partenza."
+        "body": "Ci assicuriamo che sia andato tutto bene, restiamo a disposizione e ti aspettiamo, per quando vorrai tornare."
       }
     }
   },
@@ -48,7 +48,7 @@
   },
   "apartments": {
     "sectionLabel": "I Nostri Appartamenti",
-    "headline": "I nostri appartamenti sono l'inizio della tua storia sul Gargano.",
+    "headline": "I nostri appartamenti sono l'inizio della tua esperienza sul Gargano.",
     "subtitle": "Ogni appartamento ha il suo carattere. Trova quello che fa per te",
     "cta": "Scopri tutti gli appartamenti",
     "guests": "{count} ospiti",
@@ -77,7 +77,7 @@
       },
       "food": {
         "title": "Gastronomia",
-        "description": "Olio extravergine, burrata fresca, pesce del giorno pescato quella mattina. Mangi bene, vivi bene."
+        "description": "Olio extravergine, mozzarella fresca, pesce del giorno pescato quella mattina. Mangi bene, vivi bene."
       }
     }
   },
@@ -119,6 +119,8 @@
   "footer": {
     "tagline": "Appartamenti vacanza, nel cuore del Gargano.",
     "links": "Link rapidi",
+    "apartmentsHeading": "I Nostri Appartamenti",
+    "allApartments": "Tutti gli appartamenti",
     "privacy": "Privacy Policy",
     "terms": "Termini e Condizioni",
     "busSchedule": "Orari Bus per il Mare",

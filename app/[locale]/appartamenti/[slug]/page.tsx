@@ -73,12 +73,12 @@ export default async function PropertyPage({
   const jsonLd = [
     propertySchema(property, locale),
     breadcrumbSchema([
-      { name: 'Home', url: `https://cosmiahospitality.it/${locale}` },
+      { name: 'Home', url: `https://cosmiahospitality.com/${locale}` },
       {
         name: pick({ it: 'Appartamenti', en: 'Apartments', fr: 'Appartements', de: 'Wohnungen' }, locale),
-        url: `https://cosmiahospitality.it/${locale}/appartamenti`,
+        url: `https://cosmiahospitality.com/${locale}/appartamenti`,
       },
-      { name, url: `https://cosmiahospitality.it/${locale}/appartamenti/${slug}` },
+      { name, url: `https://cosmiahospitality.com/${locale}/appartamenti/${slug}` },
     ]),
   ];
 
@@ -282,7 +282,7 @@ export default async function PropertyPage({
                 </p>
                 <Link
                   href={`/contatti?appartamento=${slug}`}
-                  className="block w-full text-center px-6 py-4 bg-brand-gold text-brand-navy font-semibold text-sm rounded hover:bg-brand-gold/90 transition-colors duration-150"
+                  className="btn-glass btn-glass-md btn-glass-gold w-full font-semibold"
                 >
                   {t('requestAvailability')}
                 </Link>

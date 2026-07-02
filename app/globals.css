@@ -35,6 +35,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-120%);
+  padding: 0.75rem 1rem;
+  background: #0d1321;
+  color: white;
+  border-radius: 0 0 0.75rem 0.75rem;
+  z-index: 60;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid #c8a26e;
+  outline-offset: 3px;
+}
+
 /* ─── Shooting stars ─────────────────────────────────── */
 /*
   Each star has its own @keyframes so rotate(α) matches the translate direction:
@@ -139,11 +158,107 @@ body {
 
 /* ─── WhatsApp floating button pulse ─────────────────── */
 @keyframes whatsapp-pulse {
-  0%, 85%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
-  90% { box-shadow: 0 4px 28px rgba(37, 211, 102, 0.6); }
+  0%, 85%, 100% {
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 4px 20px rgba(37, 211, 102, 0.3);
+  }
+  90% {
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 4px 28px rgba(37, 211, 102, 0.6);
+  }
 }
 .whatsapp-btn {
   animation: whatsapp-pulse 4s ease-in-out infinite;
+}
+
+/* ─── Liquid glass buttons ───────────────────────────────
+   Pill shape, frosted backdrop-blur, inset specular highlight (top edge)
+   plus a soft outer glow — three variants for the three backgrounds
+   buttons sit on across the site (gold-on-navy, glass-on-navy, glass-on-light). */
+.btn-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.3s ease,
+    background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+.btn-glass:hover {
+  transform: scale(1.03);
+}
+.btn-glass:active {
+  transform: scale(0.97);
+}
+
+.btn-glass-gold {
+  color: var(--color-brand-navy);
+  background: linear-gradient(160deg, rgba(213, 178, 130, 0.95), rgba(200, 162, 110, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -10px 16px -10px rgba(157, 116, 58, 0.4),
+    0 10px 28px -6px rgba(200, 162, 110, 0.5);
+}
+.btn-glass-gold:hover {
+  background: linear-gradient(160deg, rgba(222, 190, 146, 1), rgba(200, 162, 110, 0.92));
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -10px 16px -10px rgba(157, 116, 58, 0.45),
+    0 14px 36px -6px rgba(200, 162, 110, 0.6);
+}
+
+.btn-glass-dark {
+  color: white;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.22),
+    0 10px 28px -8px rgba(0, 0, 0, 0.35);
+}
+.btn-glass-dark:hover {
+  color: var(--color-brand-gold);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08));
+  border-color: rgba(200, 162, 110, 0.5);
+}
+
+.btn-glass-light {
+  color: var(--color-brand-navy);
+  background: linear-gradient(160deg, rgba(13, 19, 33, 0.07), rgba(13, 19, 33, 0.02));
+  border: 1px solid rgba(13, 19, 33, 0.14);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.7),
+    0 8px 22px -8px rgba(13, 19, 33, 0.18);
+}
+.btn-glass-light:hover {
+  color: white;
+  background: linear-gradient(160deg, rgba(13, 19, 33, 0.94), rgba(13, 19, 33, 0.85));
+  border-color: rgba(13, 19, 33, 0.9);
+}
+
+/* Compact variant — cookie banner, small inline actions */
+.btn-glass-sm {
+  padding: 0.55rem 1.4rem;
+  font-size: 0.8125rem;
+}
+
+/* Standard variant — primary/secondary CTAs across sections */
+.btn-glass-md {
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+}
+
+/* Large variant — hero-closing / final-conversion CTAs */
+.btn-glass-lg {
+  padding: 1.25rem 2.5rem;
+  font-size: 0.875rem;
+}
+
+/* Circular icon-only variant — lightbox controls, floating actions */
+.btn-glass-icon {
+  padding: 0.625rem;
 }
 
 /* ─── Respect prefers-reduced-motion */

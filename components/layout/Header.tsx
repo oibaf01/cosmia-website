@@ -70,7 +70,9 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <LanguageSwitcher className="text-white/70 hover:text-brand-gold ml-2" />
+            <LanguageSwitcher
+              className="text-white/70 hover:text-brand-gold ml-2"
+            />
           </nav>
 
           {/* Mobile menu button */}
@@ -99,7 +101,10 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <LanguageSwitcher className="text-white/70 hover:text-brand-gold" />
+            <LanguageSwitcher
+              className="text-white/70 hover:text-brand-gold"
+              onLanguageSwitch={() => setMobileOpen(false)}
+            />
           </nav>
         </div>
       )}

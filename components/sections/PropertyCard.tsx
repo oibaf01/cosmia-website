@@ -31,7 +31,7 @@ export default function PropertyCard({ property, index = 0 }: PropertyCardProps)
       className="group bg-white rounded-2xl overflow-hidden border border-brand-sand shadow-sm hover:shadow-xl hover:shadow-brand-navy/10 transition-shadow duration-400"
     >
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-brand-navy">
+      <div className="relative aspect-[16/10] overflow-hidden bg-brand-navy">
         {!imgLoaded && (
           <div className="absolute inset-0 animate-pulse bg-brand-deep" aria-hidden="true" />
         )}
@@ -43,31 +43,31 @@ export default function PropertyCard({ property, index = 0 }: PropertyCardProps)
           className={`object-contain group-hover:scale-[1.03] transition-[opacity,transform] duration-700 ${
             imgLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
-        <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-brand-navy text-xs font-medium px-3 py-1.5 rounded-full">
-          <MapPin size={12} className="text-brand-gold" />
+        <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-brand-navy text-[11px] font-medium px-2.5 py-1 rounded-full">
+          <MapPin size={11} className="text-brand-gold" />
           {property.location.split(',')[1]?.split('(')[0].trim()}
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        <h3 className="font-serif text-brand-navy text-2xl font-semibold mb-2">{name}</h3>
-        <p className="text-slate-500 text-sm leading-relaxed mb-5 line-clamp-2">{tagline}</p>
+      <div className="p-4">
+        <h3 className="font-serif text-brand-navy text-lg font-semibold mb-1.5">{name}</h3>
+        <p className="text-slate-500 text-xs leading-relaxed mb-3 line-clamp-2">{tagline}</p>
 
         {/* Stats */}
-        <div className="flex items-center gap-4 text-xs text-slate-500 mb-6">
-          <span className="flex items-center gap-1.5">
-            <Users size={14} className="text-brand-gold" />
+        <div className="flex items-center gap-3 text-[11px] text-slate-500 mb-4">
+          <span className="flex items-center gap-1">
+            <Users size={12} className="text-brand-gold" />
             {t('guests', { count: property.guests })}
           </span>
-          <span className="flex items-center gap-1.5">
-            <BedDouble size={14} className="text-brand-gold" />
+          <span className="flex items-center gap-1">
+            <BedDouble size={12} className="text-brand-gold" />
             {t('bedrooms', { count: property.bedrooms })}
           </span>
-          <span className="flex items-center gap-1.5">
-            <Bath size={14} className="text-brand-gold" />
+          <span className="flex items-center gap-1">
+            <Bath size={12} className="text-brand-gold" />
             {t('bathrooms', { count: property.bathrooms })}
           </span>
         </div>
@@ -75,11 +75,11 @@ export default function PropertyCard({ property, index = 0 }: PropertyCardProps)
         {/* CTA */}
         <Link
           href={`/appartamenti/${property.slug}`}
-          className="inline-flex items-center gap-2 text-brand-navy font-semibold text-sm hover:text-brand-gold transition-colors duration-150 group/link"
+          className="inline-flex items-center gap-1.5 text-brand-navy font-semibold text-xs hover:text-brand-gold transition-colors duration-150 group/link"
         >
           {t('discoverMore')}
           <ArrowRight
-            size={16}
+            size={14}
             className="group-hover/link:translate-x-1 transition-transform duration-150"
           />
         </Link>

@@ -49,7 +49,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
             <div className="space-y-8 text-slate-600 text-base leading-relaxed">
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">1. Titolare del trattamento</h2>
-                <p>Cosmia Hospitality, con sede in Puglia — Italia. Email: info@cosmiahospitality.it</p>
+                <p>Cosmia Hospitality, con sede in Puglia — Italia. Email: info@cosmiahospitality.com</p>
               </section>
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">2. Dati raccolti</h2>
@@ -77,14 +77,14 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
               </section>
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">8. Diritti dell&apos;interessato</h2>
-                <p>Hai il diritto di accedere ai tuoi dati, richiederne la rettifica o la cancellazione, opporti al trattamento e richiedere la portabilità. Per esercitare questi diritti scrivi a: info@cosmiahospitality.it</p>
+                <p>Hai il diritto di accedere ai tuoi dati, richiederne la rettifica o la cancellazione, opporti al trattamento e richiedere la portabilità. Per esercitare questi diritti scrivi a: info@cosmiahospitality.com</p>
               </section>
             </div>
           ) : (
             <div className="space-y-8 text-slate-600 text-base leading-relaxed">
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">1. Data Controller</h2>
-                <p>Cosmia Hospitality, based in Puglia — Italy. Email: info@cosmiahospitality.it</p>
+                <p>Cosmia Hospitality, based in Puglia — Italy. Email: info@cosmiahospitality.com</p>
               </section>
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">2. Data Collected</h2>
@@ -112,7 +112,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
               </section>
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">8. Your Rights</h2>
-                <p>You have the right to access your data, request its correction or deletion, object to processing, and request portability. To exercise these rights write to: info@cosmiahospitality.it</p>
+                <p>You have the right to access your data, request its correction or deletion, object to processing, and request portability. To exercise these rights write to: info@cosmiahospitality.com</p>
               </section>
             </div>
           )}

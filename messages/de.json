@@ -19,11 +19,11 @@
   },
   "what_we_do": {
     "sectionLabel": "Was Wir Tun",
-    "headline": "Wir verwalten Ferienhäuser und Wohnungen am Gargano,",
-    "headlineBold": "und kümmern uns um jedes Detail.",
+    "headline": "Ferienhäuser und Wohnungen am",
+    "headlineBold": "Gargano.",
     "pillar1": {
       "title": "Verwaltung von Wohnungen und Ferienhäusern",
-      "body": "Jede Immobilie, die wir verwalten, wird bis ins kleinste Detail gepflegt, von A bis Z.",
+      "body": "Wir wählen aus und verwalten Wohnungen und Ferienhäuser, damit jeder Aufenthalt einfach, gepflegt und angenehm ist.",
       "sub1": {
         "title": "Davor",
         "body": "Wir bereiten jedes Detail Ihrer Ankunft vor, noch bevor Ihr Aufenthalt beginnt."
@@ -34,7 +34,7 @@
       },
       "sub3": {
         "title": "Danach",
-        "body": "Wir vergewissern uns, dass alles gut gelaufen ist, und bleiben erreichbar — auch nach Ihrer Abreise."
+        "body": "Wir vergewissern uns, dass alles gut gelaufen ist, bleiben erreichbar und freuen uns darauf, Sie wiederzusehen, wann immer Sie möchten."
       }
     }
   },
@@ -48,7 +48,7 @@
   },
   "apartments": {
     "sectionLabel": "Unsere Apartments",
-    "headline": "Unsere Apartments sind der Anfang Ihrer Geschichte am Gargano.",
+    "headline": "Unsere Apartments sind der Anfang Ihres Erlebnisses am Gargano.",
     "subtitle": "Jedes Apartment hat seinen eigenen Charakter. Finden Sie das passende für Sie.",
     "cta": "Alle Apartments ansehen",
     "guests": "{count} Gäste",
@@ -77,7 +77,7 @@
       },
       "food": {
         "title": "Gastronomie",
-        "description": "Natives Olivenöl extra, frische Burrata, Fisch des Tages, am selben Morgen gefangen. Man isst gut, man lebt gut."
+        "description": "Natives Olivenöl extra, frische mozzarella, Fisch des Tages, am selben Morgen gefangen. Man isst gut, man lebt gut."
       }
     }
   },
@@ -119,6 +119,8 @@
   "footer": {
     "tagline": "Ferienwohnungen im Herzen des Gargano.",
     "links": "Schnelllinks",
+    "apartmentsHeading": "Unsere Apartments",
+    "allApartments": "Alle Apartments",
     "privacy": "Datenschutzerklärung",
     "terms": "AGB",
     "busSchedule": "Busfahrplan zum Meer",

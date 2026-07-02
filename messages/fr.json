@@ -19,11 +19,11 @@
   },
   "what_we_do": {
     "sectionLabel": "Ce Que Nous Faisons",
-    "headline": "Nous gérons des maisons de vacances et des appartements sur le Gargano,",
-    "headlineBold": "en nous occupant de chaque aspect.",
+    "headline": "Maisons de vacances et appartements sur le",
+    "headlineBold": "Gargano.",
     "pillar1": {
       "title": "Gestion d'appartements et de maisons de vacances",
-      "body": "Chaque bien que nous gérons est soigné dans les moindres détails, de A à Z.",
+      "body": "Nous sélectionnons et gérons des appartements et des maisons de vacances, pour que chaque séjour soit simple, soigné et agréable.",
       "sub1": {
         "title": "Avant",
         "body": "Nous préparons chaque détail de votre arrivée, avant même que votre séjour ne commence."
@@ -34,7 +34,7 @@
       },
       "sub3": {
         "title": "Après",
-        "body": "Nous nous assurons que tout s'est bien passé et restons disponibles, même après votre départ."
+        "body": "Nous nous assurons que tout s'est bien passé, restons disponibles, et avons hâte de vous accueillir à nouveau, quand vous le souhaiterez."
       }
     }
   },
@@ -48,7 +48,7 @@
   },
   "apartments": {
     "sectionLabel": "Nos Appartements",
-    "headline": "Nos appartements sont le début de votre histoire sur le Gargano.",
+    "headline": "Nos appartements sont le début de votre expérience sur le Gargano.",
     "subtitle": "Chaque appartement a son propre caractère. Trouvez celui qui vous correspond.",
     "cta": "Voir tous les appartements",
     "guests": "{count} personnes",
@@ -77,7 +77,7 @@
       },
       "food": {
         "title": "Gastronomie",
-        "description": "Huile d'olive extra vierge, burrata fraîche, poisson du jour pêché le matin même. On mange bien, on vit bien."
+        "description": "Huile d'olive extra vierge, mozzarella fraîche, poisson du jour pêché le matin même. On mange bien, on vit bien."
       }
     }
   },
@@ -119,6 +119,8 @@
   "footer": {
     "tagline": "Appartements de vacances, au cœur du Gargano.",
     "links": "Liens rapides",
+    "apartmentsHeading": "Nos Appartements",
+    "allApartments": "Tous les appartements",
     "privacy": "Politique de Confidentialité",
     "terms": "Conditions Générales",
     "busSchedule": "Horaires Bus pour la Mer",

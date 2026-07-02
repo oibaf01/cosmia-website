@@ -3,7 +3,7 @@ import { type Review } from '@/lib/data/reviews';
 import { type FaqItem } from '@/lib/data/faq';
 import { pick } from '@/lib/locale';
 
-const BASE_URL = 'https://cosmiahospitality.it';
+const BASE_URL = 'https://cosmiahospitality.com';
 
 export function organizationSchema() {
   return {

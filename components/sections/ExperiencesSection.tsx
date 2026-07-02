@@ -34,15 +34,25 @@ export default function ExperiencesSection() {
           </p>
         </m.div>
 
-        {/* Experience cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Experience cards — cinematic 3D tilt-in on scroll, cascading stagger.
+            perspective on the grid gives the rotateX a subtle sense of depth. */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          style={{ perspective: 1200 }}
+        >
           {experienceKeys.map((key, index) => (
               <m.div
                 key={key}
-                initial={{ opacity: 0, y: 32 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.08 }}
-                className="bg-white rounded-2xl p-8 border border-brand-sand hover:border-brand-gold/40 hover:shadow-lg hover:shadow-brand-gold/8 transition-all duration-300 group"
+                initial={{ opacity: 0, y: 40, scale: 0.95, rotateX: 10 }}
+                animate={inView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 } : {}}
+                transition={{
+                  duration: 0.75,
+                  ease: [0.22, 0.61, 0.36, 1],
+                  delay: index * 0.12,
+                }}
+                whileHover={{ y: -6 }}
+                style={{ transformOrigin: 'top center' }}
+                className="bg-white rounded-2xl p-8 border border-brand-sand hover:border-brand-gold/40 hover:shadow-lg hover:shadow-brand-gold/8 transition-[colors,box-shadow] duration-300 group will-change-transform"
               >
                 <div className="w-12 h-12 rounded-xl bg-brand-ivory flex items-center justify-center mb-6 group-hover:bg-brand-gold/10 transition-colors duration-300">
                   <AnimatedIcon iconKey={key} size={24} className="text-brand-gold" />

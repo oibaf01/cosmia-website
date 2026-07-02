@@ -194,7 +194,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full sm:w-auto px-10 py-4 bg-brand-gold text-brand-navy font-semibold text-sm tracking-wide rounded flex items-center justify-center gap-2 hover:bg-brand-gold/90 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-150 cursor-pointer"
+        className="btn-glass btn-glass-md btn-glass-gold w-full sm:w-auto font-semibold tracking-wide disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
       >
         {status === 'loading' ? (
           <>

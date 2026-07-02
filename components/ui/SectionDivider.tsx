@@ -3,12 +3,12 @@
 import { useRef } from 'react';
 import { m, useInView } from 'framer-motion';
 
-// Scroll-triggered ornamental divider: gold lines grow outward from a central
-// cluster of dots. Bridges two same-background sections so the transition reads
-// as intentional instead of empty. Matches the Hero ornament styling.
-export default function SectionDivider({ className = '' }: { className?: string }) {
+// Full-width navy band that separates two same-background (ivory) sections.
+// Navy ties into the Hero / CTA / footer palette; the gold ornament pops against
+// it, giving a clear, intentional break instead of a monochrome blend.
+export default function SectionDivider() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-20% 0px' });
+  const inView = useInView(ref, { once: true, margin: '-15% 0px' });
 
   const line = {
     hidden: { scaleX: 0, opacity: 0 },
@@ -20,18 +20,23 @@ export default function SectionDivider({ className = '' }: { className?: string 
   };
 
   return (
-    <div ref={ref} className={`flex justify-center ${className}`}>
+    <div ref={ref} className="relative w-full bg-brand-navy py-12 overflow-hidden">
+      {/* Gold hairlines at the band edges, echoing the Hero top accent */}
+      <div className="absolute top-0 inset-x-0 h-px bg-brand-gold/25" aria-hidden />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-brand-gold/25" aria-hidden />
+
+      {/* Centered ornament */}
       <m.div
         initial="hidden"
         animate={inView ? 'show' : 'hidden'}
         transition={{ staggerChildren: 0.08 }}
-        className="flex items-center gap-3"
+        className="flex items-center justify-center gap-3"
       >
-        <m.div variants={line} className="w-16 sm:w-24 h-px bg-brand-gold/40 origin-right" />
-        <m.div variants={dot} className="w-1 h-1 rounded-full bg-brand-gold/60" />
-        <m.div variants={dot} className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
-        <m.div variants={dot} className="w-1 h-1 rounded-full bg-brand-gold/60" />
-        <m.div variants={line} className="w-16 sm:w-24 h-px bg-brand-gold/40 origin-left" />
+        <m.div variants={line} className="w-20 sm:w-32 h-px bg-brand-gold/50 origin-right" />
+        <m.div variants={dot} className="w-1 h-1 rounded-full bg-brand-gold/70" />
+        <m.div variants={dot} className="w-2 h-2 rotate-45 bg-brand-gold" />
+        <m.div variants={dot} className="w-1 h-1 rounded-full bg-brand-gold/70" />
+        <m.div variants={line} className="w-20 sm:w-32 h-px bg-brand-gold/50 origin-left" />
       </m.div>
     </div>
   );

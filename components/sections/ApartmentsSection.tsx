@@ -26,8 +26,8 @@ export default async function ApartmentsSection() {
           </p>
         </Reveal3D>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {/* Cards grid — narrower than the section so cards read smaller, not full-bleed */}
+        <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
           {properties.map((property, index) => (
             <PropertyCard key={property.slug} property={property} index={index} />
           ))}
@@ -37,7 +37,7 @@ export default async function ApartmentsSection() {
         <div className="text-center">
           <Link
             href="/appartamenti"
-            className="inline-flex items-center gap-2 px-8 py-4 border border-brand-navy text-brand-navy font-semibold text-sm tracking-wide rounded hover:bg-brand-navy hover:text-white transition-all duration-200 group"
+            className="btn-glass btn-glass-md btn-glass-gold font-semibold tracking-wide group"
           >
             {t('cta')}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-150" />
