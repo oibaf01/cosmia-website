@@ -20,9 +20,9 @@ export default async function Footer() {
             <Image
               src="/logos/logo_full_white.png"
               alt="Cosmia Hospitality"
-              width={200}
-              height={80}
-              className="h-16 w-auto"
+              width={320}
+              height={120}
+              className="h-28 w-auto mb-2"
             />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               {t('tagline')}
