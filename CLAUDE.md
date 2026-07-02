@@ -20,7 +20,7 @@ No test suite — manual testing only.
 
 ### Routing & i18n
 
-All pages live under `app/[locale]/`. Locales: `it` (default), `en`. Translations in `messages/it.json` and `messages/en.json`.
+All pages live under `app/[locale]/`. Locales: `it` (default), `en`, `fr`, `de`. Translations in `messages/{it,en,fr,de}.json`. Locale detection follows browser `Accept-Language` header (not forced) — foreign visitors see their language, others see Italian default.
 
 - `i18n/routing.ts` — locale config (single source of truth for supported locales)
 - `i18n/request.ts` — `getRequestConfig` used by next-intl server side
@@ -52,7 +52,7 @@ Each page composes: `Header` + `<main>` with section components + `Footer` + `Wh
 
 ### API
 
-`app/api/contact/route.ts` — POST endpoint. Validates with Zod, sends email via **Resend**. Requires `RESEND_API_KEY` in `.env.local`. Sends to `fabiopastore27@gmail.com`, `from` domain `cosmiahospitality.it`.
+`app/api/contact/route.ts` — POST endpoint. Validates with Zod, sends email via **Resend**. Requires `RESEND_API_KEY` in `.env.local`. Sends to `cosmiahospitality@gmail.com`, `from` `noreply@cosmiahospitality.com` (domain verified on Resend via SPF/DKIM).
 
 ### Styling
 
@@ -79,6 +79,24 @@ Use `motion` (Framer Motion v12+) for all animations. Import: `import { motion }
 1. Add entry to `properties` array in `lib/data/properties.ts` with a unique `slug`
 2. Add photos to `public/images/<slug>/`
 3. The slug automatically generates a route at `/[locale]/appartamenti/[slug]`
+
+### Brand assets
+
+`public/logos/`:
+- `Icon_gold.png` / `Icon_white.png` — icon-only mark (moon + constellation), used in `Header.tsx`
+- `logo_white.png` — full logo (icon + "COSMIA HOSPITALITY" wordmark), transparent background, white — used in `Footer.tsx` (large, `h-32`, left column)
+- `logo_full_white.png` — alternate full logo variant (kept, not currently used)
+- `logo_full_gold.svg` — full logo gold variant
+
+`public/images/hero/og-image.png` — **Open Graph / social share image** (1200x630). Used by `lib/seo/metadata.ts` (`DEFAULT_OG_IMAGE`) for link previews on WhatsApp/Facebook/etc. This is the brand icon-on-navy image (`icon_gold_background.png` sourced from `CosmiaHospitality/Media/png/`), **not** a hero/property photo — keep it that way, previews should show brand identity, not a specific listing photo.
+
+### Header behavior
+
+`Header.tsx` accepts an `alwaysDark` prop — forces navy background even when not scrolled/not on homepage. Used on `/appartamenti` (and should be used on any page with a light-background hero) so nav text stays legible instead of white-on-white.
+
+### WhatsAppButton
+
+`components/ui/WhatsAppButton.tsx` — fixed `bottom-6 right-6`, `w-12 h-12` (kept small/original size — do not enlarge). Tooltip is the **native HTML `title` attribute** (not a custom CSS tooltip span — a custom absolutely-positioned tooltip broke the button's fixed positioning once already, don't reintroduce it).
 
 ## Deployment & Infrastructure
 
