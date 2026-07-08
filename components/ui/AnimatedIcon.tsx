@@ -5,7 +5,7 @@ import type { PointerEvent } from 'react';
 import {
   Wifi, Wind, UtensilsCrossed, Car, Sunset, Eye, WashingMachine, Tv,
   Waves, Footprints, Castle,
-  Microwave, Coffee, Shirt, Zap, BedDouble, Package, Heart, Map, Sparkles,
+  Microwave, Coffee, Shirt, Zap, BedDouble, Package, Heart, Map, Sparkles, Briefcase,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -21,6 +21,7 @@ const iconRegistry: Record<string, LucideIcon> = {
   sea_view:         Eye,
   washing_machine:  WashingMachine,
   tv:               Tv,
+  workspace:        Briefcase,
   // Amenities — appliances & equipment
   microwave:        Microwave,
   coffee:           Coffee,
@@ -50,6 +51,7 @@ const hoverAnimations: Record<string, TargetAndTransition> = {
   sea_view:         { scale: 1.2,  y: -4       },
   washing_machine:  { rotate: 180, scale: 1.1  },
   tv:               { scale: 1.15, opacity: 0.8 },
+  workspace:        { scale: 1.15, y: -2       },
   microwave:        { scale: 1.15, rotate: 5   },
   coffee:           { scale: 1.2,  y: -2       },
   iron:             { scale: 1.15, rotate: -5  },
