@@ -55,6 +55,7 @@ export const properties: Property[] = [
       "wifi",
       "tv",
       "washing_machine",
+      "air_conditioning",
       "kitchen",
       "workspace",
       "microwave",
