@@ -276,7 +276,7 @@ export default async function PropertyPage({
 
             {/* Sidebar CTA */}
             <div className="lg:col-span-1">
-              <div className="sticky top-28 bg-white rounded-2xl p-8 border border-brand-sand shadow-sm">
+              <div id="sidebar-request-cta" className="sticky top-28 bg-white rounded-2xl p-8 border border-brand-sand shadow-sm">
                 <h3 className="font-serif text-brand-navy text-xl font-semibold mb-2">{name}</h3>
                 <p className="text-slate-500 text-sm mb-6">
                   {pick(property.tagline, locale)}
