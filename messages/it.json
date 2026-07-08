@@ -12,7 +12,7 @@
   "hero": {
     "headline": "La tua vacanza.",
     "headlineBold": "Inizia qui.",
-    "subtitle": "Appartamenti selezionati e curati con attenzione, assistenza dedicata e consigli locali per vivere il Gargano come chi lo conosce davvero.",
+    "subtitle": "Appartamenti selezionati e curati, assistenza dedicata e consigli locali per vivere il Gargano come chi lo conosce davvero.",
     "tagline": "Gestiamo case vacanza e appartamenti nel cuore del Gargano.",
     "cta": "Scopri i nostri appartamenti",
     "ctaContact": "Scrivici"
@@ -216,6 +216,7 @@
       "wifi": "Wi-Fi",
       "air_conditioning": "Aria condizionata",
       "kitchen": "Cucina attrezzata",
+      "workspace": "Postazione dedicata da lavoro",
       "parking": "Parcheggio",
       "terrace": "Terrazza",
       "balcony": "Balcone",

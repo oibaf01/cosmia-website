@@ -12,7 +12,7 @@
   "hero": {
     "headline": "Ihr Urlaub.",
     "headlineBold": "Beginnt hier.",
-    "subtitle": "Sorgfältig ausgewählte Apartments, persönliche Betreuung und lokale Tipps, um das Gargano so zu erleben wie jemand, der es wirklich kennt.",
+    "subtitle": "Ausgewählte Apartments, persönliche Betreuung und lokale Tipps, um das Gargano so zu erleben wie jemand, der es wirklich kennt.",
     "tagline": "Wir verwalten Ferienhäuser und Wohnungen im Herzen des Gargano.",
     "cta": "Unsere Apartments entdecken",
     "ctaContact": "Schreiben Sie uns"
@@ -216,6 +216,7 @@
       "wifi": "Wi-Fi",
       "air_conditioning": "Klimaanlage",
       "kitchen": "Voll ausgestattete Küche",
+      "workspace": "Eigener Arbeitsplatz",
       "parking": "Parkplatz",
       "terrace": "Terrasse",
       "balcony": "Balkon",

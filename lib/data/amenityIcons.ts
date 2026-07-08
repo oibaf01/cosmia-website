@@ -15,6 +15,7 @@ import {
   Package,
   Heart,
   Map,
+  Briefcase,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -36,4 +37,5 @@ export const amenityIcons: Record<string, LucideIcon> = {
   wardrobe: Package,
   personal_welcome: Heart,
   local_tips: Map,
+  workspace: Briefcase,
 };
