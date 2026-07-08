@@ -15,6 +15,7 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieBanner from '@/components/CookieBanner';
 import PropertyGallery from '@/components/sections/PropertyGallery';
+import MobileStickyCta from '@/components/ui/MobileStickyCta';
 // import ReviewsCarousel from '@/components/sections/ReviewsCarousel';
 import { MapPin, Users, BedDouble, Bath, Clock, VolumeX, CigaretteOff, PawPrint, CalendarRange, FileText, Bus } from 'lucide-react';
 import AnimatedIcon from '@/components/ui/AnimatedIcon';
@@ -292,18 +293,10 @@ export default async function PropertyPage({
         </div>
       </main>
 
-      {/* Mobile sticky CTA */}
-      <div className="lg:hidden fixed bottom-20 left-4 right-4 z-30">
-        <Link
-          href={`/contatti?appartamento=${slug}`}
-          className="block w-full text-center px-6 py-4 bg-brand-gold text-brand-navy font-semibold text-sm rounded-xl shadow-xl shadow-brand-gold/30"
-        >
-          {t('requestAvailability')}
-        </Link>
-      </div>
+      <MobileStickyCta href={`/contatti?appartamento=${slug}`} label={t('requestAvailability')} />
 
       <Footer />
-      <WhatsAppButton />
+      <WhatsAppButton raised />
       <CookieBanner />
     </>
   );
