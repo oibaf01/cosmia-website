@@ -12,7 +12,7 @@
   "hero": {
     "headline": "Your vacation.",
     "headlineBold": "Starts here.",
-    "subtitle": "Handpicked apartments curated with care, dedicated assistance and local insights to experience Gargano as those who lives it do.",
+    "subtitle": "Handpicked apartments, dedicated assistance and local insights to experience Gargano as those who lives it do.",
     "tagline": "We manage vacation homes and apartments in the heart of the Gargano.",
     "cta": "Discover our apartments",
     "ctaContact": "Write to us"
@@ -216,6 +216,7 @@
       "wifi": "Wi-Fi",
       "air_conditioning": "Air conditioning",
       "kitchen": "Fully equipped kitchen",
+      "workspace": "Dedicated workspace",
       "parking": "Parking",
       "terrace": "Terrace",
       "balcony": "Balcony",
