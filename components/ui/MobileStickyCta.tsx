@@ -8,16 +8,26 @@ interface MobileStickyCtaProps {
   label: string;
 }
 
-// Docked to the viewport bottom edge; slides away once the footer scrolls into view
+// Docked to the viewport bottom edge; slides away once the in-page "Richiedi
+// disponibilità" box or the footer scrolls into view, so the two CTAs never overlap
 export default function MobileStickyCta({ href, label }: MobileStickyCtaProps) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const footer = document.getElementById('site-footer');
-    if (!footer) return;
+    const targets = ['sidebar-request-cta', 'site-footer']
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (targets.length === 0) return;
 
-    const observer = new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting));
-    observer.observe(footer);
+    const intersecting = new Set<Element>();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) intersecting.add(entry.target);
+        else intersecting.delete(entry.target);
+      });
+      setVisible(intersecting.size === 0);
+    });
+    targets.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
