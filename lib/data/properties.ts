@@ -21,6 +21,9 @@ export interface Property {
   heroPhoto: string;
   googleBusinessUrl: string;
   airbnbUrl?: string;
+  // Codici identificativi obbligatori per legge (CIN nazionale, CIR regionale)
+  cin?: string;
+  cir?: string;
   logo?: string;
   icon?: string;
 }
@@ -174,32 +177,34 @@ export const properties: Property[] = [
       "local_tips",
     ],
     photos: [
+      "/images/casa-vela/terrazzo1.jpg",
+      "/images/casa-vela/terrazzo2.jpg",
+      "/images/casa-vela/terrazzo3.jpg",
+      "/images/casa-vela/terrazzo4.jpg",
       "/images/casa-vela/soggiorno1.jpg",
       "/images/casa-vela/soggiorno2.jpg",
       "/images/casa-vela/soggiorno3.jpg",
       "/images/casa-vela/soggiorno4.jpg",
       "/images/casa-vela/soggiorno5.jpg",
       "/images/casa-vela/soggiorno6.jpg",
+      "/images/casa-vela/soggiorno7.jpg",
+      "/images/casa-vela/soggiorno8.jpg",
+      "/images/casa-vela/scalasoppalco1.jpg",
       "/images/casa-vela/soppalco1.jpg",
       "/images/casa-vela/soppalco2.jpg",
-      "/images/casa-vela/soppalco3.jpg",
-      "/images/casa-vela/bagno1.jpg",
       "/images/casa-vela/matrimoniale1.jpg",
       "/images/casa-vela/matrimoniale2.jpg",
       "/images/casa-vela/matrimoniale3.jpg",
-      "/images/casa-vela/matrimoniale5.jpg",
-      "/images/casa-vela/matrimoniale6.jpg",
-      "/images/casa-vela/matrimoniale7.jpg",
+      "/images/casa-vela/bagno1.jpg",
+      "/images/casa-vela/bagno2.jpg",
       "/images/casa-vela/bagnomatrimoniale1.jpg",
       "/images/casa-vela/bagnomatrimoniale2.jpg",
       "/images/casa-vela/bagnomatrimoniale3.jpg",
-      "/images/casa-vela/terrazzo1.jpg",
-      "/images/casa-vela/terrazzo2.jpg",
-      "/images/casa-vela/terrazzo3.jpg",
-      "/images/casa-vela/terrazzo4.jpg",
+      "/images/casa-vela/corridoio1.jpg",
+      "/images/casa-vela/corridoio2.jpg",
     ],
     photoSections: [
-       {
+      {
         label: { it: "Terrazzo", en: "Terrace", fr: "Terrasse", de: "Terrasse" },
         photos: [
           "/images/casa-vela/terrazzo1.jpg",
@@ -217,29 +222,29 @@ export const properties: Property[] = [
           "/images/casa-vela/soggiorno4.jpg",
           "/images/casa-vela/soggiorno5.jpg",
           "/images/casa-vela/soggiorno6.jpg",
+          "/images/casa-vela/soggiorno7.jpg",
+          "/images/casa-vela/soggiorno8.jpg",
         ],
       },
       {
         label: { it: "Soppalco", en: "Mezzanine", fr: "Mezzanine", de: "Zwischengeschoss" },
         photos: [
+          "/images/casa-vela/scalasoppalco1.jpg",
           "/images/casa-vela/soppalco1.jpg",
           "/images/casa-vela/soppalco2.jpg",
-          "/images/casa-vela/soppalco3.jpg",
         ],
-      },
-      {
-        label: { it: "Bagno 1", en: "Bathroom 1", fr: "Salle de bain 1", de: "Badezimmer 1" },
-        photos: ["/images/casa-vela/bagno1.jpg"],
       },
       {
         label: { it: "Camera matrimoniale", en: "Master bedroom", fr: "Chambre double", de: "Schlafzimmer" },
         photos: [
           "/images/casa-vela/matrimoniale1.jpg",
           "/images/casa-vela/matrimoniale2.jpg",
-          "/images/casa-vela/matrimoniale5.jpg",
-          "/images/casa-vela/matrimoniale6.jpg",
-          "/images/casa-vela/matrimoniale7.jpg",
+          "/images/casa-vela/matrimoniale3.jpg",
         ],
+      },
+      {
+        label: { it: "Bagno 1", en: "Bathroom 1", fr: "Salle de bain 1", de: "Badezimmer 1" },
+        photos: ["/images/casa-vela/bagno1.jpg", "/images/casa-vela/bagno2.jpg"],
       },
       {
         label: { it: "Bagno 2", en: "Bathroom 2", fr: "Salle de bain 2", de: "Badezimmer 2" },
@@ -249,11 +254,16 @@ export const properties: Property[] = [
           "/images/casa-vela/bagnomatrimoniale3.jpg",
         ],
       },
-     
+      {
+        label: { it: "Corridoio", en: "Hallway", fr: "Couloir", de: "Flur" },
+        photos: ["/images/casa-vela/corridoio1.jpg", "/images/casa-vela/corridoio2.jpg"],
+      },
     ],
     heroPhoto: "/images/casa-vela/terrazzo1.jpg",
     googleBusinessUrl: "https://g.page/r/PLACEHOLDER_CASA_VELA",
     airbnbUrl: undefined,
+    cin: "IT071031B400129220",
+    cir: "071031B400129220",
     logo: "/images/casa-vela/casa-vela-logo-transparent.webp",
     icon: "/images/casa-vela/casa-vela-logo-transparent.webp",
   },

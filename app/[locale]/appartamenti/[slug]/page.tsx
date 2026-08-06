@@ -155,6 +155,21 @@ export default async function PropertyPage({
 
               {/* Description */}
               <div>
+                {/* Codici identificativi: esposizione obbligatoria per legge, resa discreta */}
+                {(property.cin || property.cir) && (
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-1 mb-6 text-[11px] text-slate-400">
+                    {property.cin && (
+                      <span className="font-mono">
+                        CIN <span className="select-all text-slate-500">{property.cin}</span>
+                      </span>
+                    )}
+                    {property.cir && (
+                      <span className="font-mono">
+                        CIR <span className="select-all text-slate-500">{property.cir}</span>
+                      </span>
+                    )}
+                  </div>
+                )}
                 <p className="text-slate-600 text-lg leading-relaxed max-w-prose">{description}</p>
               </div>
 
