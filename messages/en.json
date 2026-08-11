@@ -249,5 +249,58 @@
     "backToApartments": "← All apartments",
     "loading": "Loading...",
     "error": "An error occurred"
+  },
+  "review": {
+    "headline": "How was it?",
+    "subtitle": "Your words help the people who come after you. Thank you for the time.",
+    "timeHint": "Two minutes, no more",
+    "steps": {
+      "property": "Which house did you stay in?",
+      "rating": "How would you rate your stay?",
+      "highlights": "What did you like most?",
+      "highlightsHint": "Optional — tap as many as you like",
+      "comment": "Tell us about your stay"
+    },
+    "ratingLabels": {
+      "1": "Disappointing",
+      "2": "Below expectations",
+      "3": "Average",
+      "4": "Very good",
+      "5": "Excellent"
+    },
+    "starLabel": "{count} out of 5 stars",
+    "highlights": {
+      "cleanliness": "Cleanliness",
+      "location": "Location",
+      "communication": "Communication",
+      "comfort": "Comfort",
+      "value": "Value for money",
+      "checkin": "Check-in"
+    },
+    "commentPlaceholder": "What will you remember about this stay? A few honest lines are worth more than a long text.",
+    "name": "Your name",
+    "namePlaceholder": "How you'd like to appear in the review",
+    "email": "Email",
+    "emailPlaceholder": "Only if you'd like a reply from us",
+    "optional": "(optional)",
+    "consent": {
+      "label": "I agree to my review being published on the website",
+      "description": "If you tick this box, we may publish your star rating, the text of your review and your name on cosmiahospitality.com. Nothing else: your email is never published or shared.",
+      "note": "Ticking is optional. Without consent we still receive your review, but it stays private feedback and never goes on the site. You can write to us at any time to have it removed."
+    },
+    "submit": "Send review",
+    "sending": "Sending…",
+    "success": {
+      "title": "Thank you, sincerely.",
+      "body": "Your review has arrived. It helps us more than you know."
+    },
+    "errors": {
+      "property": "Choose the house you stayed in",
+      "rating": "Give a rating from 1 to 5 stars",
+      "name": "Please enter your name",
+      "comment": "Please write at least {min} characters",
+      "commentLinks": "Links are not allowed in the text",
+      "submit": "Sending failed. Please try again shortly."
+    }
   }
 }

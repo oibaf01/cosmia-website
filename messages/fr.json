@@ -249,5 +249,58 @@
     "backToApartments": "← Tous les appartements",
     "loading": "Chargement...",
     "error": "Une erreur s'est produite"
+  },
+  "review": {
+    "headline": "Comment s'est passé votre séjour ?",
+    "subtitle": "Votre témoignage aide ceux qui viendront après vous. Merci pour le temps accordé.",
+    "timeHint": "Deux minutes, pas plus",
+    "steps": {
+      "property": "Dans quelle maison avez-vous séjourné ?",
+      "rating": "Comment évaluez-vous votre séjour ?",
+      "highlights": "Qu'avez-vous le plus apprécié ?",
+      "highlightsHint": "Facultatif — touchez tout ce que vous voulez",
+      "comment": "Racontez-nous votre séjour"
+    },
+    "ratingLabels": {
+      "1": "Décevant",
+      "2": "En dessous des attentes",
+      "3": "Moyen",
+      "4": "Très bien",
+      "5": "Excellent"
+    },
+    "starLabel": "{count} étoiles sur 5",
+    "highlights": {
+      "cleanliness": "Propreté",
+      "location": "Emplacement",
+      "communication": "Communication",
+      "comfort": "Confort",
+      "value": "Rapport qualité-prix",
+      "checkin": "Arrivée"
+    },
+    "commentPlaceholder": "Que retiendrez-vous de ce séjour ? Quelques lignes sincères valent mieux qu'un long texte.",
+    "name": "Votre nom",
+    "namePlaceholder": "Comment vous souhaitez apparaître dans l'avis",
+    "email": "Email",
+    "emailPlaceholder": "Seulement si vous souhaitez une réponse",
+    "optional": "(facultatif)",
+    "consent": {
+      "label": "J'accepte que mon avis soit publié sur le site",
+      "description": "Si vous cochez cette case, nous pourrons publier sur cosmiahospitality.com votre note en étoiles, le texte de votre avis et votre nom. Rien d'autre : votre email n'est jamais publié ni partagé.",
+      "note": "Cocher est facultatif. Sans consentement, nous recevons quand même votre avis, mais il reste un retour privé et ne sera pas publié. Vous pouvez nous écrire à tout moment pour le faire retirer."
+    },
+    "submit": "Envoyer l'avis",
+    "sending": "Envoi en cours…",
+    "success": {
+      "title": "Merci du fond du cœur.",
+      "body": "Votre avis nous est bien parvenu. Il nous aide plus que vous ne l'imaginez."
+    },
+    "errors": {
+      "property": "Choisissez la maison où vous avez séjourné",
+      "rating": "Donnez une note de 1 à 5 étoiles",
+      "name": "Veuillez indiquer votre nom",
+      "comment": "Écrivez au moins {min} caractères",
+      "commentLinks": "Les liens ne sont pas autorisés dans le texte",
+      "submit": "Échec de l'envoi. Réessayez dans un instant."
+    }
   }
 }
