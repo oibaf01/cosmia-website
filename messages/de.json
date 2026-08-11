@@ -249,5 +249,58 @@
     "backToApartments": "← Alle Apartments",
     "loading": "Wird geladen...",
     "error": "Ein Fehler ist aufgetreten"
+  },
+  "review": {
+    "headline": "Wie war Ihr Aufenthalt?",
+    "subtitle": "Ihre Worte helfen denen, die nach Ihnen kommen. Danke für Ihre Zeit.",
+    "timeHint": "Zwei Minuten, nicht mehr",
+    "steps": {
+      "property": "In welchem Haus haben Sie gewohnt?",
+      "rating": "Wie bewerten Sie Ihren Aufenthalt?",
+      "highlights": "Was hat Ihnen am besten gefallen?",
+      "highlightsHint": "Optional — tippen Sie alles an, was zutrifft",
+      "comment": "Erzählen Sie von Ihrem Aufenthalt"
+    },
+    "ratingLabels": {
+      "1": "Enttäuschend",
+      "2": "Unter den Erwartungen",
+      "3": "Durchschnittlich",
+      "4": "Sehr gut",
+      "5": "Ausgezeichnet"
+    },
+    "starLabel": "{count} von 5 Sternen",
+    "highlights": {
+      "cleanliness": "Sauberkeit",
+      "location": "Lage",
+      "communication": "Kommunikation",
+      "comfort": "Komfort",
+      "value": "Preis-Leistung",
+      "checkin": "Check-in"
+    },
+    "commentPlaceholder": "Woran werden Sie sich erinnern? Ein paar ehrliche Zeilen sind mehr wert als ein langer Text.",
+    "name": "Ihr Name",
+    "namePlaceholder": "So möchten Sie in der Bewertung erscheinen",
+    "email": "E-Mail",
+    "emailPlaceholder": "Nur wenn Sie eine Antwort möchten",
+    "optional": "(optional)",
+    "consent": {
+      "label": "Ich stimme der Veröffentlichung meiner Bewertung auf der Website zu",
+      "description": "Wenn Sie dieses Kästchen ankreuzen, dürfen wir Ihre Sternebewertung, den Text Ihrer Bewertung und Ihren Namen auf cosmiahospitality.com veröffentlichen. Sonst nichts: Ihre E-Mail wird nie veröffentlicht oder weitergegeben.",
+      "note": "Das Ankreuzen ist freiwillig. Ohne Einwilligung erhalten wir Ihre Bewertung trotzdem, sie bleibt aber privates Feedback und erscheint nicht auf der Website. Sie können uns jederzeit schreiben, um sie entfernen zu lassen."
+    },
+    "submit": "Bewertung senden",
+    "sending": "Wird gesendet…",
+    "success": {
+      "title": "Herzlichen Dank.",
+      "body": "Ihre Bewertung ist angekommen. Sie hilft uns mehr, als Sie ahnen."
+    },
+    "errors": {
+      "property": "Wählen Sie das Haus, in dem Sie gewohnt haben",
+      "rating": "Vergeben Sie 1 bis 5 Sterne",
+      "name": "Bitte geben Sie Ihren Namen an",
+      "comment": "Bitte schreiben Sie mindestens {min} Zeichen",
+      "commentLinks": "Links sind im Text nicht erlaubt",
+      "submit": "Senden fehlgeschlagen. Bitte versuchen Sie es gleich erneut."
+    }
   }
 }
