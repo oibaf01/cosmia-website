@@ -249,5 +249,58 @@
     "backToApartments": "← Tutti gli appartamenti",
     "loading": "Caricamento...",
     "error": "Si è verificato un errore"
+  },
+  "review": {
+    "headline": "Com'è andata?",
+    "subtitle": "Il tuo racconto aiuta chi arriverà dopo di te. Grazie per il tempo che ci dedichi.",
+    "timeHint": "Due minuti, non di più",
+    "steps": {
+      "property": "In quale casa hai soggiornato?",
+      "rating": "Come valuti il soggiorno?",
+      "highlights": "Cosa ti è piaciuto di più?",
+      "highlightsHint": "Facoltativo — tocca tutto quello che vuoi",
+      "comment": "Raccontaci il tuo soggiorno"
+    },
+    "ratingLabels": {
+      "1": "Deludente",
+      "2": "Sotto le attese",
+      "3": "Nella media",
+      "4": "Molto buono",
+      "5": "Eccellente"
+    },
+    "starLabel": "{count} stelle su 5",
+    "highlights": {
+      "cleanliness": "Pulizia",
+      "location": "Posizione",
+      "communication": "Comunicazione",
+      "comfort": "Comfort",
+      "value": "Rapporto qualità-prezzo",
+      "checkin": "Check-in"
+    },
+    "commentPlaceholder": "Cosa ricorderai di questo soggiorno? Anche poche righe sincere valgono più di un testo lungo.",
+    "name": "Il tuo nome",
+    "namePlaceholder": "Come vuoi comparire nella recensione",
+    "email": "Email",
+    "emailPlaceholder": "Solo se vuoi una nostra risposta",
+    "optional": "(facoltativa)",
+    "consent": {
+      "label": "Acconsento alla pubblicazione della mia recensione sul sito",
+      "description": "Se spunti questa casella, potremo pubblicare su cosmiahospitality.com la valutazione in stelle, il testo della recensione e il tuo nome. Nient'altro: la tua email non viene mai pubblicata né condivisa.",
+      "note": "La spunta è facoltativa. Senza consenso riceviamo comunque la recensione, ma resta un feedback privato e non finisce sul sito. Puoi scriverci in qualsiasi momento per farla rimuovere."
+    },
+    "submit": "Invia recensione",
+    "sending": "Invio in corso…",
+    "success": {
+      "title": "Grazie di cuore.",
+      "body": "La tua recensione è arrivata. Ci aiuta più di quanto immagini."
+    },
+    "errors": {
+      "property": "Scegli la casa in cui hai soggiornato",
+      "rating": "Assegna una valutazione da 1 a 5 stelle",
+      "name": "Scrivi il tuo nome",
+      "comment": "Scrivi almeno {min} caratteri",
+      "commentLinks": "Non è possibile inserire link nel testo",
+      "submit": "Invio non riuscito. Riprova tra poco."
+    }
   }
 }
