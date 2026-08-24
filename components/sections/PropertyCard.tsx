@@ -28,7 +28,7 @@ export default function PropertyCard({ property, index = 0 }: PropertyCardProps)
       whileHover={{ y: -6 }}
       viewport={{ once: true, margin: '-10% 0px' }}
       transition={{ duration: 0.5, ease: 'easeOut', delay: index * 0.1 }}
-      className="group bg-white rounded-2xl overflow-hidden border border-brand-sand shadow-sm hover:shadow-xl hover:shadow-brand-navy/10 transition-shadow duration-400"
+      className="group relative bg-white rounded-2xl overflow-hidden border border-brand-sand shadow-sm hover:shadow-xl hover:shadow-brand-navy/10 transition-shadow duration-400 has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-brand-gold has-[a:focus-visible]:ring-offset-2"
     >
       {/* Image */}
       <div className="relative aspect-[16/10] overflow-hidden bg-brand-navy">
@@ -72,10 +72,11 @@ export default function PropertyCard({ property, index = 0 }: PropertyCardProps)
           </span>
         </div>
 
-        {/* CTA */}
+        {/* CTA — the ::after overlay stretches this link over the whole card, so a
+            click anywhere navigates without nesting links or wrapping the card in one */}
         <Link
           href={`/appartamenti/${property.slug}`}
-          className="inline-flex items-center gap-1.5 text-brand-navy font-semibold text-xs hover:text-brand-gold transition-colors duration-150 group/link"
+          className="inline-flex items-center gap-1.5 text-brand-navy font-semibold text-xs hover:text-brand-gold transition-colors duration-150 group/link focus-visible:outline-none after:absolute after:inset-0 after:content-['']"
         >
           {t('discoverMore')}
           <ArrowRight
