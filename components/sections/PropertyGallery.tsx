@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
+import { m, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { type PhotoSection } from '@/lib/data/properties';
 import { pick } from '@/lib/locale';
@@ -17,6 +18,12 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
   const locale = useLocale();
   const t = useTranslations('gallery');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  // Slide direction: 1 = forward, -1 = backward. Drives the enter/exit animation
+  const [direction, setDirection] = useState(1);
+
+  // Swipe tracking (mobile) and thumbnail strip auto-scroll
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const thumbStripRef = useRef<HTMLDivElement>(null);
 
   // Flatten sections into ordered array for lightbox navigation
   const allPhotos = useMemo(
@@ -27,18 +34,45 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
   const isOpen = lightboxIndex !== null;
 
   function openLightbox(index: number) {
+    setDirection(1);
     setLightboxIndex(index);
   }
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
   const prevImage = useCallback(() => {
+    setDirection(-1);
     setLightboxIndex((i) => (i !== null ? (i - 1 + allPhotos.length) % allPhotos.length : null));
   }, [allPhotos.length]);
 
   const nextImage = useCallback(() => {
+    setDirection(1);
     setLightboxIndex((i) => (i !== null ? (i + 1) % allPhotos.length : null));
   }, [allPhotos.length]);
+
+  // Jump straight to a photo from the thumbnail strip
+  const goToImage = useCallback(
+    (index: number) => {
+      setDirection(lightboxIndex !== null && index < lightboxIndex ? -1 : 1);
+      setLightboxIndex(index);
+    },
+    [lightboxIndex]
+  );
+
+  // Horizontal swipe > 50px navigates; vertical-dominant gestures are ignored
+  function onTouchStart(e: React.TouchEvent) {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }
+
+  function onTouchEnd(e: React.TouchEvent) {
+    if (!touchStart.current) return;
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    const dy = e.changedTouches[0].clientY - touchStart.current.y;
+    touchStart.current = null;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) nextImage();
+    else prevImage();
+  }
 
   // Lock page scroll while open — cleanup always restores it, even if the component
   // unmounts (route change) while the lightbox is still open
@@ -62,6 +96,18 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isOpen, closeLightbox, prevImage, nextImage]);
+
+  // Keep the active thumbnail centered in the strip as the user navigates
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const strip = thumbStripRef.current;
+    const thumb = strip?.children[lightboxIndex] as HTMLElement | undefined;
+    if (!strip || !thumb) return;
+    strip.scrollTo({
+      left: thumb.offsetLeft - strip.clientWidth / 2 + thumb.clientWidth / 2,
+      behavior: 'smooth',
+    });
+  }, [lightboxIndex]);
 
   return (
     <>
@@ -97,7 +143,11 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
                           alt={`${propertyName} — ${pick(section.label, locale)}`}
                           fill
                           className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                          sizes="(max-width: 768px) 50vw, 33vw"
+                          sizes={
+                            localIndex === 0
+                              ? '(max-width: 768px) 100vw, 66vw'
+                              : '(max-width: 768px) 50vw, 33vw'
+                          }
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                       </button>
@@ -125,7 +175,9 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
                 alt={t('photoAlt', { n: index + 1, name: propertyName })}
                 fill
                 className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                sizes="(max-width: 768px) 50vw, 33vw"
+                sizes={
+                  index === 0 ? '(max-width: 768px) 100vw, 66vw' : '(max-width: 768px) 50vw, 33vw'
+                }
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
             </button>
@@ -139,45 +191,83 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
           role="dialog"
           aria-modal="true"
           aria-label={t('dialogLabel', { name: propertyName })}
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-[60] flex h-dvh w-screen flex-col bg-black/95 select-none"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
-          <button
-            onClick={closeLightbox}
-            aria-label={t('close')}
-            className="btn-glass btn-glass-icon btn-glass-dark absolute top-4 right-4"
-          >
-            <X size={28} />
-          </button>
-
-          <button
-            onClick={prevImage}
-            aria-label={t('prev')}
-            className="btn-glass btn-glass-icon btn-glass-dark absolute left-4"
-          >
-            <ChevronLeft size={36} />
-          </button>
-
-          <div className="relative w-full max-w-4xl max-h-[85vh] mx-16">
-            <Image
-              src={allPhotos[lightboxIndex]}
-              alt={t('photoAlt', { n: lightboxIndex + 1, name: propertyName })}
-              width={1200}
-              height={800}
-              className="object-contain w-full h-full rounded-lg"
-              style={{ maxHeight: '85vh' }}
-            />
+          {/* Top bar — counter + close, kept off the image so nothing overlaps it */}
+          <div className="flex items-center justify-between px-4 pt-[max(1rem,env(safe-area-inset-top))] pb-2 shrink-0">
+            <span className="text-white/60 text-sm tabular-nums tracking-wide">
+              {lightboxIndex + 1} / {allPhotos.length}
+            </span>
+            <button
+              onClick={closeLightbox}
+              aria-label={t('close')}
+              className="btn-glass btn-glass-icon btn-glass-dark"
+            >
+              <X size={22} />
+            </button>
           </div>
 
-          <button
-            onClick={nextImage}
-            aria-label={t('next')}
-            className="btn-glass btn-glass-icon btn-glass-dark absolute right-4"
-          >
-            <ChevronRight size={36} />
-          </button>
+          {/* Image stage — flex-1 + min-h-0 lets object-contain use all remaining space */}
+          <div className="relative flex-1 min-h-0 w-full">
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
+              <m.div
+                key={lightboxIndex}
+                custom={direction}
+                initial={{ opacity: 0, x: direction * 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction * -40 }}
+                transition={{ duration: 0.28, ease: [0.22, 0.61, 0.36, 1] }}
+                className="absolute inset-y-0 left-2 right-2 sm:left-6 sm:right-6 lg:left-24 lg:right-24"
+              >
+                <Image
+                  src={allPhotos[lightboxIndex]}
+                  alt={t('photoAlt', { n: lightboxIndex + 1, name: propertyName })}
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-contain"
+                />
+              </m.div>
+            </AnimatePresence>
 
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-sm">
-            {lightboxIndex + 1} / {allPhotos.length}
+            <button
+              onClick={prevImage}
+              aria-label={t('prev')}
+              className="btn-glass btn-glass-icon btn-glass-dark absolute left-2 lg:left-6 top-1/2 -translate-y-1/2"
+            >
+              <ChevronLeft size={28} />
+            </button>
+            <button
+              onClick={nextImage}
+              aria-label={t('next')}
+              className="btn-glass btn-glass-icon btn-glass-dark absolute right-2 lg:right-6 top-1/2 -translate-y-1/2"
+            >
+              <ChevronRight size={28} />
+            </button>
+          </div>
+
+          {/* Thumbnail strip */}
+          <div
+            ref={thumbStripRef}
+            className="flex gap-2 overflow-x-auto px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shrink-0 scrollbar-none"
+          >
+            {allPhotos.map((photo, index) => (
+              <button
+                key={index}
+                onClick={() => goToImage(index)}
+                aria-label={t('viewPhoto', { n: index + 1, name: propertyName })}
+                aria-current={index === lightboxIndex}
+                className={`relative shrink-0 h-14 w-20 sm:h-16 sm:w-24 overflow-hidden rounded-md transition-opacity ${
+                  index === lightboxIndex
+                    ? 'opacity-100 ring-2 ring-brand-gold'
+                    : 'opacity-40 hover:opacity-75'
+                }`}
+              >
+                <Image src={photo} alt="" fill sizes="96px" className="object-cover" />
+              </button>
+            ))}
           </div>
         </div>
       )}
