@@ -191,7 +191,7 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
           role="dialog"
           aria-modal="true"
           aria-label={t('dialogLabel', { name: propertyName })}
-          className="fixed inset-0 z-[60] flex h-dvh w-screen flex-col bg-black/95 select-none"
+          className="fixed inset-0 z-[60] flex h-dvh w-screen flex-col bg-black select-none"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
@@ -210,7 +210,12 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
           </div>
 
           {/* Image stage — flex-1 + min-h-0 lets object-contain use all remaining space */}
-          <div className="relative flex-1 min-h-0 w-full">
+          <div
+            className="relative flex-1 min-h-0 w-full"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) closeLightbox();
+            }}
+          >
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <m.div
                 key={lightboxIndex}
@@ -232,20 +237,26 @@ export default function PropertyGallery({ photos, photoSections, propertyName }:
               </m.div>
             </AnimatePresence>
 
-            <button
-              onClick={prevImage}
-              aria-label={t('prev')}
-              className="btn-glass btn-glass-icon btn-glass-dark absolute left-2 lg:left-6 top-1/2 -translate-y-1/2"
-            >
-              <ChevronLeft size={28} />
-            </button>
-            <button
-              onClick={nextImage}
-              aria-label={t('next')}
-              className="btn-glass btn-glass-icon btn-glass-dark absolute right-2 lg:right-6 top-1/2 -translate-y-1/2"
-            >
-              <ChevronRight size={28} />
-            </button>
+            {/* Wrappers carry the positioning: .btn-glass sets position:relative outside
+                any @layer, which overrides Tailwind's .absolute on the button itself */}
+            <div className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10">
+              <button
+                onClick={prevImage}
+                aria-label={t('prev')}
+                className="btn-glass btn-glass-icon btn-glass-dark"
+              >
+                <ChevronLeft size={28} />
+              </button>
+            </div>
+            <div className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10">
+              <button
+                onClick={nextImage}
+                aria-label={t('next')}
+                className="btn-glass btn-glass-icon btn-glass-dark"
+              >
+                <ChevronRight size={28} />
+              </button>
+            </div>
           </div>
 
           {/* Thumbnail strip */}
