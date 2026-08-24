@@ -96,18 +96,22 @@ export default async function PropertyPage({
       <Header />
       <main id="main-content" className="bg-brand-ivory min-h-screen">
         {/* Hero */}
-        <div className="relative h-[30vh] min-h-48 bg-brand-navy overflow-hidden">
+        {/* Hero — column layout: pt-20 clears the fixed header, the logo takes the
+            remaining space and the title sits below it, so they can never overlap */}
+        <div className="relative flex flex-col h-[38vh] min-h-[22rem] lg:min-h-[24rem] bg-brand-navy overflow-hidden pt-20">
           {(property.icon ?? property.logo) && (
-            <Image
-              src={property.icon ?? property.logo!}
-              alt={name}
-              fill
-              priority
-              className="object-contain"
-              sizes="100vw"
-            />
+            <div className="relative flex-1 min-h-0 w-full px-6 py-4">
+              <Image
+                src={property.icon ?? property.logo!}
+                alt={name}
+                fill
+                priority
+                className="object-contain"
+                sizes="100vw"
+              />
+            </div>
           )}
-          <div className="absolute bottom-8 left-0 right-0 px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="w-full px-6 lg:px-8 max-w-7xl mx-auto pb-8">
             <h1 className="font-serif text-white text-4xl lg:text-6xl font-light">{name}</h1>
             <p className="flex items-center gap-2 text-white/70 mt-2 text-sm">
               <MapPin size={14} className="text-brand-gold" />
