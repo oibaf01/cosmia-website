@@ -19,6 +19,7 @@ export interface Review {
 }
 
 // Solo recensioni reali. Quelle dal form richiedono CONSENSO ALLA PUBBLICAZIONE: SÌ.
+// authorName: solo il nome di battesimo, mai il cognome. Nessun dato di prenotazione negli id.
 export const reviews: Review[] = [
   {
     id: 'website-2026-ismaele',
@@ -49,8 +50,8 @@ export const reviews: Review[] = [
     highlights: ['location', 'communication', 'value'],
   },
   {
-    id: 'booking-5383458015',
-    authorName: 'Di Schiena',
+    id: 'booking-2026-nunzia',
+    authorName: 'Nunzia',
     stay: { slug: 'casa-vela', name: 'Casa Vela' },
     source: 'booking',
     originalLocale: 'it',
