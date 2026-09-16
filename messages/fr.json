@@ -83,8 +83,14 @@
   },
   "reviews": {
     "sectionLabel": "Avis",
-    "headline": "Ce que disent nos hôtes.",
-    "leaveReview": "Laisser un avis sur Google"
+    "headline": "Ce que disent",
+    "headlineBold": "nos hôtes.",
+    "subtitle": "Les mots de ceux qui ont déjà séjourné chez nous.",
+    "translated": "Traduit de l'original",
+    "viaBooking": "via Booking.com",
+    "unavailable": "plus disponible",
+    "disclaimer": "Avis authentiques d'hôtes ayant séjourné dans nos maisons, recueillis après le séjour via notre site et Booking.com. Les textes sont publiés sans modification.",
+    "leaveReview": "Vous avez séjourné chez nous ? Laissez un avis"
   },
   "faq": {
     "sectionLabel": "Questions Fréquentes",
@@ -199,7 +205,6 @@
     "busLink": "Comment rejoindre la mer en bus",
     "reviews": "Avis",
     "requestAvailability": "Demander la disponibilité",
-    "leaveReview": "Laisser un avis sur Google",
     "house_rules": {
       "title": "À savoir avant de réserver",
       "checkin": "Arrivée à partir de 15h00 · Départ avant 11h00",

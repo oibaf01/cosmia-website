@@ -8,17 +8,16 @@ import { buildMetadata } from '@/lib/seo/metadata';
 import { propertySchema, breadcrumbSchema } from '@/lib/seo/schema';
 import { properties, getPropertyBySlug } from '@/lib/data/properties';
 import { pick } from '@/lib/locale';
-// Recensioni oscurate temporaneamente: nessuna recensione reale ancora raccolta.
-// import { getReviewsByProperty, getAggregateRating } from '@/lib/data/reviews';
+import { getReviewsByProperty } from '@/lib/data/reviews';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieBanner from '@/components/CookieBanner';
 import PropertyGallery from '@/components/sections/PropertyGallery';
 import MobileStickyCta from '@/components/ui/MobileStickyCta';
-// import ReviewsCarousel from '@/components/sections/ReviewsCarousel';
-import { MapPin, Users, BedDouble, Bath, Clock, VolumeX, CigaretteOff, PawPrint, CalendarRange, FileText, Bus } from 'lucide-react';
+import { MapPin, Users, BedDouble, Bath, Clock, VolumeX, CigaretteOff, PawPrint, CalendarRange, FileText, Bus, ArrowRight } from 'lucide-react';
 import AnimatedIcon from '@/components/ui/AnimatedIcon';
+import ReviewCard from '@/components/ui/ReviewCard';
 
 export async function generateMetadata({
   params,
@@ -65,11 +64,11 @@ export default async function PropertyPage({
   const t = await getTranslations('property_page');
   const tApt = await getTranslations('apartments');
   const tCommon = await getTranslations('common');
+  const tReviews = await getTranslations('reviews');
 
   const name = pick(property.name, locale);
   const description = pick(property.description, locale);
-  // Recensioni oscurate temporaneamente: nessun aggregateRating reale da pubblicare.
-  // const aggregateRating = getAggregateRating(slug);
+  const propertyReviews = getReviewsByProperty(slug);
 
   const jsonLd = [
     propertySchema(property, locale),
@@ -147,14 +146,6 @@ export default async function PropertyPage({
                   <Bath size={18} className="text-brand-gold" />
                   {tApt('bathrooms', { count: property.bathrooms })}
                 </div>
-                {/* Recensioni oscurate temporaneamente: nessun rating reale da mostrare.
-                {aggregateRating.reviewCount > 0 && (
-                  <div className="flex items-center gap-1.5 text-sm text-slate-600">
-                    <Star size={16} className="text-brand-gold fill-brand-gold" />
-                    <span>{aggregateRating.ratingValue}</span>
-                    <span className="text-slate-400">({aggregateRating.reviewCount})</span>
-                  </div>
-                )} */}
               </div>
 
               {/* Description */}
@@ -270,27 +261,26 @@ export default async function PropertyPage({
                 </Link>
               </div>
 
-              {/* Reviews — oscurate temporaneamente: nessuna recensione reale ancora raccolta.
-                  Da riattivare collegando Google Reviews + recensioni ricevute direttamente. */}
-              {/*
-              <div>
-                <h2 className="font-serif text-brand-navy text-2xl font-semibold mb-6">
-                  {t('reviews')}
-                </h2>
-                <ReviewsCarousel />
-                {property.googleBusinessUrl && !property.googleBusinessUrl.includes('PLACEHOLDER') && (
-                  <a
-                    href={property.googleBusinessUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+              {/* Reviews — solo testi reali, nessun voto; blocco nascosto se la casa non ne ha */}
+              {propertyReviews.length > 0 && (
+                <div>
+                  <h2 className="font-serif text-brand-navy text-2xl font-semibold mb-6">
+                    {t('reviews')}
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {propertyReviews.map((review) => (
+                      <ReviewCard key={review.id} review={review} showStay={false} />
+                    ))}
+                  </div>
+                  <Link
+                    href="/recensione"
                     className="inline-flex items-center gap-2 mt-6 text-sm text-brand-gold hover:underline"
                   >
-                    {t('leaveReview')}
-                    <ExternalLink size={14} />
-                  </a>
-                )}
-              </div>
-              */}
+                    {tReviews('leaveReview')}
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Sidebar CTA */}
