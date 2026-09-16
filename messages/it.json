@@ -10,7 +10,7 @@
     "mobileNav": "Navigazione mobile"
   },
   "hero": {
-    "headline": "La tua vacanza.",
+    "headline": "Il tuo soggiorno.",
     "headlineBold": "Inizia qui.",
     "subtitle": "Appartamenti selezionati e curati, assistenza dedicata e consigli locali per vivere il Gargano come chi lo conosce davvero.",
     "tagline": "Gestiamo case vacanza e appartamenti nel cuore del Gargano.",
@@ -83,8 +83,14 @@
   },
   "reviews": {
     "sectionLabel": "Recensioni",
-    "headline": "Lo dicono i nostri ospiti.",
-    "leaveReview": "Lascia una recensione su Google"
+    "headline": "Lo dicono",
+    "headlineBold": "i nostri ospiti.",
+    "subtitle": "Parole di chi ha già soggiornato con noi.",
+    "translated": "Tradotto dall'originale",
+    "viaBooking": "via Booking.com",
+    "unavailable": "non più disponibile",
+    "disclaimer": "Recensioni reali di ospiti che hanno soggiornato nelle nostre case, raccolte dopo il soggiorno tramite il nostro sito e Booking.com. I testi sono pubblicati senza modifiche.",
+    "leaveReview": "Hai soggiornato da noi? Lascia una recensione"
   },
   "faq": {
     "sectionLabel": "Domande Frequenti",
@@ -199,7 +205,6 @@
     "busLink": "Come arrivare al mare in bus",
     "reviews": "Recensioni",
     "requestAvailability": "Richiedi disponibilità",
-    "leaveReview": "Lascia una recensione su Google",
     "house_rules": {
       "title": "Da sapere prima di prenotare",
       "checkin": "Check-in dalle 15:00 · Check-out entro le 11:00",

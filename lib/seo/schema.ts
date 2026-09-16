@@ -1,5 +1,4 @@
 import { type Property } from '@/lib/data/properties';
-import { type Review } from '@/lib/data/reviews';
 import { type FaqItem } from '@/lib/data/faq';
 import { pick } from '@/lib/locale';
 
@@ -89,28 +88,6 @@ export function propertySchema(property: Property, locale: string, aggregateRati
         }
       : {}),
   };
-}
-
-export function reviewsSchema(propertyReviews: Review[], propertyName: string) {
-  return propertyReviews.map((review) => ({
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: {
-      '@type': 'Apartment',
-      name: propertyName,
-    },
-    author: {
-      '@type': 'Person',
-      name: review.authorName,
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: review.rating,
-      bestRating: 5,
-    },
-    reviewBody: review.textIt,
-    datePublished: review.date,
-  }));
 }
 
 export function breadcrumbSchema(items: { name: string; url: string }[]) {

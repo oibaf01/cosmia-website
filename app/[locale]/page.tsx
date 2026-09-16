@@ -19,8 +19,7 @@ import SectionDivider from "@/components/ui/SectionDivider";
 import AboutTeaser from "@/components/sections/AboutTeaser";
 import ApartmentsSection from "@/components/sections/ApartmentsSection";
 import ExperiencesSection from "@/components/sections/ExperiencesSection";
-// Recensioni oscurate temporaneamente: nessuna recensione reale ancora raccolta.
-// import ReviewsCarousel from '@/components/sections/ReviewsCarousel';
+import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import CtaSection from "@/components/sections/CtaSection";
 
@@ -86,7 +85,7 @@ export default async function HomePage({
         <AboutTeaser />
         <ApartmentsSection />
         <ExperiencesSection />
-        {/* <ReviewsCarousel /> */}
+        <ReviewsSection />
         <CtaSection />
         <FAQSection locale={locale} />
       </main>
