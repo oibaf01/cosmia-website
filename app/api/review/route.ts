@@ -8,7 +8,8 @@ const TO_EMAIL = 'cosmiahospitality@gmail.com';
 const MIN_FORM_TIME_MS = 3000;
 const LINK_REGEX = /https?:\/\/|www\.|\b[a-z0-9-]+\.(com|net|org|it|info|biz|xyz|click)\b/i;
 
-const VALID_SLUGS = ['casa-lira', 'casa-vela'] as const;
+// Casa Lira rimossa dal sito: per ripristinarla → ['casa-lira', 'casa-vela']
+const VALID_SLUGS = ['casa-vela'] as const;
 const VALID_HIGHLIGHTS = [
   'cleanliness',
   'location',
@@ -36,7 +37,7 @@ const reviewSchema = z.object({
 });
 
 const PROPERTY_LABEL: Record<(typeof VALID_SLUGS)[number], string> = {
-  'casa-lira': 'Casa Lira',
+  // 'casa-lira': 'Casa Lira',
   'casa-vela': 'Casa Vela',
 };
 

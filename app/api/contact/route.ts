@@ -60,8 +60,9 @@ export async function POST(request: NextRequest) {
   const apartmentLabel = apartment
     ? apartment === 'general'
       ? 'Informazioni generali'
-      : apartment === 'casa-lira'
-      ? 'Casa Lira'
+      // Casa Lira rimossa dal sito
+      // : apartment === 'casa-lira'
+      // ? 'Casa Lira'
       : apartment === 'casa-vela'
       ? 'Casa Vela'
       : apartment

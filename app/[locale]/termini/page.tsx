@@ -98,7 +98,9 @@ export default async function TerminiPage({ params }: { params: Promise<{ locale
               </section>
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">13. Numero massimo di ospiti</h2>
-                <p>La capienza massima consentita è di 4 persone per Casa Lira e 8 persone per Casa Vela, senza possibilità di deroga. È inoltre vietato ospitare un numero di persone superiore a quello dichiarato in fase di prenotazione, anche qualora inferiore alla capienza massima, salvo preventivo accordo con l&apos;host.</p>
+                {/* Casa Lira rimossa dal sito — testo originale:
+                <p>La capienza massima consentita è di 4 persone per Casa Lira e 8 persone per Casa Vela, senza possibilità di deroga. È inoltre vietato ospitare un numero di persone superiore a quello dichiarato in fase di prenotazione, anche qualora inferiore alla capienza massima, salvo preventivo accordo con l&apos;host.</p> */}
+                <p>La capienza massima consentita è di 8 persone per Casa Vela, senza possibilità di deroga. È inoltre vietato ospitare un numero di persone superiore a quello dichiarato in fase di prenotazione, anche qualora inferiore alla capienza massima, salvo preventivo accordo con l&apos;host.</p>
               </section>
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">14. Regolamento della casa</h2>
@@ -233,7 +235,9 @@ export default async function TerminiPage({ params }: { params: Promise<{ locale
               </section>
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">13. Maximum Number of Guests</h2>
-                <p>The maximum occupancy allowed is 4 people for Casa Lira and 8 people for Casa Vela, with no exceptions. It is also prohibited to host a number of people exceeding that declared at the time of booking, even if below maximum occupancy, without prior agreement with the host.</p>
+                {/* Casa Lira rimossa dal sito — testo originale:
+                <p>The maximum occupancy allowed is 4 people for Casa Lira and 8 people for Casa Vela, with no exceptions. It is also prohibited to host a number of people exceeding that declared at the time of booking, even if below maximum occupancy, without prior agreement with the host.</p> */}
+                <p>The maximum occupancy allowed is 8 people for Casa Vela, with no exceptions. It is also prohibited to host a number of people exceeding that declared at the time of booking, even if below maximum occupancy, without prior agreement with the host.</p>
               </section>
               <section>
                 <h2 className="font-serif text-brand-navy text-xl font-semibold mb-3">14. House Rules</h2>

@@ -35,13 +35,17 @@ export async function generateMetadata({
     titleFr: "Locations de Vacances sur le Gargano",
     titleDe: "Ferienwohnungen am Gargano",
     descriptionIt:
-      "Cosmia Hospitality — appartamenti vacanza a Mattinata, Gargano, Puglia. Casa Lira e Casa Vela: il punto di partenza per scoprire il promontorio, tutto l'anno.",
+      // Casa Lira rimossa — originale: "Cosmia Hospitality — appartamenti vacanza a Mattinata, Gargano, Puglia. Casa Lira e Casa Vela: il punto di partenza per scoprire il promontorio, tutto l'anno.",
+      "Cosmia Hospitality — appartamenti vacanza a Mattinata, Gargano, Puglia. Casa Vela: il punto di partenza per scoprire il promontorio, tutto l'anno.",
     descriptionEn:
-      "Cosmia Hospitality — vacation apartments in Mattinata, Gargano, Puglia. Casa Lira and Casa Vela: your base for exploring the promontory, year-round.",
+      // Casa Lira rimossa — originale: "Cosmia Hospitality — vacation apartments in Mattinata, Gargano, Puglia. Casa Lira and Casa Vela: your base for exploring the promontory, year-round.",
+      "Cosmia Hospitality — vacation apartments in Mattinata, Gargano, Puglia. Casa Vela: your base for exploring the promontory, year-round.",
     descriptionFr:
-      "Cosmia Hospitality — appartements de vacances à Mattinata, Gargano, Puglia. Casa Lira et Casa Vela : votre point de départ pour découvrir le promontoire, toute l'année.",
+      // Casa Lira rimossa — originale: "Cosmia Hospitality — appartements de vacances à Mattinata, Gargano, Puglia. Casa Lira et Casa Vela : votre point de départ pour découvrir le promontoire, toute l'année.",
+      "Cosmia Hospitality — appartements de vacances à Mattinata, Gargano, Puglia. Casa Vela : votre point de départ pour découvrir le promontoire, toute l'année.",
     descriptionDe:
-      "Cosmia Hospitality — Ferienwohnungen in Mattinata, Gargano, Apulien. Casa Lira und Casa Vela: Ihr Ausgangspunkt, um das Vorgebirge das ganze Jahr über zu entdecken.",
+      // Casa Lira rimossa — originale: "Cosmia Hospitality — Ferienwohnungen in Mattinata, Gargano, Apulien. Casa Lira und Casa Vela: Ihr Ausgangspunkt, um das Vorgebirge das ganze Jahr über zu entdecken.",
+      "Cosmia Hospitality — Ferienwohnungen in Mattinata, Gargano, Apulien. Casa Vela: Ihr Ausgangspunkt, um das Vorgebirge das ganze Jahr über zu entdecken.",
     locale,
     path: "",
   });

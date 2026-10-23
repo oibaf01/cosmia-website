@@ -29,6 +29,9 @@ export interface Property {
 }
 
 export const properties: Property[] = [
+  // Casa Lira — rimossa dal sito (2026-10). Dati conservati: per ripristinarla decommentare
+  // e riportare le foto da archive/casa-lira/ a public/images/casa-lira/
+  /*
   {
     slug: "casa-lira",
     name: {
@@ -136,6 +139,7 @@ export const properties: Property[] = [
     logo: "/images/casa-lira/casa-lira-logo-transparent.webp",
     icon: "/images/casa-lira/casa-lira-logo-transparent.webp",
   },
+  */
   {
     slug: "casa-vela",
     name: {

@@ -8,8 +8,8 @@ export type ReviewHighlight = 'cleanliness' | 'location' | 'communication' | 'co
 export interface Review {
   id: string;
   authorName: string;
-  // Casa del soggiorno. Il nome è salvato qui perché resti visibile anche dopo che la casa
-  // viene tolta da properties.ts (in quel caso la card la segna come non più disponibile)
+  // Casa del soggiorno. Se la casa viene tolta da properties.ts la card non la mostra,
+  // ma la recensione resta visibile
   stay: { slug: string; name: string };
   source: 'website' | 'booking';
   // Lingua in cui l'ospite ha scritto: le altre versioni sono traduzioni e vengono etichettate
