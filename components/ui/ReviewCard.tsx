@@ -18,8 +18,8 @@ export default function ReviewCard({ review, showStay = true }: ReviewCardProps)
   const locale = useLocale();
 
   const isTranslated = locale !== review.originalLocale;
-  // Casa ancora pubblicata → link; tolta da properties.ts → etichetta "non più disponibile"
-  const isStayAvailable = Boolean(getPropertyBySlug(review.stay.slug));
+  // Casa mostrata solo se ancora pubblicata in properties.ts; altrimenti resta solo la recensione
+  const showStayLink = showStay && Boolean(getPropertyBySlug(review.stay.slug));
 
   return (
     <figure className="h-full flex flex-col bg-white rounded-2xl p-8 border border-brand-sand hover:border-brand-gold/40 transition-colors duration-300">
@@ -60,7 +60,7 @@ export default function ReviewCard({ review, showStay = true }: ReviewCardProps)
             {review.authorName}
           </cite>
           <span className="flex flex-wrap items-center gap-x-1.5 text-xs text-slate-400">
-            {showStay && isStayAvailable && (
+            {showStayLink && (
               <Link
                 href={`/appartamenti/${review.stay.slug}`}
                 className="inline-flex items-center gap-1 text-brand-gold hover:underline"
@@ -69,12 +69,7 @@ export default function ReviewCard({ review, showStay = true }: ReviewCardProps)
                 <ArrowRight size={12} aria-hidden="true" />
               </Link>
             )}
-            {showStay && !isStayAvailable && (
-              <span>
-                {review.stay.name} · {t('unavailable')}
-              </span>
-            )}
-            {showStay && review.source === 'booking' && <span aria-hidden="true">·</span>}
+            {showStayLink && review.source === 'booking' && <span aria-hidden="true">·</span>}
             {review.source === 'booking' && <span>{t('viaBooking')}</span>}
           </span>
         </span>

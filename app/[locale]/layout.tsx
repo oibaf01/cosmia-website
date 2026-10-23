@@ -27,7 +27,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://cosmiahospitality.com'),
   title: 'Cosmia Hospitality — Appartamenti Vacanza sul Gargano',
   description:
-    "Appartamenti vacanza a Mattinata, nel cuore del Gargano, Puglia. Casa Lira e Casa Vela — il punto di partenza per scoprire il promontorio, tutto l'anno.",
+    // Casa Lira rimossa — originale: "Appartamenti vacanza a Mattinata, nel cuore del Gargano, Puglia. Casa Lira e Casa Vela — il punto di partenza per scoprire il promontorio, tutto l'anno.",
+    "Appartamenti vacanza a Mattinata, nel cuore del Gargano, Puglia. Casa Vela — il punto di partenza per scoprire il promontorio, tutto l'anno.",
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
