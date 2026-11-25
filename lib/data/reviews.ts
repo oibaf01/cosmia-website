@@ -63,6 +63,20 @@ export const reviews: Review[] = [
     },
     highlights: [],
   },
+  {
+    id: 'booking-2026-silvia',
+    authorName: 'Silvia',
+    stay: { slug: 'casa-vela', name: 'Casa Vela' },
+    source: 'booking',
+    originalLocale: 'en',
+    text: {
+      en: 'An exceptional stay in the heart of Mattinata! Everything was great, comfortable and welcoming: a wonderful experience from start to finish. Fabio was punctual, friendly and attentive.',
+      it: 'Un soggiorno eccezionale nel cuore di Mattinata! Tutto è stato ottimo, confortevole e accogliente: un\'esperienza meravigliosa dall\'inizio alla fine. Fabio è stato puntuale, cordiale e attento.',
+      fr: 'Un séjour exceptionnel au cœur de Mattinata ! Tout était parfait, confortable et accueillant : une expérience merveilleuse du début à la fin. Fabio a été ponctuel, chaleureux et attentionné.',
+      de: 'Ein außergewöhnlicher Aufenthalt im Herzen von Mattinata! Alles war großartig, komfortabel und einladend: ein wunderbares Erlebnis von Anfang bis Ende. Fabio war pünktlich, herzlich und aufmerksam.',
+    },
+    highlights: [],
+  },
 ];
 
 // Recensioni dei soggiorni in una specifica casa
